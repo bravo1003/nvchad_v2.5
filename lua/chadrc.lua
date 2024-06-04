@@ -105,6 +105,7 @@ M.base46 = {
     "rainbowdelimiters",
     "hop",
     "todo",
+    "trouble"
   },
 }
 return M
