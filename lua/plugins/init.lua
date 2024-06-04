@@ -355,7 +355,7 @@ return {
 
   {
     "mawkler/modicator.nvim",
-    event = "User FilePost",
+    event = "WinEnter",
     config = function()
       -- reletive line number
       vim.opt.number = true
