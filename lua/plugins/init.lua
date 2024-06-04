@@ -485,7 +485,7 @@ return {
 
   {
     "rmagatti/gx-extended.nvim",
-    keys = { "gx" },
+    keys = { { "gx", "gx", desc = "Go to url" } },
     config = function()
       require("gx-extended").setup {
         extensions = {

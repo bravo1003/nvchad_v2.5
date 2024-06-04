@@ -17,7 +17,7 @@ M.on_attach = function(client, bufnr)
   end
 
   -- LSP related
-  map("n", "gr", "<cmd> Telescope lsp_references theme=ivy <cr>", { desc = "Go to references" })
+  map("n", "gr", "<cmd> Telescope lsp_references theme=ivy <cr>", { desc = "Go to references", noremap = true })
   map("n", "gd", "<cmd> Telescope lsp_definitions theme=ivy <cr>", { desc = "Go to definition" })
   map("n", "gI", "<cmd> Telescope lsp_implementations theme=ivy <cr>", { desc = "Go to implementation" })
   map("n", "<leader>lr", function()
