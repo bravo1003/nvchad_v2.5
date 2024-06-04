@@ -161,10 +161,14 @@ return {
     opts = overrides.cmp,
   },
 
-  -- {
-  --   "lukas-reineke/indent-blankline.nvim",
-  --   opts = overrides.indentblankline,
-  -- },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    config = function ()
+      dofile(vim.g.base46_cache .. "blankline")
+      require("configs.indent-blankline")
+    end
+  },
 
   {
     "folke/noice.nvim",

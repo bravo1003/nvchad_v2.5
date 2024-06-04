@@ -1,24 +1,37 @@
-local options = {
-  indentLine_enabled = 1,
-  filetype_exclude = {
-    "help",
-    "terminal",
-    "lazy",
-    "lspinfo",
-    "TelescopePrompt",
-    "TelescopeResults",
-    "mason",
-    "nvdash",
-    "nvcheatsheet",
-    "noice",
-    "NvimTree",
-  },
-  buftype_exclude = { "terminal" },
-  -- show_trailing_blankline_indent = false,
-  show_first_indent_level = false,
-  show_current_context = true,
-  show_current_context_start = false,
-  use_treesitter = true,
+local highlight = {
+  "RainbowDelimiterRed",
+  "RainbowDelimiterYellow",
+  "RainbowDelimiterBlue",
+  "RainbowDelimiterOrange",
+  "RainbowDelimiterGreen",
+  "RainbowDelimiterViolet",
+  "RainbowDelimiterCyan",
 }
 
-return options
+local hooks = require "ibl.hooks"
+require("ibl").setup {
+  indent = {
+    char = "▎",
+    highlight = "IblChar",
+    smart_indent_cap = true,
+  },
+  scope = {
+    char = "▎",
+    highlight = highlight,
+  },
+  exclude = {
+    filetypes = {
+      "help",
+      "terminal",
+      "lazy",
+      "lspinfo",
+      "mason",
+      "nvdash",
+      "nvcheatsheet",
+      "noice",
+      "NvimTree",
+    },
+  },
+}
+
+hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)

@@ -133,6 +133,7 @@ if g.neovide then
   g.neovide_scroll_animation_length = 0.2
   -- g.neovide_cursor_vfx_particle_density = 20
   -- g.neovide_cursor_vfx_particle_lifetime = 2
+  g.neovide_underline_stroke_scale = 2
 end
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
