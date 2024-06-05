@@ -49,7 +49,6 @@ return {
 
   {
     "rcarriga/nvim-dap-ui",
-    enable = false,
     dependencies = {
       {
         "mfussenegger/nvim-dap",
@@ -153,10 +152,40 @@ return {
 
   {
     "lukas-reineke/indent-blankline.nvim",
+    dependencies = "HiPhish/rainbow-delimiters.nvim",
     main = "ibl",
     config = function()
       dofile(vim.g.base46_cache .. "blankline")
       require "configs.indent-blankline"
+    end,
+  },
+
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    event = "BufReadPre",
+    config = function()
+      dofile(vim.g.base46_cache .. "rainbowdelimiters")
+      local rainbow_delimiters = require "rainbow-delimiters"
+
+      vim.g.rainbow_delimiters = {
+        strategy = {
+          [""] = rainbow_delimiters.strategy["global"],
+          vim = rainbow_delimiters.strategy["local"],
+        },
+        query = {
+          [""] = "rainbow-delimiters",
+          lua = "rainbow-blocks",
+        },
+        highlight = {
+          "RainbowDelimiterRed",
+          "RainbowDelimiterYellow",
+          "RainbowDelimiterBlue",
+          "RainbowDelimiterOrange",
+          "RainbowDelimiterGreen",
+          "RainbowDelimiterViolet",
+          "RainbowDelimiterCyan",
+        },
+      }
     end,
   },
 
@@ -422,35 +451,6 @@ return {
     ft = "log",
     config = function()
       require("log-highlight").setup {}
-    end,
-  },
-
-  {
-    url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
-    event = "BufReadPre",
-    config = function()
-      dofile(vim.g.base46_cache .. "rainbowdelimiters")
-      local rainbow_delimiters = require "rainbow-delimiters"
-
-      vim.g.rainbow_delimiters = {
-        strategy = {
-          [""] = rainbow_delimiters.strategy["global"],
-          vim = rainbow_delimiters.strategy["local"],
-        },
-        query = {
-          [""] = "rainbow-delimiters",
-          lua = "rainbow-blocks",
-        },
-        highlight = {
-          "RainbowDelimiterRed",
-          "RainbowDelimiterYellow",
-          "RainbowDelimiterBlue",
-          "RainbowDelimiterOrange",
-          "RainbowDelimiterGreen",
-          "RainbowDelimiterViolet",
-          "RainbowDelimiterCyan",
-        },
-      }
     end,
   },
 
