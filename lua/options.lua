@@ -75,15 +75,14 @@ opt.softtabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 -- menu and floating window blend
-opt.pumblend = 10
-opt.winblend = 10
+opt.pumblend = 8
+opt.winblend = 8
 opt.pumheight = 15
 opt.colorcolumn = "100"
 opt.cmdwinheight = 15
 
 opt.isfname:append "@-@"
 
-opt.autoread = true
 vim.bo.autoread = true
 g.code_action_menu_window_border = "rounded"
 
@@ -114,6 +113,29 @@ g.better_whitespace_filetypes_blacklist = {
   "terminal",
 }
 
+
+-- Catppuccin colorscheme
+local base16 = require("base46").get_theme_tb "base_16"
+local colors = require("base46").get_theme_tb "base_30"
+g.terminal_color_0 = "#6c7086"
+g.terminal_color_8 = "#7f849c"
+g.terminal_color_0 = base16.base04
+g.terminal_color_8 = colors.grey
+g.terminal_color_1 = colors.red
+g.terminal_color_9 = colors.red
+g.terminal_color_2 = colors.green
+g.terminal_color_10 = colors.green
+g.terminal_color_3 = colors.yellow
+g.terminal_color_11 = colors.yellow
+g.terminal_color_4 = colors.blue
+g.terminal_color_12 = colors.blue
+g.terminal_color_5 = colors.pink
+g.terminal_color_13 = colors.pink
+g.terminal_color_6 = colors.teal
+g.terminal_color_14 = colors.teal
+g.terminal_color_7 = colors.lavender
+g.terminal_color_15 = colors.lavender
+
 --- Setup neovide
 if g.neovide then
   opt.pumblend = 25
@@ -135,5 +157,3 @@ if g.neovide then
   -- g.neovide_cursor_vfx_particle_lifetime = 2
   g.neovide_underline_stroke_scale = 2
 end
--- local o = vim.o
--- o.cursorlineopt ='both' -- to enable cursorline!

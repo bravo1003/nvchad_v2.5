@@ -100,14 +100,14 @@ M.mason = {
 
 M.telescope = {
   defaults = {
-    layout_config = {
-      bottom_pane = {
-        preview_cutoff = 1,
-      },
-      horizontal = {
-        preview_cutoff = 1,
-      },
-    },
+    -- layout_config = {
+    --   bottom_pane = {
+    --     preview_cutoff = 1,
+    --   },
+    --   horizontal = {
+    --     preview_cutoff = 1,
+    --   },
+    -- },
     winblend = 8,
     selection_caret = " ",
     path_display = { "smart" },
@@ -218,7 +218,7 @@ M.which_key = {
     },
   },
   window = {
-    winblend = 10,
+    winblend = 8,
   },
   triggers = { "<leader>" },
 }
@@ -281,7 +281,7 @@ local MIN_LABEL_WIDTH = 35
 local cmp = require "cmp"
 M.cmp = {
   completion = {
-    keyword_length = 1,
+    keyword_length = 2,
   },
   formatting = {
     format = function(_, item)
@@ -304,6 +304,7 @@ M.cmp = {
     end,
   },
   mapping = {
+    ["<C-y>"] = cmp.mapping.complete(),
     ["<UP>"] = cmp.mapping.select_prev_item(),
     ["<DOWN>"] = cmp.mapping.select_next_item(),
   },

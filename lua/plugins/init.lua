@@ -8,24 +8,6 @@ return {
     opts = overrides.nvimtree,
   },
 
-  {
-    "mhartington/formatter.nvim",
-    enabled = false,
-    cmd = { "Format" },
-    config = function()
-      require "configs.formatter"
-    end,
-  },
-
-  {
-    "stevearc/conform.nvim",
-    enabled = false,
-    -- event = 'BufWritePre', -- uncomment for format on save
-    config = function()
-      require "configs.conform"
-    end,
-  },
-
   -- Enabled plugin
   {
     "williamboman/mason.nvim",
@@ -48,6 +30,14 @@ return {
     config = function()
       require "configs.lspconfig"
     end, -- Override to setup mason-lspconfig
+  },
+
+  {
+    "stevearc/conform.nvim",
+    -- event = 'BufWritePre', -- uncomment for format on save
+    config = function()
+      require "configs.conform"
+    end,
   },
 
   {
@@ -127,22 +117,22 @@ return {
     },
     opts = overrides.telescope,
     keys = {
-      { "<leader>sb", "<cmd> Telescope buffers theme=ivy <cr>",     desc = "Search buffer" },
-      { "<leader>sf", "<cmd> Telescope find_files theme=ivy <cr>",  desc = "Search all files" },
-      { "<leader>sF", "<cmd> Telescope git_files theme=ivy <cr>",   desc = "Search git files" },
-      { "<leader>sg", "<cmd> Telescope live_grep theme=ivy <cr>",   desc = "Search by grep" },
-      { "<leader>sh", "<cmd> Telescope help_tags theme=ivy <cr>",   desc = "Search help tags" },
-      { "<leader>sl", "<cmd> Telescope luasnip theme=ivy<cr>",      desc = "Telescope snippets" },
+      { "<leader>sb", "<cmd> Telescope buffers theme=ivy <cr>", desc = "Search buffer" },
+      { "<leader>sf", "<cmd> Telescope find_files theme=ivy <cr>", desc = "Search all files" },
+      { "<leader>sF", "<cmd> Telescope git_files theme=ivy <cr>", desc = "Search git files" },
+      { "<leader>sg", "<cmd> Telescope live_grep theme=ivy <cr>", desc = "Search by grep" },
+      { "<leader>sh", "<cmd> Telescope help_tags theme=ivy <cr>", desc = "Search help tags" },
+      { "<leader>sl", "<cmd> Telescope luasnip theme=ivy<cr>", desc = "Telescope snippets" },
       { "<leader>sw", "<cmd> Telescope grep_string theme=ivy <cr>", desc = "Search current word" },
-      { "<leader>so", "<cmd> Telescope oldfiles theme=ivy <cr>",    desc = "Search recent files" },
+      { "<leader>so", "<cmd> Telescope oldfiles theme=ivy <cr>", desc = "Search recent files" },
       {
         "<leader>s/",
         "<cmd> Telescope current_buffer_fuzzy_find theme=ivy <cr>",
         desc = "Search current buffer string",
       },
-      { "<leader>nt", "<cmd> Telescope themes <CR>",               "Nvchad themes" },
+      { "<leader>nt", "<cmd> Telescope themes <CR>", "Nvchad themes" },
       { "<leader>gc", "<cmd> Telescope git_commits theme=ivy<CR>", desc = "Git commits" },
-      { "<leader>nt", "<cmd> Telescope themes <CR>",               desc = "Nvchad themes" },
+      { "<leader>nt", "<cmd> Telescope themes <CR>", desc = "Nvchad themes" },
     },
   },
 
@@ -164,10 +154,10 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-    config = function ()
+    config = function()
       dofile(vim.g.base46_cache .. "blankline")
-      require("configs.indent-blankline")
-    end
+      require "configs.indent-blankline"
+    end,
   },
 
   {
@@ -241,7 +231,6 @@ return {
         desc = "Quickfix List (Trouble)",
       },
     },
-    -- opts = {},
     opts = overrides.trouble,
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "trouble")
@@ -480,15 +469,7 @@ return {
         telescope = require("telescope.themes").get_ivy(),
       }
     end,
-    keys = {
-      {
-        "<leader>la",
-        function()
-          require("actions-preview").code_actions()
-        end,
-        desc = "LSP Code Action",
-      },
-    },
+    keys = { "<leader>la" },
   },
 
   {

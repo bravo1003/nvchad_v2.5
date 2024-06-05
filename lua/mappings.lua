@@ -21,6 +21,7 @@ map("n", "<leader>gt", "<Nop>")
 map("t", "<C-x>", "<Nop>")
 map("n", "<leader>h", "<Nop>")
 map("n", "<leader>v", "<Nop>")
+map("n", "<leader>la", "<Nop>")
 map("n", "<A-v>", "<Nop>")
 map("n", "<A-h>", "<Nop>")
 map("n", "<A-i>", "<Nop>")
@@ -72,15 +73,6 @@ map("n", "<leader>e", function()
   require("yazi").yazi()
 end, { desc = "Open yazi file manager" })
 
--- LSP related
-map("n", "<leader>lf", function()
-  vim.lsp.buf.format { async = true }
-end, { desc = "LSP Format" })
-
-map("n", "<leader>lr", function()
-  require "nvchad.lsp.renamer" ()
-end, { desc = "LSP Rename" })
-
 -- Hop
 map("n", "<leader>h", "<cmd> HopWord <cr>", { desc = "Hop Word" })
 map({ "n", "o" }, "<C-s>", function()
@@ -92,11 +84,9 @@ map("n", "<leader>gg", function()
   require("utils.lazygit").lazygit_toggle()
 end, { desc = "Toggle Lazygit" })
 
---Inlay hint
-map("n", "<leader>i", function()
-  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-end, { desc = "Toggle Inlay Hint" })
-
+map("n", "<leader>lf", function()
+  require("conform").format { lsp_fallback = true }
+end, { desc = "Format" })
 -- Dap
 map("n", "<leader>dr", function()
   require("dap").continue()

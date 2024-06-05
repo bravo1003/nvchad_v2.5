@@ -11,12 +11,12 @@ local highlight = {
 local hooks = require "ibl.hooks"
 require("ibl").setup {
   indent = {
-    char = "▎",
+    char = "▏",
     highlight = "IblChar",
     smart_indent_cap = true,
   },
   scope = {
-    char = "▎",
+    char = "▏",
     highlight = highlight,
   },
   exclude = {
