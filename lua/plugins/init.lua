@@ -152,8 +152,8 @@ return {
 
   {
     "lukas-reineke/indent-blankline.nvim",
-    dependencies = "HiPhish/rainbow-delimiters.nvim",
     main = "ibl",
+    dependencies = "HiPhish/rainbow-delimiters.nvim",
     config = function()
       dofile(vim.g.base46_cache .. "blankline")
       require "configs.indent-blankline"
@@ -162,7 +162,7 @@ return {
 
   {
     "HiPhish/rainbow-delimiters.nvim",
-    event = "BufReadPre",
+    event = "User FilePost",
     config = function()
       dofile(vim.g.base46_cache .. "rainbowdelimiters")
       local rainbow_delimiters = require "rainbow-delimiters"
@@ -383,6 +383,7 @@ return {
       vim.opt.number = true
       vim.opt.relativenumber = true
       vim.opt.cursorline = true
+      vim.opt.cursorlineopt = "both" -- to enable cursorline!
       require("modicator").setup()
     end,
   },

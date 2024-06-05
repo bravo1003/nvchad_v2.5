@@ -45,8 +45,6 @@ if tty and os.getenv "SSH_TTY" then
 end
 opt.foldenable = false
 opt.clipboard = "unnamedplus"
--- cursorline support
-opt.cursorlineopt = "both" -- to enable cursorline!
 -- no swap files
 opt.swapfile = false
 opt.backup = false
