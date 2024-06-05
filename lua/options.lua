@@ -111,7 +111,6 @@ g.better_whitespace_filetypes_blacklist = {
   "terminal",
 }
 
-
 -- Catppuccin colorscheme
 local base16 = require("base46").get_theme_tb "base_16"
 local colors = require("base46").get_theme_tb "base_30"
@@ -142,9 +141,11 @@ if g.neovide then
   if vim.uv.os_uname().sysname == "Darwin" then
     opt.guifont = "Fantasquesansm Nerd Font:h21:w1"
     g.neovide_input_macos_option_key_is_meta = "only_left"
+    g.neovide_underline_stroke_scale = 2
   elseif vim.uv.os_uname().sysname == "Linux" then
     opt.guifont = "Fantasquesansm Nerd Font:h16"
     g.neovide_transparency = 0.85
+    g.neovide_underline_stroke_scale = 1.5
     -- opt.linespace = -1
   end
 
@@ -153,5 +154,4 @@ if g.neovide then
   g.neovide_scroll_animation_length = 0.2
   -- g.neovide_cursor_vfx_particle_density = 20
   -- g.neovide_cursor_vfx_particle_lifetime = 2
-  g.neovide_underline_stroke_scale = 2
 end
