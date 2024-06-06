@@ -89,6 +89,40 @@ return {
     "mrcjkb/rustaceanvim",
     ft = { "rust" },
     version = "^4", -- Recommended
+    keys = {
+      { "gr", "<cmd> Telescope lsp_references theme=ivy <cr>", desc = "Go to references" },
+      { "gd", "<cmd> Telescope lsp_definitions theme=ivy <cr>", desc = "Go to definition" },
+      { "gI", "<cmd> Telescope lsp_implementations theme=ivy <cr>", desc = "Go to implementation" },
+      {
+        "gD",
+        function()
+          vim.lsp.buf.declaration()
+        end,
+        desc = "Go to declaration",
+      },
+      {
+        "<leader>lr",
+        function()
+          require "nvchad.lsp.renamer"()
+        end,
+        desc = "LSP Rename",
+      },
+      { "<leader>ls", vim.lsp.buf.signature_help, desc = "Show signature help" },
+      {
+        "<leader>la",
+        function()
+          require("actions-preview").code_actions()
+        end,
+        desc = "LSP Code Action",
+      },
+      {
+        "<leader>i",
+        function()
+          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+        end,
+        desc = "Toggle Inlay Hint",
+      },
+    },
   },
 
   {

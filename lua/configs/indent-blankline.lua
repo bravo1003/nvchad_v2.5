@@ -8,15 +8,20 @@ local highlight = {
   "RainbowDelimiterCyan",
 }
 
+local char = "▏"
+if vim.uv.os_uname().sysname == "Darwin" then
+    char = "▎"
+end
+
 local hooks = require "ibl.hooks"
 require("ibl").setup {
   indent = {
-    char = "▏",
+    char = char,
     highlight = "IblChar",
     smart_indent_cap = true,
   },
   scope = {
-    char = "▏",
+    char = char,
     highlight = highlight,
   },
   exclude = {
