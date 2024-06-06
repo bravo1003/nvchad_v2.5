@@ -2,11 +2,7 @@ local M = {}
 
 local navic = require "nvim-navic"
 local illuminate = require "illuminate"
-local map = vim.keymap.set
 local conf = require("nvconfig").ui.lsp
-local function opts(desc)
-  return { buffer = bufnr, desc = desc }
-end
 
 -- disable semantic tokens
 M.on_init = function(client, _)
@@ -25,27 +21,7 @@ M.on_attach = function(client, bufnr)
   if conf.signature and client.server_capabilities.signatureHelpProvider then
     require("nvchad.lsp.signature").setup(client, bufnr)
   end
-
-  -- LSP related
-  map("n", "gr", "<cmd> Telescope lsp_references theme=ivy <cr>", opts "Go to references")
-  map("n", "gd", "<cmd> Telescope lsp_definitions theme=ivy <cr>", opts "Go to definition")
-  map("n", "gI", "<cmd> Telescope lsp_implementations theme=ivy <cr>", opts "Go to implementation")
-  map("n", "gD", function()
-    vim.lsp.buf.declaration()
-  end, opts "Go to declaration")
-  -- map("n", "<leader>lf", function()
-  --   vim.lsp.buf.format { async = true }
-  -- end, opts "LSP Format")
-  map("n", "<leader>lr", function()
-    require "nvchad.lsp.renamer"()
-  end, opts "LSP Rename")
-  map("n", "<leader>ls", vim.lsp.buf.signature_help, opts "Show signature help")
-  map({ "n", "v" }, "<leader>la", function()
-    require("actions-preview").code_actions()
-  end, opts "LSP Code Action")
-  map("n", "<leader>i", function()
-    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-  end, opts "Toggle Inlay Hint")
+  require("utils.lspkeyremaps").keymaps()
 end
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -67,28 +43,5 @@ M.capabilities.textDocument.completion.completionItem = {
     },
   },
 }
-
-vim.g.rustaceanvim.server.on_attach = function()
-  -- LSP related
-  map("n", "gr", "<cmd> Telescope lsp_references theme=ivy <cr>", opts "Go to references")
-  map("n", "gd", "<cmd> Telescope lsp_definitions theme=ivy <cr>", opts "Go to definition")
-  map("n", "gI", "<cmd> Telescope lsp_implementations theme=ivy <cr>", opts "Go to implementation")
-  map("n", "gD", function()
-    vim.lsp.buf.declaration()
-  end, opts "Go to declaration")
-  -- map("n", "<leader>lf", function()
-  --   vim.lsp.buf.format { async = true }
-  -- end, opts "LSP Format")
-  map("n", "<leader>lr", function()
-    require "nvchad.lsp.renamer"()
-  end, opts "LSP Rename")
-  map("n", "<leader>ls", vim.lsp.buf.signature_help, opts "Show signature help")
-  map({ "n", "v" }, "<leader>la", function()
-    require("actions-preview").code_actions()
-  end, opts "LSP Code Action")
-  map("n", "<leader>i", function()
-    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-  end, opts "Toggle Inlay Hint")
-end
 
 return M

@@ -39,6 +39,21 @@ return {
   },
 
   {
+    "mrcjkb/rustaceanvim",
+    -- lazy = false,
+    ft = { "rust" },
+    init = function()
+      vim.g.rustaceanvim = {
+        server = {
+
+          on_attach = require("utils.lspkeyremaps").keymaps(),
+        },
+      }
+    end,
+    version = "^4", -- Recommended
+  },
+
+  {
     "lewis6991/gitsigns.nvim",
     opts = function()
       return require "configs.gitsigns"
@@ -83,12 +98,6 @@ return {
         dapui.close()
       end
     end,
-  },
-
-  {
-    "mrcjkb/rustaceanvim",
-    ft = { "rust" },
-    version = "^4", -- Recommended
   },
 
   {
