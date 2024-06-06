@@ -67,12 +67,13 @@ M.mason = {
     -- lua stuff
     "lua-language-server",
     "stylua",
+    "luacheck",
 
     -- web dev stuff
-    "css-lsp",
-    "html-lsp",
-    "typescript-language-server",
-    "deno",
+    -- "css-lsp",
+    -- "html-lsp",
+    -- "typescript-language-server",
+    -- "deno",
     "prettier",
     "yaml-language-server",
     "yamllint",
@@ -87,14 +88,12 @@ M.mason = {
     "rust-analyzer",
 
     -- go
-    "delve",
-    "gopls",
-    "golangci-lint",
+    -- "delve",
+    -- "gopls",
+    -- "golangci-lint",
 
     -- markdown
     "markdownlint",
-
-    "luacheck",
   },
 }
 
