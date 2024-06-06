@@ -10,6 +10,12 @@ return {
 
   -- Enabled plugin
   {
+    "stevearc/conform.nvim",
+    -- event = 'BufWritePre', -- uncomment for format on save
+    opts = overrides.conform,
+  },
+
+  {
     "williamboman/mason.nvim",
     opts = overrides.mason,
   },
@@ -30,14 +36,6 @@ return {
     config = function()
       require "configs.lspconfig"
     end, -- Override to setup mason-lspconfig
-  },
-
-  {
-    "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    config = function()
-      require "configs.conform"
-    end,
   },
 
   {
