@@ -52,6 +52,10 @@ return {
     dependencies = {
       {
         "mfussenegger/nvim-dap",
+        dependencies = {
+          "Joakker/lua-json5",
+          build = "./install.sh",
+        },
         config = function()
           require "configs.dapconfig"
         end,

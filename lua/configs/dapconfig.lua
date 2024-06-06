@@ -1,5 +1,5 @@
 local dap = require "dap"
-
+require('dap.ext.vscode').json_decode = require'json5'.parse
 -- DAP for C++
 dap.adapters.codelldb = {
   type = "server",

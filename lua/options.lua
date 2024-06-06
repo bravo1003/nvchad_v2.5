@@ -142,11 +142,13 @@ if g.neovide then
     opt.guifont = "Fantasquesansm Nerd Font:h21:w1"
     g.neovide_input_macos_option_key_is_meta = "only_left"
     g.neovide_underline_stroke_scale = 2
+    -- This is a custom config that is not on upstream yet
+    g.neovide_underline_offset = 3
   elseif vim.uv.os_uname().sysname == "Linux" then
     opt.guifont = "Fantasquesansm Nerd Font:h16"
     g.neovide_transparency = 0.85
-    g.neovide_underline_stroke_scale = 1.5
-    -- opt.linespace = -1
+    -- This is a custom config that is not on upstream yet
+    g.neovide_underline_offset = 3
   end
 
   g.neovide_cursor_animate_in_insert_mode = true
