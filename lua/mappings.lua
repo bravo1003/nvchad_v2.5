@@ -16,6 +16,11 @@ map("n", "<leader>fz", "<Nop>")
 map("n", "<leader>ma", "<Nop>")
 map("n", "<leader>gc", "<Nop>")
 map("n", "<leader>gt", "<Nop>")
+map("n", "<leader>ds", "<Nop>")
+map("n", "<leader>ch", "<Nop>")
+map("n", "<leader>cm", "<Nop>")
+map("n", "<leader>pt", "<Nop>")
+map("n", "<leader>th", "<Nop>")
 
 -- Terminal
 map("t", "<C-x>", "<Nop>")

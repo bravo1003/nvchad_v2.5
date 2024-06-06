@@ -121,7 +121,7 @@ return {
       { "<leader>sF", "<cmd> Telescope git_files theme=ivy <cr>", desc = "Search git files" },
       { "<leader>sg", "<cmd> Telescope live_grep theme=ivy <cr>", desc = "Search by grep" },
       { "<leader>sh", "<cmd> Telescope help_tags theme=ivy <cr>", desc = "Search help tags" },
-      { "<leader>sl", "<cmd> Telescope luasnip theme=ivy<cr>", desc = "Telescope snippets" },
+      { "<leader>sl", "<cmd> Telescope luasnip theme=ivy<cr>", desc = "Search snippets" },
       { "<leader>sw", "<cmd> Telescope grep_string theme=ivy <cr>", desc = "Search current word" },
       { "<leader>so", "<cmd> Telescope oldfiles theme=ivy <cr>", desc = "Search recent files" },
       {

@@ -8,7 +8,6 @@ if wk_ok then
       g = { name = "+Git" },
       l = { name = "+Lsp" },
       n = { name = "+NvChad" },
-      p = { name = "+Preview" },
       r = { name = "+Rename" },
       s = { name = "+Search" },
       t = { name = "+Trouble" },
