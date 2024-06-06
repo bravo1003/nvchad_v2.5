@@ -45,7 +45,6 @@ return {
     init = function()
       vim.g.rustaceanvim = {
         server = {
-
           on_attach = require("utils.lspkeyremaps").keymaps(),
         },
       }
