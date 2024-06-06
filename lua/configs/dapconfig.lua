@@ -1,5 +1,4 @@
 local dap = require "dap"
-require('dap.ext.vscode').json_decode = require'json5'.parse
 -- DAP for C++
 dap.adapters.codelldb = {
   type = "server",
@@ -27,9 +26,13 @@ dap.configurations.cpp = {
   },
 }
 
--- DAP for C and Rust
+-- DAP for C
 dap.configurations.c = dap.configurations.cpp
-dap.configurations.rust = dap.configurations.cpp
+
+-- mrcjkb/rustaceanvim auto connects to dap so this is not needed
+-- dap.configurations.rust = dap.configurations.cpp
+-- configure dap to use json5 for vscode task parsing due to vscode launch task format
+require('dap.ext.vscode').json_decode = require'json5'.parse
 
 -- DAP for Go
 dap.adapters.delve = {
