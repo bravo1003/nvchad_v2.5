@@ -8,7 +8,6 @@ local M = {}
 M.override = {
   CursorLine =                  { bg = "one_bg2" },
   Visual =                      { bg = "grey"  },
-  IndentBlanklineContextChar =  { fg = "lavender" },
   LineNr =                      { fg = "light_grey" },
   PmenuSel =                    { bg = "lavender" },
   LspSignatureActiveParameter = { bg = "lavender" },

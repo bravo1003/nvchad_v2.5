@@ -433,8 +433,26 @@ return {
   },
 
   {
-    "ntpeters/vim-better-whitespace",
+    "kaplanz/retrail.nvim",
     event = "BufReadPre",
+    opts = {
+      hlgroup = "ExtraWhitespace",
+      filetype = {
+        exclude = {
+          "diff",
+          "git",
+          "gitcommit",
+          "unite",
+          "qf",
+          "help",
+          "markdown",
+          "fugitive",
+          "lazygit",
+          "toggleterm",
+          "terminal",
+        },
+      },
+    }, -- calls `setup` using provided `opts`
   },
 
   {

@@ -93,24 +93,6 @@ g.undotree_SetFocusWhenToggle = 1
 g.undotree_ShortIndicators = 1
 g.undotree_DiffAutoOpen = 0
 
--- Better white space setup
-g.better_whitespace_operator = ""
-g.better_whitespace_enabled = 1
-g.current_line_whitespace_disabled_hard = 1
-g.better_whitespace_filetypes_blacklist = {
-  "diff",
-  "git",
-  "gitcommit",
-  "unite",
-  "qf",
-  "help",
-  "markdown",
-  "fugitive",
-  "lazygit",
-  "toggleterm",
-  "terminal",
-}
-
 -- Catppuccin colorscheme
 local base16 = require("base46").get_theme_tb "base_16"
 local colors = require("base46").get_theme_tb "base_30"
