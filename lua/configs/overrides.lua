@@ -94,19 +94,14 @@ M.mason = {
 
     -- markdown
     "markdownlint",
+
+    -- bash
+    "shfmt",
   },
 }
 
 M.telescope = {
   defaults = {
-    -- layout_config = {
-    --   bottom_pane = {
-    --     preview_cutoff = 1,
-    --   },
-    --   horizontal = {
-    --     preview_cutoff = 1,
-    --   },
-    -- },
     winblend = 8,
     selection_caret = " ",
     path_display = { "smart" },
