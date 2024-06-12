@@ -485,6 +485,7 @@ return {
 
   {
     "aznhe21/actions-preview.nvim",
+    event = "LspAttach",
     dependencies = {
       "akinsho/toggleterm.nvim",
     },
@@ -498,7 +499,16 @@ return {
         telescope = require("telescope.themes").get_ivy(),
       }
     end,
-    keys = { "<leader>la" },
+    keys = {
+      {
+        "<leader>la",
+        function()
+          require("actions-preview").code_actions()
+        end,
+        mode = { "n", "v" },
+        desc = "LSP code action",
+      },
+    },
   },
 
   {
