@@ -10,20 +10,20 @@ g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
 -- Enable provider
-local enable_providers = {
-  "python3_provider",
-}
-for _, plugin in pairs(enable_providers) do
-  vim.g["loaded_" .. plugin] = nil
-  vim.cmd("runtime " .. plugin)
-end
-local python3_host_prog = "/usr/bin/python3"
-if vim.uv.os_uname().sysname == "Darwin" then
-  python3_host_prog = "/opt/homebrew/bin/python3"
-end
-g.python3_host_prog = python3_host_prog
-g.leetcode_browser = "firefox"
-g.leetcode_solution_filetype = "cpp"
+-- local enable_providers = {
+--   "python3_provider",
+-- }
+-- for _, plugin in pairs(enable_providers) do
+--   vim.g["loaded_" .. plugin] = nil
+--   vim.cmd("runtime " .. plugin)
+-- end
+-- local python3_host_prog = "/usr/bin/python3"
+-- if vim.uv.os_uname().sysname == "Darwin" then
+--   python3_host_prog = "/opt/homebrew/bin/python3"
+-- end
+-- g.python3_host_prog = python3_host_prog
+-- g.leetcode_browser = "firefox"
+-- g.leetcode_solution_filetype = "cpp"
 
 -- Enabled OSC52 if on ssh
 local tty = vim.iter(vim.api.nvim_list_uis()):any(function(ui)
@@ -43,14 +43,12 @@ if tty and os.getenv "SSH_TTY" then
     },
   }
 end
+
 opt.foldenable = false
 opt.clipboard = "unnamedplus"
 -- no swap files
 opt.swapfile = false
 opt.backup = false
--- undo hostory directoy
-opt.undodir = os.getenv "HOME" .. "/.vim/undodir"
-opt.undofile = true
 -- no line warpping
 opt.wrap = false
 -- autoread reload changed file
@@ -80,12 +78,14 @@ opt.colorcolumn = "100"
 opt.cmdwinheight = 15
 
 opt.isfname:append "@-@"
-
 vim.bo.autoread = true
-g.code_action_menu_window_border = "rounded"
 
 -- Set to true if you use nerfont
 g.have_nerd_font = true
+
+-- undo hostory directoy
+opt.undodir = os.getenv "HOME" .. "/.vim/undodir"
+opt.undofile = true
 -- Undotree setup
 g.undotree_WindowLayout = 1
 -- g.undotree_SplitWidth = 30
