@@ -57,16 +57,10 @@ M.ui = {
     enabled = true,
     lazyload = true,
     order = { "treeOffset", "buffers", "tabs", "btns" },
-    -- Disable in favor of yazi
-    -- overriden_modules = function(modules)
-    --   table.remove(modules, 1)
-    --   modules[1] = require("custom.utils.tabuflineutils").bufferlist()
-    -- end,
   },
 
   nvdash = {
     load_on_startup = true,
-
     header = {
       "           ▄ ▄                   ",
       "       ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄     ",

@@ -1,7 +1,5 @@
 require "nvchad.options"
 
--- add yours here!
-
 local g = vim.g
 local opt = vim.opt
 
@@ -22,8 +20,6 @@ g.loaded_netrwPlugin = 1
 --   python3_host_prog = "/opt/homebrew/bin/python3"
 -- end
 -- g.python3_host_prog = python3_host_prog
--- g.leetcode_browser = "firefox"
--- g.leetcode_solution_filetype = "cpp"
 
 -- Enabled OSC52 if on ssh
 local tty = vim.iter(vim.api.nvim_list_uis()):any(function(ui)
@@ -78,7 +74,6 @@ opt.colorcolumn = "100"
 opt.cmdwinheight = 15
 
 opt.isfname:append "@-@"
-vim.bo.autoread = true
 
 -- Set to true if you use nerfont
 g.have_nerd_font = true
