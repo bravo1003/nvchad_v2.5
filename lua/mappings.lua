@@ -50,7 +50,7 @@ map("n", "<leader>nc", "<cmd> NvCheatsheet <CR>", { desc = "Mapping cheatsheet" 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 
 map("i", "<C-a>", "<ESC>^i", { desc = "Beginning of line" })
-map("i", "<C-e>", "<ESC>", { desc = "End of line" })
+map("i", "<C-e>", "<End>", { desc = "End of line" })
 
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
