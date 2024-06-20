@@ -81,12 +81,6 @@ g.have_nerd_font = true
 -- undo hostory directoy
 opt.undodir = os.getenv "HOME" .. "/.vim/undodir"
 opt.undofile = true
--- Undotree setup
-g.undotree_WindowLayout = 1
--- g.undotree_SplitWidth = 30
-g.undotree_SetFocusWhenToggle = 1
-g.undotree_ShortIndicators = 1
-g.undotree_DiffAutoOpen = 0
 
 -- Catppuccin colorscheme
 local base16 = require("base46").get_theme_tb "base_16"

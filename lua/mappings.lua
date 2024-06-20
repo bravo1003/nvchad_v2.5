@@ -66,8 +66,8 @@ map("n", "<leader>f", function()
   vim.diagnostic.open_float { border = "rounded" }
 end, { desc = "Float diagnostic" })
 
--- Undotree
-map("n", "<leader>u", "<cmd> UndotreeToggle <cr> <cmd> vertical resize 30 <cr>", { desc = "UndoTree" })
+-- Telescope Undo
+map("n", "<leader>u", "<cmd> Telescope undo theme=ivy <cr>", { desc = "Telescope undo" })
 
 --Gitsign
 map("n", "<leader>gb", "<cmd> Git blame <cr>", { desc = "Git blame" })

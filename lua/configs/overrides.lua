@@ -121,8 +121,31 @@ M.telescope = {
       },
     },
   },
-
-  extensions_list = { "themes", "terms", "fzf", "luasnip" },
+  extensions = {
+    undo = {
+      diff_context_lines = 5,
+      mappings = {
+        i = {
+          ["<C-y>"] = function(bufnr)
+            return require("telescope-undo.actions").yank_additions(bufnr)
+          end,
+          ["<S-y>"] = function(bufnr)
+            return require("telescope-undo.actions").yank_deletions(bufnr)
+          end,
+          ["<cr>"] = function(bufnr)
+            return require("telescope-undo.actions").restore(bufnr)
+          end,
+        },
+        -- n = {
+        --   ["y"] = require("telescope-undo.actions").yank_additions,
+        --   ["Y"] = require("telescope-undo.actions").yank_deletions,
+        --   ["u"] = require("telescope-undo.actions").restore,
+        -- },
+      },
+    },
+    -- no other extensions here, they can have their own spec too
+  },
+  extensions_list = { "themes", "terms", "fzf", "luasnip", "undo" },
 }
 
 M.trouble = {
@@ -194,7 +217,7 @@ M.noice = {
   },
   -- you can enable a preset for easier configuration
   presets = {
-    bottom_search = true,         -- use a classic bottom cmdline for search
+    bottom_search = true, -- use a classic bottom cmdline for search
     long_message_to_split = true, -- long messages will be sent to a split
   },
 }
@@ -202,13 +225,13 @@ M.noice = {
 M.which_key = {
   plugins = {
     presets = {
-      operators = false,    -- adds help for operators like d, y, ...
-      motions = false,      -- adds help for motions
+      operators = false, -- adds help for operators like d, y, ...
+      motions = false, -- adds help for motions
       text_objects = false, -- help for text objects triggered after entering an operator
-      windows = false,      -- default bindings on <c-w>
-      nav = false,          -- misc bindings to work with windows
-      z = true,             -- bindings for folds, spelling and others prefixed with z
-      g = false,            -- bindings for prefixed with g
+      windows = false, -- default bindings on <c-w>
+      nav = false, -- misc bindings to work with windows
+      z = true, -- bindings for folds, spelling and others prefixed with z
+      g = false, -- bindings for prefixed with g
     },
   },
   window = {
@@ -218,7 +241,7 @@ M.which_key = {
 }
 
 local HEIGHT_RATIO = 0.6 -- You can change this
-local WIDTH_RATIO = 0.6  -- You can change this too
+local WIDTH_RATIO = 0.6 -- You can change this too
 -- git support in nvimtree
 M.nvimtree = {
   disable_netrw = true,
@@ -311,11 +334,11 @@ M.cmp = {
       priority = 60,
     },
     -- { name = "nvim_lsp",    priority = 60 },
-    { name = "nvim_lua",    priority = 50 },
-    { name = "luasnip",     priority = 40 },
+    { name = "nvim_lua", priority = 50 },
+    { name = "luasnip", priority = 40 },
     { name = "cmp_tabnine", priority = 30 },
-    { name = "buffer",      priority = 20 },
-    { name = "path",        priority = 10 },
+    { name = "buffer", priority = 20 },
+    { name = "path", priority = 10 },
   },
 }
 

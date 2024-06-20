@@ -123,6 +123,7 @@ return {
     dependencies = {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "benfowler/telescope-luasnip.nvim" },
+      { "debugloop/telescope-undo.nvim" },
     },
     opts = overrides.telescope,
     keys = {
@@ -275,11 +276,6 @@ return {
       dofile(vim.g.base46_cache .. "trouble")
       require("trouble").setup(opts)
     end,
-  },
-
-  {
-    "mbbill/undotree",
-    cmd = { "UndotreeToggle", "UndotreeFocus" },
   },
 
   {
