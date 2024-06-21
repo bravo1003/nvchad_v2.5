@@ -123,7 +123,7 @@ M.telescope = {
   },
   extensions = {
     undo = {
-      diff_context_lines = 5,
+      diff_context_lines = 2,
       mappings = {
         i = {
           ["<C-y>"] = function(bufnr)
@@ -136,11 +136,6 @@ M.telescope = {
             return require("telescope-undo.actions").restore(bufnr)
           end,
         },
-        -- n = {
-        --   ["y"] = require("telescope-undo.actions").yank_additions,
-        --   ["Y"] = require("telescope-undo.actions").yank_deletions,
-        --   ["u"] = require("telescope-undo.actions").restore,
-        -- },
       },
     },
     -- no other extensions here, they can have their own spec too
