@@ -81,7 +81,6 @@ M.mason = {
     -- c/cpp stuff
     "clangd",
     "clang-format",
-    "cpplint",
     "codelldb",
 
     -- rust
