@@ -450,26 +450,6 @@ return {
   },
 
   {
-    "nvim-focus/focus.nvim",
-    event = "VeryLazy",
-    ---@diagnostic disable-next-line: assign-type-mismatch
-    version = false,
-    config = function()
-      local map = vim.keymap.set
-      require("focus").setup {
-        ui = {
-          hybridnumber = true,
-        },
-        autoresize = {
-          minwidth = 15,
-        },
-      }
-      map("n", "<C-w>s", "<cmd> FocusSplitDown <cr>", { desc = "Horizontal Split" })
-      map("n", "<C-w>v", "<cmd> FocusSplitRight <cr>", { desc = "Vertical Split" })
-    end,
-  },
-
-  {
     "fei6409/log-highlight.nvim",
     ft = "log",
     config = function()
