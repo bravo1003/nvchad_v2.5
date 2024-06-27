@@ -79,6 +79,7 @@ M.mason = {
     "yamllint",
 
     -- c/cpp stuff
+    "cpplint",
     "clangd",
     "clang-format",
     "codelldb",

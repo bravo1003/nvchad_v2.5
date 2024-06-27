@@ -9,19 +9,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Troubel quickfix
-vim.api.nvim_create_autocmd("QuickFixCmdPost", {
-  callback = function()
-    vim.schedule(function()
-      vim.cmd [[Trouble qflist open]]
-    end)
-  end,
-})
-
 vim.api.nvim_create_autocmd("BufRead", {
   callback = function(ev)
     if vim.bo[ev.buf].buftype == "quickfix" then
       vim.schedule(function()
-        vim.cmd [[cclose]]
+        vim.cmd([[cclose]])
+        vim.cmd([[Trouble qflist open]])
       end)
     end
   end,
@@ -39,6 +32,22 @@ vim.api.nvim_create_autocmd("FileType", {
     end
   end,
   desc = "Disable spell check",
+})
+
+local eighty_columns_filetypes = {
+  "cpp",
+  "c",
+  "markdown",
+}
+local augroup_colorcolumns = vim.api.nvim_create_augroup("SetColorColumn", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup_colorcolumns,
+  callback = function(_)
+    if vim.tbl_contains(eighty_columns_filetypes, vim.bo.filetype) then
+      vim.cmd [[ set colorcolumn=80 ]]
+    end
+  end,
+  desc = "Set SetColorColumn according to file",
 })
 
 -- Focus nvim ignored files
@@ -79,20 +88,4 @@ vim.api.nvim_create_autocmd("FileType", {
     end
   end,
   desc = "Disable focus autoresize for FileType",
-})
-
-local hundred_columns_filetypes = {
-  "cpp",
-  "c",
-  "markdown",
-}
-local augroup_colorcolumns = vim.api.nvim_create_augroup("SetColorColumn", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-  group = augroup_colorcolumns,
-  callback = function(_)
-    if vim.tbl_contains(hundred_columns_filetypes, vim.bo.filetype) then
-      vim.cmd [[ set colorcolumn=80 ]]
-    end
-  end,
-  desc = "Set SetColorColumn according to file",
 })
