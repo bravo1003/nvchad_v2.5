@@ -100,6 +100,12 @@ return {
   },
 
   {
+    -- Treesitter parse for nvim-gn
+    -- Do "TSInstall gn" after plugin download
+    "willcassella/nvim-gn",
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
       -- "rrethy/nvim-treesitter-textsubjects",
