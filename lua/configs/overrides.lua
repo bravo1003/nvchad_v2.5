@@ -123,7 +123,7 @@ M.telescope = {
   },
   extensions = {
     undo = {
-      diff_context_lines = 2,
+      vim_diff_opts = { ctxlen = 2 },
       mappings = {
         i = {
           ["<C-y>"] = function(bufnr)
