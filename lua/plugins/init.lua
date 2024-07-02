@@ -202,6 +202,10 @@ return {
           "RainbowDelimiterViolet",
           "RainbowDelimiterCyan",
         },
+        blacklist = {
+          "json",
+          "log",
+        },
       }
     end,
   },
@@ -338,6 +342,16 @@ return {
     build = "./install.sh",
     dependencies = "hrsh7th/nvim-cmp",
     event = "InsertEnter",
+  },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
   },
 
   {
