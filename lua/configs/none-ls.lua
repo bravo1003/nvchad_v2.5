@@ -1,7 +1,7 @@
 local none_ls = require "null-ls"
 
 local without_cpplint = {
-  none_ls.builtins.completion.spell,
+  -- none_ls.builtins.completion.spell,
   -- formatting
   none_ls.builtins.formatting.stylua,
   none_ls.builtins.formatting.clang_format,
@@ -11,7 +11,7 @@ local without_cpplint = {
 
 
 local with_cpplint = {
-  none_ls.builtins.completion.spell,
+  -- none_ls.builtins.completion.spell,
   -- formatting
   none_ls.builtins.formatting.stylua,
   none_ls.builtins.formatting.clang_format,

@@ -321,14 +321,7 @@ M.cmp = {
     ["<DOWN>"] = cmp.mapping.select_next_item(),
   },
   sources = {
-    {
-      name = "nvim_lsp",
-      entry_filter = function(entry, ctx)
-        return require("cmp").lsp.CompletionItemKind.Text ~= entry:get_kind()
-      end,
-      priority = 60,
-    },
-    -- { name = "nvim_lsp",    priority = 60 },
+    { name = "nvim_lsp",    priority = 60 },
     { name = "nvim_lua", priority = 50 },
     { name = "luasnip", priority = 40 },
     { name = "cmp_tabnine", priority = 30 },
