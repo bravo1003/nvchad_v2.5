@@ -229,8 +229,16 @@ M.which_key = {
       g = false, -- bindings for prefixed with g
     },
   },
-  window = {
-    winblend = 8,
+  spec = {
+    { "<leader>c", group = "Context" },
+    { "<leader>d", group = "Dap" },
+    { "<leader>g", group = "Git" },
+    { "<leader>l", group = "Lsp" },
+    { "<leader>n", group = "NvChad" },
+    { "<leader>r", group = "Rename" },
+    { "<leader>s", group = "Search" },
+    { "<leader>t", group = "Trouble" },
+    { "<leader>w", group = "Whichkey" },
   },
   icons = {
     rules = false,

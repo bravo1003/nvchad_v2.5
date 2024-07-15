@@ -154,6 +154,7 @@ return {
 
   {
     "folke/which-key.nvim",
+    event = "VeryLazy",
     dependencies = {
       "echasnovski/mini.icons"
     },
@@ -161,7 +162,6 @@ return {
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "whichkey")
       require("which-key").setup(opts)
-      require "configs.whichkey"
     end,
   },
 
