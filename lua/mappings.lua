@@ -1,49 +1,43 @@
 require "nvchad.mappings"
 
 local map = vim.keymap.set
+local del = vim.keymap.del
 -- Disabled
 
 -- Defualt Telescope binding
-map("n", "<leader>b", "<Nop>")
-map("n", "<leader>fa", "<Nop>")
-map("n", "<leader>fb", "<Nop>")
-map("n", "<leader>ff", "<Nop>")
-map("n", "<leader>fh", "<Nop>")
-map("n", "<leader>fm", "<Nop>")
-map("n", "<leader>fo", "<Nop>")
-map("n", "<leader>fw", "<Nop>")
-map("n", "<leader>fz", "<Nop>")
-map("n", "<leader>ma", "<Nop>")
-map("n", "<leader>gc", "<Nop>")
-map("n", "<leader>gt", "<Nop>")
-map("n", "<leader>ds", "<Nop>")
-map("n", "<leader>ch", "<Nop>")
-map("n", "<leader>cm", "<Nop>")
-map("n", "<leader>pt", "<Nop>")
-map("n", "<leader>th", "<Nop>")
+del("n", "<leader>b")
+del("n", "<leader>fa")
+del("n", "<leader>fb")
+del("n", "<leader>ff")
+del("n", "<leader>fh")
+del("n", "<leader>fm")
+del("n", "<leader>fo")
+del("n", "<leader>fw")
+del("n", "<leader>fz")
+del("n", "<leader>ma")
+del("n", "<leader>gc")
+del("n", "<leader>gt")
+del("n", "<leader>ds")
+del("n", "<leader>ch")
+del("n", "<leader>cm")
+del("n", "<leader>pt")
+del("n", "<leader>th")
 
 -- Terminal
-map("t", "<C-x>", "<Nop>")
-map("n", "<leader>h", "<Nop>")
-map("n", "<leader>v", "<Nop>")
-map("n", "<leader>la", "<Nop>")
-map("n", "<A-v>", "<Nop>")
-map("n", "<A-h>", "<Nop>")
-map("n", "<A-i>", "<Nop>")
+del("t", "<C-x>")
+del("n", "<leader>h")
+del("n", "<leader>v")
+del("n", "<leader>la")
+del("n", "<A-v>")
+del("n", "<A-h>")
+del("n", "<A-i>")
 
 -- NvimTree
-map("n", "<C-n>", "<Nop>")
-map("n", "<C-s>", "<Nop>")
-map("n", "<C-c>", "<Nop>")
+del("n", "<leader>n")
+del("n", "<leader>rn")
+del("i", "<C-b>")
+
 map("n", "Q", "<Nop>")
-map("n", "gi", "<Nop>")
-
-map("n", "<leader>n", "<Nop>")
-map("n", "<leader>rh", "<Nop>")
-map("n", "<leader>rn", "<Nop>")
-
-map("i", "<C-b>", "<Nop>")
-
 -- General
 map("n", "<leader>rn", [[:%s/\<lt><C-R><C-W>\>/<C-R><C-W>/gI<Left><Left><Left>]], { desc = "Rename String" })
 map("n", "<leader>nc", "<cmd> NvCheatsheet <CR>", { desc = "Mapping cheatsheet" })

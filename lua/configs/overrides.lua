@@ -232,7 +232,9 @@ M.which_key = {
   window = {
     winblend = 8,
   },
-  triggers = { "<leader>" },
+  icons = {
+    rules = false,
+  },
 }
 
 local HEIGHT_RATIO = 0.6 -- You can change this
@@ -321,7 +323,7 @@ M.cmp = {
     ["<DOWN>"] = cmp.mapping.select_next_item(),
   },
   sources = {
-    { name = "nvim_lsp",    priority = 60 },
+    { name = "nvim_lsp", priority = 60 },
     { name = "nvim_lua", priority = 50 },
     { name = "luasnip", priority = 40 },
     { name = "cmp_tabnine", priority = 30 },

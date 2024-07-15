@@ -154,6 +154,9 @@ return {
 
   {
     "folke/which-key.nvim",
+    dependencies = {
+      "echasnovski/mini.icons"
+    },
     opts = overrides.which_key,
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "whichkey")

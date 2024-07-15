@@ -1,17 +1,15 @@
 local wk_ok, wk = pcall(require, "which-key")
 
 if wk_ok then
-  wk.register {
-    ["<leader>"] = {
-      c = { name = "+Context" },
-      d = { name = "+Dap" },
-      g = { name = "+Git" },
-      l = { name = "+Lsp" },
-      n = { name = "+NvChad" },
-      r = { name = "+Rename" },
-      s = { name = "+Search" },
-      t = { name = "+Trouble" },
-      w = { name = "+Whichkey" },
-    },
+  wk.add {
+    { "<leader>c", group = "Context" },
+    { "<leader>d", group = "Dap" },
+    { "<leader>g", group = "Git" },
+    { "<leader>l", group = "Lsp" },
+    { "<leader>n", group = "NvChad" },
+    { "<leader>r", group = "Rename" },
+    { "<leader>s", group = "Search" },
+    { "<leader>t", group = "Trouble" },
+    { "<leader>w", group = "Whichkey" },
   }
 end
