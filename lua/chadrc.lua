@@ -89,17 +89,18 @@ M.ui = {
     signature = true,
     semantic_tokens = true,
   },
-}
 
-M.base46 = {
-  integrations = {
-    "dap",
-    "navic",
-    "notify",
-    "rainbowdelimiters",
-    "hop",
-    "todo",
-    "trouble",
+  base46 = {
+    integrations = {
+      "dap",
+      "navic",
+      "notify",
+      "rainbowdelimiters",
+      "hop",
+      "todo",
+      "trouble",
+    },
   },
 }
+
 return M
