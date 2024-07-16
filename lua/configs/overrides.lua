@@ -243,6 +243,7 @@ M.which_key = {
   icons = {
     rules = false,
   },
+  triggers = { "<leader>" },
 }
 
 local HEIGHT_RATIO = 0.6 -- You can change this

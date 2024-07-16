@@ -156,7 +156,8 @@ return {
     "folke/which-key.nvim",
     event = "VeryLazy",
     dependencies = {
-      "echasnovski/mini.icons"
+      "nvim-tree/nvim-web-devicons",
+      "echasnovski/mini.icons",
     },
     opts = overrides.which_key,
     config = function(_, opts)
@@ -235,9 +236,6 @@ return {
   {
     "folke/todo-comments.nvim",
     event = "VeryLazy",
-    -- init = function()
-    --   require("core.utils").lazy_load "todo-comments.nvim"
-    -- end,
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       dofile(vim.g.base46_cache .. "todo")
