@@ -8,9 +8,14 @@ local M = {}
 -- Path to overriding theme and highlights files
 local highlights = require "highlights"
 
-M.ui = {
+M.base46 = {
+  theme = "catppuccin", -- default theme
+  theme_toggle = { "catppuccin", "rosepine" },
+
   hl_add = highlights.add,
   hl_override = highlights.override,
+  transparency = false,
+
   changed_themes = {
     catppuccin = {
       base_30 = {
@@ -18,19 +23,18 @@ M.ui = {
       },
     },
   },
-  theme_toggle = { "catppuccin", "rosepine" },
-  theme = "catppuccin", -- default theme
-  transparency = false,
-
-  extended_integrations = {
+  integrations = {
     "dap",
     "navic",
     "notify",
     "rainbowdelimiters",
     "hop",
     "todo",
+    "trouble",
   },
+}
 
+M.ui = {
   cmp = {
     icons = true,
     lspkind_text = true,
@@ -88,18 +92,6 @@ M.ui = {
   lsp = {
     signature = true,
     semantic_tokens = true,
-  },
-
-  base46 = {
-    integrations = {
-      "dap",
-      "navic",
-      "notify",
-      "rainbowdelimiters",
-      "hop",
-      "todo",
-      "trouble",
-    },
   },
 }
 
