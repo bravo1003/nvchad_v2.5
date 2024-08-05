@@ -36,6 +36,8 @@ del("n", "<A-i>")
 del("n", "<leader>n")
 del("n", "<leader>rn")
 del("i", "<C-b>")
+del("i", "<C-n>")
+del("i", "<C-c>")
 
 map("n", "Q", "<Nop>")
 -- General
