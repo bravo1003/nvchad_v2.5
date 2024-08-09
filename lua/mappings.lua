@@ -35,13 +35,13 @@ del("n", "<A-i>")
 -- NvimTree
 del("n", "<leader>n")
 del("n", "<leader>rn")
+del("n", "<C-c>")
 del("i", "<C-b>")
 
 map("n", "Q", "<Nop>")
 -- General
 map("n", "<leader>rn", [[:%s/\<lt><C-R><C-W>\>/<C-R><C-W>/gI<Left><Left><Left>]], { desc = "Rename String" })
 map("n", "<leader>nc", "<cmd> NvCheatsheet <CR>", { desc = "Mapping cheatsheet" })
-map("n", ";", ":", { desc = "CMD enter command mode" })
 
 map("i", "<C-a>", "<ESC>^i", { desc = "Beginning of line" })
 map("i", "<C-e>", "<End>", { desc = "End of line" })
