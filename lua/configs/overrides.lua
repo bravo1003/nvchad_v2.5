@@ -281,50 +281,6 @@ M.nvimtree = {
   },
 }
 
-local ELLIPSIS_CHAR = "…"
-local MAX_LABEL_WIDTH = 70
-local MIN_LABEL_WIDTH = 35
-local cmp = require "cmp"
-M.cmp = {
-  completion = {
-    keyword_length = 2,
-  },
-  formatting = {
-    format = function(_, item)
-      local cmp_ui = require("nvconfig").ui.cmp
-      local icons = require "nvchad.icons.lspkind"
-      local icon = (cmp_ui.icons and icons[item.kind]) or ""
-
-      local label = item.abbr
-      local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
-      if truncated_label ~= label then
-        item.abbr = truncated_label .. ELLIPSIS_CHAR
-      elseif string.len(label) < MIN_LABEL_WIDTH then
-        local padding = string.rep(" ", MIN_LABEL_WIDTH - string.len(label))
-        item.abbr = label .. padding
-      end
-      icon = cmp_ui.lspkind_text and (" " .. icon .. " ") or icon
-      item.kind = string.format("%s %s", icon, cmp_ui.lspkind_text and item.kind or "")
-
-      return item
-    end,
-  },
-  mapping = {
-    ["<C-y>"] = cmp.mapping.complete(),
-    ["<C-e>"] = cmp.mapping.abort(),
-    ["<UP>"] = cmp.mapping.select_prev_item(),
-    ["<DOWN>"] = cmp.mapping.select_next_item(),
-  },
-  sources = {
-    { name = "nvim_lsp", priority = 60 },
-    { name = "nvim_lua", priority = 50 },
-    { name = "luasnip", priority = 40 },
-    { name = "cmp_tabnine", priority = 30 },
-    { name = "buffer", priority = 20 },
-    { name = "path", priority = 10 },
-  },
-}
-
 M.conform = {
   formatters_by_ft = {
     lua = { "stylua" },
