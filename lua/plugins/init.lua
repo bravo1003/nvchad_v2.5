@@ -692,7 +692,7 @@ return {
 
   {
     "vladdoster/remember.nvim",
-    event = "User FilePost",
+    event = "BufReadPre",
     config = function()
       require("remember").setup {
         ignore_buftype = {
