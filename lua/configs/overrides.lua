@@ -95,6 +95,7 @@ M.telescope = {
   },
   extensions = {
     undo = {
+      use_custom_command = { "zsh", "-c", "echo '$DIFF' | delta --paging=always" },
       layout_strategy = "vertical",
       layout_config = {
         width = 0.6,
