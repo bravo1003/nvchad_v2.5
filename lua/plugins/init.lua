@@ -450,7 +450,7 @@ return {
 
   {
     "mawkler/modicator.nvim",
-    lazy = false,
+    event = "VeryLazy",
     config = function()
       vim.o.termguicolors = true
       vim.o.number = true
@@ -497,7 +497,7 @@ return {
 
   {
     "kaplanz/retrail.nvim",
-    event = "BufReadPre",
+    event = "User FilePost",
     opts = {
       hlgroup = "ExtraWhitespace",
       filetype = {
@@ -624,7 +624,7 @@ return {
 
   {
     "mikavilpas/yazi.nvim",
-    event = "VeryLazy",
+    cmd = { "Yazi" },
     opts = {
       yazi_floating_window_winblend = 5,
       yazi_floating_window_border = "single",
@@ -653,7 +653,7 @@ return {
 
   {
     "Bekaboo/dropbar.nvim",
-    lazy = false,
+    event = "User FilePost",
     -- optional, but required for fuzzy finder support
     dependencies = {
       "nvim-telescope/telescope-fzf-native.nvim",
@@ -692,7 +692,7 @@ return {
 
   {
     "vladdoster/remember.nvim",
-    event = "BufReadPre",
+    event = "User FilePost",
     config = function()
       require("remember").setup {
         ignore_buftype = {
@@ -735,7 +735,7 @@ return {
 
   {
     "LunarVim/bigfile.nvim",
-    event = "User FilePost",
+    lazy = false,
     config = function()
       -- default config
       require("bigfile").setup {
