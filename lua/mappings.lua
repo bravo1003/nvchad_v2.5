@@ -75,7 +75,7 @@ map("n", "<leader>y", [[^y$]], { desc = "Yank no newline" })
 
 -- Hop
 map("n", "<leader>h", "<cmd> HopWord <cr>", { desc = "Hop Word" })
-map({ "n", "o" }, "<C-s>", function()
+map({ "n", "o" }, "<A-h>", function()
   require("tsht").nodes()
 end, { desc = "TreeHopper Visual Selection" })
 
