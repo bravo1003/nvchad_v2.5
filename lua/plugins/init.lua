@@ -450,7 +450,7 @@ return {
 
   {
     "mawkler/modicator.nvim",
-    event = "VeryLazy",
+    event = "BufReadPre",
     config = function()
       vim.o.termguicolors = true
       vim.o.number = true
