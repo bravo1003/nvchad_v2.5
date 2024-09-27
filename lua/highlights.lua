@@ -15,6 +15,7 @@ M.override = {
   Comment =                     { fg = "light_grey", italic = true },
   ["@comment"] =                { fg = "light_grey", italic = true },
   WinSeparator =                { fg = "light_grey" },
+  CursorLineNr =                { fg = "blue" },
 }
 
 ---@type HLTable

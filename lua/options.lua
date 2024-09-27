@@ -7,6 +7,8 @@ local opt = vim.opt
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
+-- Set to true if you use nerfont
+g.have_nerd_font = true
 -- Enable provider
 -- local enable_providers = {
 --   "python3_provider",
@@ -75,8 +77,11 @@ opt.cmdwinheight = 15
 
 opt.isfname:append "@-@"
 
--- Set to true if you use nerfont
-g.have_nerd_font = true
+opt.termguicolors = true
+opt.number = true
+opt.relativenumber = true
+opt.cursorline = true
+opt.cursorlineopt = "both" -- to enable cursorline!
 
 -- undo history directory
 opt.undodir = os.getenv "HOME" .. "/.vim/undodir"
