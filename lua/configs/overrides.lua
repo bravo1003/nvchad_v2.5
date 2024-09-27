@@ -169,6 +169,10 @@ M.noice = {
       opts = { skip = true },
     },
     {
+      filter = { event = "msg_show", kind = "", find = "Hop" },
+      opts = { skip = true },
+    },
+    {
       view = "split",
       filter = { event = "msg_show", min_height = 20 },
     },

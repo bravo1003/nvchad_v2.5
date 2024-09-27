@@ -655,9 +655,9 @@ return {
     "Bekaboo/dropbar.nvim",
     event = "User FilePost",
     -- optional, but required for fuzzy finder support
-    dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-    },
+    -- dependencies = {
+    --   "nvim-telescope/telescope-fzf-native.nvim",
+    -- },
     opts = {
       icons = {
         ui = {
@@ -773,6 +773,9 @@ return {
     ---@module "auto-session"
     ---@type AutoSession.Config
     opts = {
+      session_lens = {
+        load_on_setup = false,
+      },
       allowed_dirs = {
         "~/workspace/work/tvsdk",
         "~/workspace/platform/cheatsheet/",
