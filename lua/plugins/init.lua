@@ -159,11 +159,55 @@ return {
 
   {
     "hrsh7th/nvim-cmp",
-    opts = function()
-      -- custom copy of nvchad.configs.cmp
-      -- adds some menu resizing logic and keymaps
-      return require "configs.cmp"
-    end,
+    opts = {
+      completion = {
+        keyword_length = 2,
+        completeopt = "menu,menuone",
+      },
+      mapping = {
+        ["<C-p>"] = require("cmp").mapping.select_prev_item(),
+        ["<C-n>"] = require("cmp").mapping.select_next_item(),
+        ["<C-d>"] = require("cmp").mapping.scroll_docs(-4),
+        ["<C-f>"] = require("cmp").mapping.scroll_docs(4),
+        ["<C-Space>"] = require("cmp").mapping.complete(),
+        ["<C-e>"] = require("cmp").mapping.abort(),
+        ["<UP>"] = require("cmp").mapping.select_prev_item(),
+        ["<DOWN>"] = require("cmp").mapping.select_next_item(),
+
+        ["<CR>"] = require("cmp").mapping.confirm {
+          behavior = require("cmp").ConfirmBehavior.Insert,
+          select = true,
+        },
+
+        ["<Tab>"] = require("cmp").mapping(function(fallback)
+          if require("cmp").visible() then
+            require("cmp").select_next_item()
+          elseif require("luasnip").expand_or_jumpable() then
+            require("luasnip").expand_or_jump()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+
+        ["<S-Tab>"] = require("cmp").mapping(function(fallback)
+          if require("cmp").visible() then
+            require("cmp").select_prev_item()
+          elseif require("luasnip").jumpable(-1) then
+            require("luasnip").jump(-1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+      },
+      sources = {
+        { name = "nvim_lsp", priority = 60 },
+        { name = "nvim_lua", priority = 50 },
+        { name = "luasnip", priority = 40 },
+        { name = "cmp_tabnine", priority = 30 },
+        { name = "buffer", priority = 20 },
+        { name = "path", priority = 10 },
+      },
+    },
   },
 
   {
