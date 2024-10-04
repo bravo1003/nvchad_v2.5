@@ -450,7 +450,7 @@ return {
 
   {
     "mawkler/modicator.nvim",
-    lazy = false,
+    event = "VeryLazy",
     config = function()
       vim.o.termguicolors = true
       vim.o.number = true

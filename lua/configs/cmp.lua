@@ -31,7 +31,6 @@ local formatting_style = {
   end,
 
   fields = fields,
-
 }
 
 

@@ -36,9 +36,7 @@ M.base46 = {
 
 M.ui = {
   cmp = {
-    icons = true,
-    lspkind_text = true,
-    style = "flat_dark",
+    style = "default",
     selected_item_bg = "colored",
   },
 
