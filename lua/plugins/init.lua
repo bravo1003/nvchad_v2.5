@@ -186,7 +186,9 @@ return {
 
   {
     "hrsh7th/nvim-cmp",
-    opts = overrides.cmp,
+    opts = function ()
+      return require("configs.cmp")
+    end
   },
 
   {
