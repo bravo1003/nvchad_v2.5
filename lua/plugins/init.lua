@@ -29,13 +29,13 @@ return {
         "nvimtools/none-ls-extras.nvim",
       },
       config = function()
-        dofile(vim.g.base46_cache .. "lsp")
-        require("nvchad.lsp").diagnostic_config()
         require "configs.none-ls"
       end, -- Override to setup mason-lspconfig
     },
 
     config = function()
+      dofile(vim.g.base46_cache .. "lsp")
+      require("nvchad.lsp").diagnostic_config()
       require "configs.lspconfig"
     end, -- Override to setup mason-lspconfig
   },
@@ -186,9 +186,9 @@ return {
 
   {
     "hrsh7th/nvim-cmp",
-    opts = function ()
-      return require("configs.cmp")
-    end
+    opts = function()
+      return require "configs.cmp"
+    end,
   },
 
   {
@@ -450,7 +450,7 @@ return {
 
   {
     "mawkler/modicator.nvim",
-    event = "BufReadPre",
+    event = "BufReadPost",
     config = function()
       vim.o.termguicolors = true
       vim.o.number = true
