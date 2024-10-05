@@ -3,81 +3,99 @@
 -- https://github.com/NvChad/NvChad/blob/v2.5/lua/nvconfig.lua
 
 ---@type ChadrcConfig
-local M = {}
+-- local M = {}
 
 -- Path to overriding theme and highlights files
 local highlights = require "highlights"
 
-M.base46 = {
-  theme = "catppuccin", -- default theme
-  theme_toggle = { "catppuccin", "rosepine" },
+local options = {
+  base46 = {
+    theme = "catppuccin", -- default theme
+    theme_toggle = { "catppuccin", "rosepine" },
 
-  transparency = false,
+    transparency = false,
 
-  changed_themes = {
-    catppuccin = {
-      base_30 = {
-        lavender = "#b4befe",
+    changed_themes = {
+      catppuccin = {
+        base_30 = {
+          lavender = "#b4befe",
+        },
       },
     },
-  },
-  hl_add = highlights.add,
-  hl_override = highlights.override,
+    hl_add = highlights.add,
+    hl_override = highlights.override,
 
-  integrations = {
-    "dap",
-    "notify",
-    "rainbowdelimiters",
-    "hop",
-    "todo",
-    "trouble",
-  },
-}
-
-M.ui = {
-  cmp = {
-    style = "default",
-    selected_item_bg = "colored",
-  },
-
-  statusline = {
-    theme = "vscode_colored",
-    separator_style = "default",
-    modules = {
-      lsp = function()
-        return "%#St_Lsp#" .. require("utils.lsp-statusline").lsp_overriden()
-      end,
+    integrations = {
+      "dap",
+      "notify",
+      "rainbowdelimiters",
+      "hop",
+      "todo",
+      "trouble",
     },
   },
+  ui = {
+    cmp = {
+      style = "default",
+      selected_item_bg = "colored",
+    },
 
-  -- lazyload it when there are 1+ buffers
-  tabufline = {
-    show_numbers = false,
-    enabled = true,
-    lazyload = true,
-    order = { "treeOffset", "buffers", "tabs", "btns" },
+    statusline = {
+      theme = "vscode_colored",
+      separator_style = "default",
+      modules = {
+        lsp = function()
+          return "%#St_Lsp#" .. require("utils.lsp-statusline").lsp_overriden()
+        end,
+      },
+    },
+
+    -- lazyload it when there are 1+ buffers
+    tabufline = {
+      show_numbers = false,
+      enabled = true,
+      lazyload = true,
+      order = { "treeOffset", "buffers", "tabs", "btns" },
+    },
   },
 
   nvdash = {
     load_on_startup = true,
     header = {
-      "┏━┓━┏┓━━━━━━━━━━━━━━━━━━",
-      "┃┃┗┓┃┃━━━━━━━━━━━━━━━━━━",
-      "┃┏┓┗┛┃┏━━┓┏━━┓┏┓┏┓┏┓┏┓┏┓",
-      "┃┃┗┓┃┃┃┏┓┃┃┏┓┃┃┗┛┃┣┫┃┗┛┃",
-      "┃┃━┃┃┃┃┃━┫┃┗┛┃┗┓┏┛┃┃┃┃┃┃",
-      "┗┛━┗━┛┗━━┛┗━━┛━┗┛━┗┛┗┻┻┛",
-      "━━━━━━━━━━━━━━━━━━━━━━━━",
-      "━━━━━━━━━━━━━━━━━━━━━━━━",
+      "                            ",
+      "     ▄▄         ▄ ▄▄▄▄▄▄▄   ",
+      "   ▄▀███▄     ▄██ █████▀    ",
+      "   ██▄▀███▄   ███           ",
+      "   ███  ▀███▄ ███           ",
+      "   ███    ▀██ ███           ",
+      "   ███      ▀ ███           ",
+      "   ▀██ █████▄▀█▀▄██████▄    ",
+      "     ▀ ▀▀▀▀▀▀▀ ▀▀▀▀▀▀▀▀▀▀   ",
+      "                            ",
+      "     Powered By  eovim    ",
+      "                            ",
     },
 
     buttons = {
-      { "  Find File", "Spc s f", "Telescope find_files theme=ivy" },
-      { "󰈚  Recent Files", "Spc s o", "Telescope oldfiles theme=ivy" },
-      { "󰈭  Find Word", "Spc s g", "Telescope live_grep theme=ivy" },
-      { "  Bookmarks", "Spc m a", "Telescope marks theme=ivy" },
-      { "  Themes", "Spc n t", "Telescope themes theme=ivy" },
-      { "  Mappings", "Spc n c", "NvCheatsheet" },
+      { txt = "  Find File", keys = "Spc s f", cmd = "Telescope find_files theme=ivy" },
+      { txt = "  Recent Files", keys = "Spc s o", cmd = "Telescope oldfiles theme=ivy" },
+      { txt = "󰈭  Find Word", keys = "Spc s g", cmd = "Telescope live_grep theme=ivy" },
+      { txt = "󱥚  Themes", keys = "Spc t h", cmd = ":lua require('nvchad.themes').open()" },
+      { txt = "  Mappings", keys = "Spc c h", cmd = "NvCheatsheet" },
+
+      { txt = "─", hl = "NvDashLazy", no_gap = true, rep = true },
+
+      {
+        txt = function()
+          local stats = require("lazy").stats()
+          local ms = math.floor(stats.startuptime) .. " ms"
+          return "  Loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms
+        end,
+        hl = "NvDashLazy",
+        no_gap = true,
+      },
+
+      { txt = "─", hl = "NvDashLazy", no_gap = true, rep = true },
     },
   },
 
@@ -126,6 +144,12 @@ M.ui = {
       "shfmt",
     },
   },
+
+  colorify = {
+    mode = "bg", -- fg, bg, virtual
+    virt_text = "󱓻 ",
+    highlight = { hex = true, lspvars = true },
+  },
 }
 
-return M
+return options
