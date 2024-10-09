@@ -262,6 +262,7 @@ return {
   {
     "smoka7/hop.nvim",
     event = "User FilePost",
+    cmd = { "HopWord" },
     config = function()
       dofile(vim.g.base46_cache .. "hop")
       local hop = require "hop"
