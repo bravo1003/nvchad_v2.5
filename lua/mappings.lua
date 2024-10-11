@@ -66,6 +66,10 @@ end, { desc = "Float diagnostic" })
 -- Nvimtree toggle
 map("n", "<leader>e", "<cmd> NvimTreeToggle <cr>", { desc = "NvimTree Explorer toggle" })
 
+map("n", "<leader>nt", function()
+  require("nvchad.themes").open()
+end, { desc = "Theme Switcher" })
+
 -- Telescope Undo
 map("n", "<leader>u", "<cmd> Telescope undo <cr>", { desc = "Telescope undo" })
 
