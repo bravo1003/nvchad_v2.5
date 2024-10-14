@@ -67,8 +67,11 @@ map("n", "<leader>u", "<cmd> Telescope undo <cr>", { desc = "Telescope undo" })
 map("n", "<leader>gb", "<cmd> Git blame <cr>", { desc = "Git blame" })
 map("n", "<leader>gf", "<cmd> Git reformat <cr>", { desc = "Git reformat (Vewd)" })
 
+map("n", "<leader>nt", function()
+  require("nvchad.themes").open()
+end, { desc = "Theme Switcher" })
 -- File browser
-map("n", "<leader>e", "<cmd> Yazi <cr>", { desc = "Open yazi file manager" })
+map("n", "<C-y>", "<cmd> Yazi <cr>", { desc = "Open yazi file manager" })
 
 -- Copy line without newline
 map("n", "<leader>y", [[^y$]], { desc = "Yank no newline" })
