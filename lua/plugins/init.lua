@@ -531,7 +531,7 @@ return {
           hybridnumber = true,
         },
         autoresize = {
-          width = 86,
+          width = 87,
           minwidth = 10,
         },
       }
