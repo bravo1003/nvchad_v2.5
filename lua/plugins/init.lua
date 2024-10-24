@@ -665,15 +665,21 @@ return {
     -- dependencies = {
     --   "nvim-telescope/telescope-fzf-native.nvim",
     -- },
-    opts = {
-      icons = {
-        ui = {
-          bar = {
-            separator = "  ",
+    config = function()
+      local sep = "  "
+      if vim.g.neovide then
+        sep = " "
+      end
+      require("dropbar").setup {
+        icons = {
+          ui = {
+            bar = {
+              separator = sep,
+            },
           },
         },
-      },
-    },
+      }
+    end,
   },
 
   {
