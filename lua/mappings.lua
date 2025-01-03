@@ -65,7 +65,7 @@ map("n", "<leader>u", "<cmd> Telescope undo <cr>", { desc = "Telescope undo" })
 
 --Gitsign
 map("n", "<leader>gb", "<cmd> Git blame <cr>", { desc = "Git blame" })
-map("n", "<leader>gf", "<cmd> Git reformat <cr>", { desc = "Git reformat (Vewd)" })
+map("n", "<leader>gf", "<cmd> Git cl format <cr>", { desc = "Git format (Xperi)" })
 
 map("n", "<leader>nt", function()
   require("nvchad.themes").open()

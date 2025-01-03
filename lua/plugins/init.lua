@@ -666,19 +666,7 @@ return {
     --   "nvim-telescope/telescope-fzf-native.nvim",
     -- },
     config = function()
-      local sep = "  "
-      if vim.g.neovide then
-        sep = " "
-      end
-      require("dropbar").setup {
-        icons = {
-          ui = {
-            bar = {
-              separator = sep,
-            },
-          },
-        },
-      }
+      require("dropbar").setup {}
     end,
   },
 
