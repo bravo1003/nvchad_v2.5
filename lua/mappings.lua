@@ -77,6 +77,10 @@ map("n", "<C-y>", "<cmd> Yazi <cr>", { desc = "Open yazi file manager" })
 -- Copy line without newline
 map("n", "<leader>y", [[^y$]], { desc = "Yank no newline" })
 
+-- Go to context
+map("n", "<leader>cc", function()
+  require("treesitter-context").go_to_context(vim.v.count1)
+end, { desc = "Go to context" })
 -- Hop
 map("n", "<leader>h", "<cmd> HopWord <cr>", { desc = "Hop Word" })
 map({ "n", "o" }, "<A-h>", function()
