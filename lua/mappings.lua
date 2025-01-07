@@ -73,9 +73,14 @@ end, { desc = "Theme Switcher" })
 -- Telescope Undo
 map("n", "<leader>u", "<cmd> Telescope undo <cr>", { desc = "Telescope undo" })
 
+-- Go to context
+map("n", "<leader>cc", function()
+  require("treesitter-context").go_to_context(vim.v.count1)
+end, { desc = "Telescope undo" })
+
 --Gitsign
 map("n", "<leader>gb", "<cmd> Git blame <cr>", { desc = "Git blame" })
-map("n", "<leader>gf", "<cmd> Git reformat <cr>", { desc = "Git reformat (Vewd)" })
+map("n", "<leader>gf", "<cmd> Git cl format <cr>", { desc = "Format code (Xperi)" })
 
 -- yank line without leading space or newline
 map("n", "<leader>y", "[[^y$]]", { desc = "Yank no newline" })
