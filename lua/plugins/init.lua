@@ -298,7 +298,7 @@ return {
       },
       {
         "<leader>tr",
-        "<cmd>Trouble lsp toggle focus=false<cr>",
+        "<cmd>Trouble lsp toggle<cr>",
         desc = "LSP Definitions / References",
       },
       {
