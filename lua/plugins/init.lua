@@ -385,6 +385,7 @@ return {
           "toggleterm",
           "terminal",
           "dropbar_menu",
+          "fugitiveblame",
         },
       },
     }, -- calls `setup` using provided `opts`
