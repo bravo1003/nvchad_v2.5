@@ -7,17 +7,17 @@ end
 M.keymaps = function()
   -- LSP related
   -- Use telescope gd/gr
-  map("n", "gd", "<cmd> Telescope lsp_definitions theme=ivy <cr>", opts "Go to definition")
-  map("n", "gr", "<cmd> Telescope lsp_references theme=ivy <cr>", opts "Go to references")
+  -- map("n", "gd", "<cmd> Telescope lsp_definitions theme=ivy <cr>", opts "Go to definition")
+  -- map("n", "gr", "<cmd> Telescope lsp_references theme=ivy <cr>", opts "Go to references")
 
   -- Use neovim gd/gr
-  -- map("n", "gr", function()
-  --   vim.lsp.buf.definition()
-  -- end, opts "Go to references")
+  map("n", "gd", function()
+    vim.lsp.buf.definition()
+  end, opts "Go to definition")
   --
-  -- map("n", "gd", function()
-  --   vim.lsp.buf.references()
-  -- end, opts "Go to definition")
+  map("n", "gr", function()
+    vim.lsp.buf.references()
+  end, opts "Go to references")
 
   map("n", "gI", "<cmd> Telescope lsp_implementations theme=ivy <cr>", opts "Go to implementation")
   map("n", "gD", function()
