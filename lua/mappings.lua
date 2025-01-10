@@ -98,6 +98,11 @@ end, { desc = "Format" })
 map({ "n", "v" }, "<leader>la", function()
   require("actions-preview").code_actions()
 end, { desc = "Lsp code action" })
+
+map("n", "<C-left>", "<C-w><left>", { desc = "switch window left" })
+map("n", "<C-right>", "<C-w><right>", { desc = "switch window right" })
+map("n", "<C-down>", "<C-w><down>", { desc = "switch window down" })
+map("n", "<C-up>", "<C-w><up>", { desc = "switch window up" })
 -- Lazygit: You must have external tool "lazygit" installed
 -- Install and uncomment to add keymaps
 -- map("n", "<leader>gg", function()
