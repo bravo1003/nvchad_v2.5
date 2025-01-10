@@ -55,7 +55,7 @@ local options = {
       show_numbers = false,
       enabled = true,
       lazyload = true,
-      order = { "treeOffset", "buffers", "tabs", "btns" },
+      order = { "buffers", "tabs", "btns" },
     },
   },
 
