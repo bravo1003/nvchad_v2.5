@@ -89,6 +89,9 @@ opt.undofile = true
 
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
+-- Do not map tmux navigator since C-\(toggleterm) would be overwritten
+g.tmux_navigator_no_mappings = 1
+
 -- Catppuccin colorscheme
 local base16 = require("base46").get_theme_tb "base_16"
 local colors = require("base46").get_theme_tb "base_30"

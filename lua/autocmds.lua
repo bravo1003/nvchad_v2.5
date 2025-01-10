@@ -75,6 +75,7 @@ local ignore_filetypes = {
   "dapui_console",
   "dap-repl",
   "trouble",
+  "fugitiveblame",
 }
 local ignore_buftypes = { "nowrite", "nofile", "prompt", "popup", "terminal", "quickfix" }
 local augroup_focus = vim.api.nvim_create_augroup("FocusDisable", { clear = true })
