@@ -164,9 +164,7 @@ return {
         "<cmd> Telescope current_buffer_fuzzy_find theme=ivy <cr>",
         desc = "Search current buffer string",
       },
-      { "<leader>nt", "<cmd> Telescope themes <CR>", "Nvchad themes" },
       { "<leader>gc", "<cmd> Telescope git_commits theme=ivy<CR>", desc = "Git commits" },
-      { "<leader>nt", "<cmd> Telescope themes <CR>", desc = "Nvchad themes" },
     },
   },
 
