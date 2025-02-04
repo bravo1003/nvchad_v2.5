@@ -15,9 +15,10 @@ M.treesitter = {
     "dockerfile",
     "devicetree",
     "markdown",
+    "markdown_inline",
     "regex",
     "python",
-    "markdown_inline",
+    "query",
   },
   indent = {
     enable = true,
