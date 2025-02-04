@@ -124,7 +124,7 @@ if g.neovide then
   g.neovide_padding_left = 5
 
   if vim.uv.os_uname().sysname == "Darwin" then
-    opt.guifont = "Fantasquesansm Nerd Font:h21:w1"
+    opt.guifont = "Fantasquesansm Nerd Font Mono:h21:w1"
     g.neovide_input_macos_option_key_is_meta = "only_left"
     g.neovide_underline_stroke_scale = 1.1
     -- This is a custom config that is not on upstream yet
