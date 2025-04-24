@@ -129,11 +129,11 @@ if g.neovide then
     g.neovide_underline_stroke_scale = 1.1
     -- This is a custom config that is not on upstream yet
     g.neovide_underline_offset = -5
-    g.neovide_transparency = 0.85
+    g.neovide_opacity = 0.85
   elseif vim.uv.os_uname().sysname == "Linux" then
     opt.linespace = -1
     opt.guifont = "Fantasquesansm Nerd Font:h16"
-    g.neovide_transparency = 0.85
+    g.neovide_opacity = 0.85
     -- This is a custom config that is not on upstream yet
     g.neovide_underline_offset = -3
   end

@@ -16,7 +16,7 @@ local with_cpplint = {
   none_ls.builtins.formatting.clang_format,
   require "none-ls.formatting.jq",
   -- require "none-ls-luacheck.diagnostics.luacheck",
-  require "none-ls.diagnostics.cpplint",
+  -- require "none-ls.diagnostics.cpplint",
 }
 
 local sources = with_cpplint

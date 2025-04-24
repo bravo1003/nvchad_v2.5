@@ -411,7 +411,7 @@ return {
       require("glow").setup {
         glow_path = bin,
         border = "shadow",
-        style = "$HOME/.config/glow/mocha.json",
+        style = "/home/jliu/.config/glow/mocha.json",
         pager = false,
         width = 120,
         height = 100,
@@ -575,12 +575,12 @@ return {
 
   {
     "rmagatti/gx-extended.nvim",
-    keys = { { "gx", "gx", desc = "Go to url" } },
+    keys = { "gx" },
     config = function()
       require("gx-extended").setup {
         extensions = {
           { -- match github repos in lazy.nvim plugin specs
-            patterns = { "*/plugins/*.lua" },
+            patterns = { "*/plugins/**.lua" },
             name = "neovim plugins",
             match_to_url = function(line_string)
               local line = string.match(line_string, "[\"|'].*/.*[\"|']")
