@@ -296,6 +296,7 @@ M.conform = {
     python = { "black" },
     toml = { "taplo" },
     sh = { "shfmt" },
+    json = { "jq" },
 
     -- css = { "prettier" },
     -- html = { "prettier" },
