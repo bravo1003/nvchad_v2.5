@@ -44,9 +44,10 @@ local formatting_style = {
 local options = {
   completion = {
     keyword_length = 2,
-    completeopt = "menu,menuone",
+    -- completeopt = "menu,menuone",
+    completeopt = "menu,menuone,noselect",
   },
-
+  preselect = cmp.PreselectMode.None,
   snippet = {
     expand = function(args)
       require("luasnip").lsp_expand(args.body)
@@ -81,7 +82,7 @@ local options = {
 
     ["<CR>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
+      select = false,
     },
 
     ["<Tab>"] = cmp.mapping(function(fallback)

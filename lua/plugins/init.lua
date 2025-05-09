@@ -182,11 +182,45 @@ return {
     end,
   },
 
+  -- { import = "nvchad.blink.lazyspec" },
+  --
+  -- {
+  --   "saghen/blink.cmp",
+  --   opts = {
+  --     sources = {
+  --       providers = {
+  --         tabnine = {
+  --           name = "cmp_tabnine",
+  --           enabled = true,
+  --           module = "blink.compat.source",
+  --           -- kind = "TabNine",
+  --           -- source_name = "TabNine",
+  --         },
+  --       },
+  --     },
+  --     cmdline = {
+  --       enabled = true,
+  --     },
+  --     snippets = {
+  --       preset = "luasnip", -- Choose LuaSnip as the snippet engine
+  --     },
+  --   },
+  -- },
+
   {
     "hrsh7th/nvim-cmp",
+    -- enabled = false,
     opts = function()
       return require "configs.cmp"
     end,
+  },
+
+  {
+    "tzachar/cmp-tabnine",
+    -- enabled = false,
+    build = "./install.sh",
+    dependencies = "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
   },
 
   {
@@ -326,19 +360,19 @@ return {
       local hop = require "hop"
       hop.setup { keys = "etovxqpdygfblzhckisuran" }
       -- place this in one of your configuration file(s)
-      local directions = require("hop.hint").HintDirection
-      vim.keymap.set("", "f", function()
-        hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true }
-      end, { remap = true })
-      vim.keymap.set("", "F", function()
-        hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true }
-      end, { remap = true })
-      vim.keymap.set("", "t", function()
-        hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 }
-      end, { remap = true })
-      vim.keymap.set("", "T", function()
-        hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 }
-      end, { remap = true })
+      -- local directions = require("hop.hint").HintDirection
+      -- vim.keymap.set("", "f", function()
+      --   hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true }
+      -- end, { remap = true })
+      -- vim.keymap.set("", "F", function()
+      --   hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true }
+      -- end, { remap = true })
+      -- vim.keymap.set("", "t", function()
+      --   hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 }
+      -- end, { remap = true })
+      -- vim.keymap.set("", "T", function()
+      --   hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 }
+      -- end, { remap = true })
     end,
   },
 
@@ -380,13 +414,6 @@ return {
         desc = "Harpoon add files",
       },
     },
-  },
-
-  {
-    "tzachar/cmp-tabnine",
-    build = "./install.sh",
-    dependencies = "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
   },
 
   {
