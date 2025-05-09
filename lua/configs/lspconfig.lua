@@ -81,7 +81,11 @@ lspconfig.gopls.setup {
     },
   },
 }
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "single",
-})
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {}
+  opts.border = opts.border or "single"
+
+  return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
