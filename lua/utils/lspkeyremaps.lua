@@ -1,7 +1,7 @@
 local M = {}
 local map = vim.keymap.set
 local function opts(desc)
-  return { buffer = bufnr, desc = desc }
+  return { buffer = bufnr, desc = "LSP " .. desc }
 end
 
 M.keymaps = function()

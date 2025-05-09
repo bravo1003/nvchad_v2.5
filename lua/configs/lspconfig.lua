@@ -22,18 +22,13 @@ lspconfig.lua_ls.setup {
   capabilities = capabilities,
   settings = {
     Lua = {
-      diagnostics = {
-        globals = { "vim" },
-      },
       workspace = {
         library = {
-          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
-          [vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types"] = true,
-          [vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy"] = true,
+          vim.fn.expand "$VIMRUNTIME/lua",
+          vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types",
+          vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy",
+          "${3rd}/luv/library",
         },
-        maxPreload = 100000,
-        preloadFileSize = 10000,
       },
     },
   },
@@ -45,7 +40,7 @@ local cmd = {
   "--background-index",
   "-j=4",
   "--all-scopes-completion",
-  -- "--completion-style=detailed",
+  "--completion-style=detailed",
   "--header-insertion=never",
   "--clang-tidy",
   "--offset-encoding=utf-16",

@@ -182,34 +182,30 @@ return {
     end,
   },
 
-  -- { import = "nvchad.blink.lazyspec" },
-  --
-  -- {
-  --   "saghen/blink.cmp",
-  --   opts = {
-  --     sources = {
-  --       providers = {
-  --         tabnine = {
-  --           name = "cmp_tabnine",
-  --           enabled = true,
-  --           module = "blink.compat.source",
-  --           -- kind = "TabNine",
-  --           -- source_name = "TabNine",
-  --         },
-  --       },
-  --     },
-  --     cmdline = {
-  --       enabled = true,
-  --     },
-  --     snippets = {
-  --       preset = "luasnip", -- Choose LuaSnip as the snippet engine
-  --     },
-  --   },
-  -- },
+  { import = "nvchad.blink.lazyspec" },
+
+  {
+    "Saghen/blink.cmp",
+    event = "InsertEnter",
+    dependencies = {
+      "L3MON4D3/LuaSnip",
+      "rafamadriz/friendly-snippets",
+    },
+    opts = {
+      completion = {
+        ghost_text = {
+          enabled = false,
+        },
+        list = {
+          selection = { preselect = false },
+        },
+      },
+    },
+  },
 
   {
     "hrsh7th/nvim-cmp",
-    -- enabled = false,
+    enabled = false,
     opts = function()
       return require "configs.cmp"
     end,
@@ -217,9 +213,15 @@ return {
 
   {
     "tzachar/cmp-tabnine",
-    -- enabled = false,
+    enabled = false,
     build = "./install.sh",
-    dependencies = "hrsh7th/nvim-cmp",
+    dependencies = {
+      {
+        "saghen/blink.compat",
+        version = "*",
+        opts = { impersonate_nvim_cmp = true },
+      },
+    },
     event = "InsertEnter",
   },
 
