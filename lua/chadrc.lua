@@ -37,7 +37,7 @@ local options = {
   ui = {
     cmp = {
       style = "default",
-      selected_item_bg = "colored",
+      abbr_maxwidth = 60,
     },
 
     statusline = {
