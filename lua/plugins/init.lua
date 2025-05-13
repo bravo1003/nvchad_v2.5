@@ -187,17 +187,13 @@ return {
   {
     "Saghen/blink.cmp",
     event = "InsertEnter",
-    dependencies = {
-      "L3MON4D3/LuaSnip",
-      "rafamadriz/friendly-snippets",
-    },
     opts = {
       completion = {
         ghost_text = {
           enabled = false,
         },
         list = {
-          selection = { preselect = false },
+          selection = { preselect = false, auto_insert = true },
         },
       },
     },
@@ -209,20 +205,6 @@ return {
     opts = function()
       return require "configs.cmp"
     end,
-  },
-
-  {
-    "tzachar/cmp-tabnine",
-    enabled = false,
-    build = "./install.sh",
-    dependencies = {
-      {
-        "saghen/blink.compat",
-        version = "*",
-        opts = { impersonate_nvim_cmp = true },
-      },
-    },
-    event = "InsertEnter",
   },
 
   {
