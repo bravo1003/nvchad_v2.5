@@ -38,10 +38,10 @@ lspconfig.lua_ls.setup {
 local cmd = {
   "clangd",
   "--background-index",
-  -- "-j=4",
+  "-j=4",
   -- "--all-scopes-completion",
   "--clang-tidy",
-  "--header-insertion=iwyu",
+  "--header-insertion=never",
   "--completion-style=detailed",
   "--function-arg-placeholders",
   "--fallback-style=llvm",
