@@ -411,25 +411,12 @@ return {
   },
 
   {
-    "npxbr/glow.nvim",
-    cmd = "Glow",
-    ft = "markdown",
-    config = function()
-      local bin = "/usr/bin/glow"
-      if vim.uv.os_uname().sysname == "Darwin" then
-        bin = "/opt/homebrew/bin/glow"
-      end
-      require("glow").setup {
-        glow_path = bin,
-        border = "shadow",
-        style = "/home/jliu/.config/glow/mocha.json",
-        pager = false,
-        width = 120,
-        height = 100,
-        width_ratio = 0.8,
-        height_ratio = 0.8,
-      }
-    end,
+    "MeanderingProgrammer/render-markdown.nvim",
+    ft = { "markdown" },
+    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
   },
 
   {

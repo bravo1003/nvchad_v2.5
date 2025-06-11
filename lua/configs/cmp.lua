@@ -112,6 +112,7 @@ local options = {
     { name = "cmp_tabnine", priority = 30 },
     { name = "buffer", priority = 20 },
     { name = "path", priority = 10 },
+    { name = "render-markdown", priority = 5 },
   },
 }
 
