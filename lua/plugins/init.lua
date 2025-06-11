@@ -655,26 +655,6 @@ return {
   },
 
   {
-    -- Starship prompt plugin for yazi
-    -- https://github.com/Rolv-Apneseth/starship.yazi
-    "Rolv-Apneseth/starship.yazi",
-    lazy = true,
-    build = function(plugin)
-      require("yazi.plugin").build_plugin(plugin, { yazi_dir = vim.fs.normalize "~/.config/yazi/" })
-    end,
-  },
-
-  {
-    -- An archive previewer plugin for Yazi, using ouch.
-    -- https://github.com/ndtoan96/ouch.yazi
-    "ndtoan96/ouch.yazi",
-    lazy = true,
-    build = function(plugin)
-      require("yazi.plugin").build_plugin(plugin)
-    end,
-  },
-
-  {
     "Bekaboo/dropbar.nvim",
     event = "User FilePost",
     -- optional, but required for fuzzy finder support
