@@ -39,11 +39,11 @@ return {
       require "configs.lspconfig"
     end, -- Override to setup mason-lspconfig
   },
-
   {
     "mrcjkb/rustaceanvim",
-    -- lazy = false,
-    ft = { "rust" },
+    version = "^6", -- Recommended
+    lazy = false, -- This plugin is already lazy
+
     init = function()
       vim.g.rustaceanvim = {
         server = {
@@ -51,7 +51,6 @@ return {
         },
       }
     end,
-    version = "^4", -- Recommended
   },
 
   {
@@ -182,26 +181,26 @@ return {
     end,
   },
 
-  { import = "nvchad.blink.lazyspec" },
-
-  {
-    "Saghen/blink.cmp",
-    event = "InsertEnter",
-    opts = {
-      completion = {
-        ghost_text = {
-          enabled = false,
-        },
-        list = {
-          selection = { preselect = false, auto_insert = true },
-        },
-      },
-    },
-  },
+  -- { import = "nvchad.blink.lazyspec" },
+  --
+  -- {
+  --   "Saghen/blink.cmp",
+  --   event = "InsertEnter",
+  --   opts = {
+  --     completion = {
+  --       ghost_text = {
+  --         enabled = false,
+  --       },
+  --       list = {
+  --         selection = { preselect = false, auto_insert = true },
+  --       },
+  --     },
+  --   },
+  -- },
 
   {
     "hrsh7th/nvim-cmp",
-    enabled = false,
+    -- enabled = false,
     opts = function()
       return require "configs.cmp"
     end,
