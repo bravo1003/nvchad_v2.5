@@ -39,6 +39,7 @@ return {
       require "configs.lspconfig"
     end, -- Override to setup mason-lspconfig
   },
+
   {
     "mrcjkb/rustaceanvim",
     version = "^6", -- Recommended
