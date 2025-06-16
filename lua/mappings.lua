@@ -72,7 +72,6 @@ map("n", "<leader>nt", function()
 end, { desc = "Theme Switcher" })
 -- File browser
 map("n", "<leader>e", "<cmd> NvimTreeToggle <cr>", { desc = "NvimTree Explorer toggle" })
-map("n", "<C-y>", "<cmd> Yazi <cr>", { desc = "Open yazi file manager" })
 
 -- Copy line without newline
 map("n", "<leader>y", [[^y$]], { desc = "Yank no newline" })
@@ -87,11 +86,6 @@ map({ "n", "o" }, "<A-h>", function()
   require("tsht").nodes()
 end, { desc = "TreeHopper Visual Selection" })
 
--- Lazygit
-map("n", "<leader>gg", function()
-  require("utils.lazygit").lazygit_toggle()
-end, { desc = "Toggle Lazygit" })
-
 --Lsp
 map("n", "<leader>lf", function()
   require("conform").format { lsp_fallback = true }
@@ -100,38 +94,3 @@ end, { desc = "Format" })
 map("n", "<leader>la", function()
   require("actions-preview").code_actions()
 end, { desc = "Lsp Code Action" })
-
--- Dap
-map("n", "<leader>dr", function()
-  require("dap").continue()
-  require("dapui").open()
-end, { desc = "Start or Continue debugger" })
-map("n", "<leader>dt", function()
-  require("dapui").close()
-  require("dap").terminate()
-end, { desc = "Terminate debugger" })
-map("n", "<leader>db", function()
-  require("dap").toggle_breakpoint()
-end, { desc = "Add breakpoint" })
-map("n", "<leader>dB", function()
-  require("dap").set_breakpoint(vim.fn.input "Condition: ")
-end, { desc = "Add conditional breakpoint" })
-map("n", "<F5>", function()
-  require("dap").continue()
-  require("dapui").open()
-end, { desc = "Start or Continue debugger" })
-map("n", "<F6>", function()
-  require("dap").step_over()
-end, { desc = "Step Over" })
-map("n", "<F7>", function()
-  require("dap").step_into()
-end, { desc = "Step Into" })
-map("n", "<F8>", function()
-  require("dap").step_out()
-end, { desc = "Step Out" })
-
--- Tmux navigator
-map("n", "<C-h>", "<cmd> TmuxNavigateLeft <cr>", { desc = "Tmux navigate left" })
-map("n", "<C-j>", "<cmd> TmuxNavigateDown <cr>", { desc = "Tmux navigate down" })
-map("n", "<C-k>", "<cmd> TmuxNavigateUp <cr>", { desc = "Tmux navigate up" })
-map("n", "<C-l>", "<cmd> TmuxNavigateRight <cr>", { desc = "Tmux navigate right" })
