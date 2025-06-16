@@ -762,6 +762,12 @@ return {
   },
 
   {
+    "Fildo7525/pretty_hover",
+    event = "LspAttach",
+    opts = {},
+  },
+
+  {
     "rmagatti/auto-session",
     lazy = false,
     ---enables autocomplete for opts
