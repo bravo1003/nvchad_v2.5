@@ -6,39 +6,20 @@ local M = {}
 
 ---@type Base46HLGroupsList
 M.override = {
-  -- Normal =                      { bg = "#1E1E2E" },
-  CursorLine =                  { bg = "one_bg" },
-  Visual =                      { bg = "grey_fg" },
-  PmenuSel =                    { bg = "lavender" },
-  FloatBorder =                 { fg = "lavender" },
+  -- CursorLine =                  { bg = "one_bg" },
+  Comment =                     { italic = true },
+  ["@comment"] =                { italic = true },
   LspSignatureActiveParameter = { link = "Visual" },
-  Comment =                     { fg = "light_grey", italic = true },
-  ["@comment"] =                { fg = "light_grey", italic = true },
-  WinSeparator =                { fg = "light_grey" },
-  CursorLineNr =                { fg = "blue" },
 }
 
 ---@type HLTable
 M.add = {
-  TreesitterContext =       { link = "Normal" },
-  TSNodeKey =               { link = "HopNextKey" },
-  TelescopeSelectionCaret = { fg = "green", bg = "one_bg" },
-  ExtraWhitespace =         { bg = "red" },
-  NormalMode =              { fg = "blue"},
-  CommandMode =             { fg = "green" },
-  InsertMode =              { fg = "purple" },
-  VisualMode =              { fg = "cyan" },
-  ReplaceMode =             { fg = "orange" },
-  SelectMode =              { fg = "teal" },
-  TerminalMode =            { fg = "green" },
-  TerminalNormalMode =      { fg = "yellow" },
-  LspInlayHint =            { fg = "light_grey"},
   IlluminatedWordText =     { link = "CursorLine" },
   IlluminatedWordRead =     { link = "CursorLine" },
   IlluminatedWordWrite =    { link = "CursorLine" },
-  -- trouble.nvim background trasnparent in kitty
-  -- TroubleNormalNC =         { link = "Normal" },
-  -- TroubleNormal =           { link = "Normal" },
+  TreesitterContext =       { link = "Normal" },
+  TSNodeKey =               { link = "HopNextKey" },
+  ExtraWhitespace =         { bg = "red" },
 }
 
 return M

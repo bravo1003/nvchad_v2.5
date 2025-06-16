@@ -15,18 +15,10 @@ local options = {
 
     transparency = false,
 
-    changed_themes = {
-      catppuccin = {
-        base_30 = {
-          lavender = "#b4befe",
-        },
-      },
-    },
     hl_add = highlights.add,
     hl_override = highlights.override,
 
     integrations = {
-      "dap",
       "notify",
       "rainbowdelimiters",
       "hop",
