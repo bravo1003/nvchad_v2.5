@@ -182,26 +182,26 @@ return {
     end,
   },
 
-  -- { import = "nvchad.blink.lazyspec" },
-  --
-  -- {
-  --   "Saghen/blink.cmp",
-  --   event = "InsertEnter",
-  --   opts = {
-  --     completion = {
-  --       ghost_text = {
-  --         enabled = false,
-  --       },
-  --       list = {
-  --         selection = { preselect = false, auto_insert = true },
-  --       },
-  --     },
-  --   },
-  -- },
+  { import = "nvchad.blink.lazyspec" },
+
+  {
+    "Saghen/blink.cmp",
+    event = "InsertEnter",
+    opts = {
+      completion = {
+        ghost_text = {
+          enabled = false,
+        },
+        list = {
+          selection = { preselect = false, auto_insert = true },
+        },
+      },
+    },
+  },
 
   {
     "hrsh7th/nvim-cmp",
-    -- enabled = false,
+    enabled = false,
     opts = function()
       return require "configs.cmp"
     end,
@@ -420,6 +420,13 @@ return {
   },
 
   {
+    -- This with render markdown makes hover prettier
+    "Fildo7525/pretty_hover",
+    event = "LspAttach",
+    opts = {},
+  },
+
+  {
     "tpope/vim-fugitive",
     cmd = {
       "G",
@@ -446,7 +453,7 @@ return {
 
   {
     "mawkler/modicator.nvim",
-    event = "BufReadPost",
+    event = "BufReadPre",
     config = function()
       vim.o.termguicolors = true
       vim.o.number = true
@@ -760,12 +767,6 @@ return {
       "TmuxNavigateRight",
       "TmuxNavigatePrevious",
     },
-  },
-
-  {
-    "Fildo7525/pretty_hover",
-    event = "LspAttach",
-    opts = {},
   },
 
   {
