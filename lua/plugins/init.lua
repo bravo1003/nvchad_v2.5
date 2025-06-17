@@ -195,6 +195,9 @@ return {
         list = {
           selection = { preselect = false, auto_insert = true },
         },
+        trigger = {
+          show_on_x_blocked_trigger_characters = { "<", "'", '"', "(" },
+        },
       },
     },
   },
