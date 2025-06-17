@@ -64,7 +64,7 @@ end, { desc = "Float diagnostic" })
 map("n", "<leader>u", "<cmd> Telescope undo <cr>", { desc = "Telescope undo" })
 
 --Gitsign
-map("n", "<leader>gb", "<cmd> Git blame <cr>", { desc = "Git blame" })
+map("n", "<leader>gb", "<cmd> Gitsigns blame <cr>", { desc = "Git blame" })
 map("n", "<leader>gf", "<cmd> Git cl format <cr>", { desc = "Git format (Xperi)" })
 
 map("n", "<leader>nt", function()

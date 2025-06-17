@@ -8,6 +8,11 @@ local options = {
     untracked = { text = "│" },
   },
 
+  preview_config = {
+    -- Options passed to nvim_open_win
+    border = "single",
+  },
+
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
 
