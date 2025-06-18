@@ -137,12 +137,10 @@ return {
 
   {
     "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    dependencies = "HiPhish/rainbow-delimiters.nvim",
-    config = function()
-      dofile(vim.g.base46_cache .. "blankline")
-      require "configs.indent-blankline"
-    end,
+    opts = {
+      -- If you don't want scope to be highlights, uncomment this
+      -- scope = { enabled = false },
+    },
   },
 
   {
