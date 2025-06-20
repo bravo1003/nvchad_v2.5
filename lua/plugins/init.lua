@@ -189,6 +189,9 @@ return {
     event = "InsertEnter",
     opts = {
       completion = {
+        blink = {
+          enabled = true,
+        },
         ghost_text = {
           enabled = false,
         },
@@ -419,7 +422,11 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
-    opts = {},
+    opts = {
+      code = {
+        language_border = "",
+      },
+    },
   },
 
   {
