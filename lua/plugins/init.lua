@@ -189,9 +189,6 @@ return {
     event = "InsertEnter",
     opts = {
       completion = {
-        blink = {
-          enabled = true,
-        },
         ghost_text = {
           enabled = false,
         },
@@ -423,6 +420,11 @@ return {
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {
+      completion = {
+        blink = {
+          enabled = true,
+        },
+      },
       code = {
         language_border = "",
       },
