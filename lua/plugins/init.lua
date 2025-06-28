@@ -420,7 +420,7 @@ return {
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {
-      completion = {
+      completions = {
         blink = {
           enabled = true,
         },
