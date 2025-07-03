@@ -10,8 +10,11 @@ local highlights = require "highlights"
 
 local options = {
   base46 = {
-    theme = "catppuccin", -- default theme
-    theme_toggle = { "catppuccin", "rosepine" },
+    theme = "monekai", -- default theme
+    theme_toggle = { "monekai", "rosepine" },
+    changed_themes = {
+      monekai = require "theme.monokai-pro",
+    },
 
     transparency = false,
 
