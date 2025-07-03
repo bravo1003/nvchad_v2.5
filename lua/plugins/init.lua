@@ -187,7 +187,27 @@ return {
   {
     "Saghen/blink.cmp",
     event = "InsertEnter",
+    dependencies = {
+      "Kaiser-Yang/blink-cmp-avante",
+      "fang2hou/blink-copilot",
+    },
     opts = {
+      sources = {
+        -- Add 'avante' to the list
+        default = { "avante", "copilot" },
+        providers = {
+          avante = {
+            module = "blink-cmp-avante",
+            name = "Avante",
+          },
+          copilot = {
+            name = "copilot",
+            module = "blink-copilot",
+            score_offset = 100,
+            async = true,
+          },
+        },
+      },
       completion = {
         ghost_text = {
           enabled = false,
@@ -413,23 +433,27 @@ return {
     ft = { "markdown" },
   },
 
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown" },
-    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
-    ---@module 'render-markdown'
-    ---@type render.md.UserConfig
-    opts = {
-      completions = {
-        blink = {
-          enabled = true,
-        },
-      },
-      code = {
-        language_border = "",
-      },
-    },
-  },
+  -- {
+  --   "MeanderingProgrammer/render-markdown.nvim",
+  --   ft = { "markdown", "Avante" },
+  --   dependencies = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "echasnovski/mini.nvim",
+  --   }, -- if you use the mini.nvim suite
+  --   ---@module 'render-markdown'
+  --   ---@type render.md.UserConfig
+  --   opts = {
+  --     file_types = { "markdown", "Avante" },
+  --     completions = {
+  --       blink = {
+  --         enabled = true,
+  --       },
+  --     },
+  --     code = {
+  --       language_border = "",
+  --     },
+  --   },
+  -- },
 
   {
     -- This with render markdown makes hover prettier
@@ -798,6 +822,91 @@ return {
       },
       -- suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
       -- log_level = 'debug',
+    },
+  },
+
+  {
+    "yetone/avante.nvim",
+    build = "make",
+    event = "VeryLazy",
+    version = false, -- Never set this value to "*"! Never!
+    ---@module 'avante'
+    ---@type avante.Config
+    opts = {
+      -- add any opts here
+      -- for example
+      provider = "copilot",
+      auto_suggestions_provider = "copilot",
+      windows = {
+        ---@type "right" | "left" | "top" | "bottom"
+        position = "right", -- the position of the sidebar
+        wrap = true, -- similar to vim.o.wrap
+        width = 40, -- default % based on available width
+        sidebar_header = {
+          enabled = true, -- true, false to enable/disable the header
+          align = "center", -- left, center, right for title
+          rounded = false,
+        },
+      },
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      --- The below dependencies are optional,
+      "echasnovski/mini.pick", -- for file_selector provider mini.pick
+      "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+      "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+      "ibhagwan/fzf-lua", -- for file_selector provider fzf
+      "stevearc/dressing.nvim", -- for input provider dressing
+      "folke/snacks.nvim", -- for input provider snacks
+      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+      {
+        "zbirenbaum/copilot.lua",
+        event = "InsertEnter",
+        opts = {
+          suggestion = { enabled = false },
+          panel = { enabled = false },
+          filetypes = {
+            markdown = true,
+            help = true,
+          },
+        },
+      }, -- for providers='copilot'
+      {
+        -- support for image pasting
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {
+          -- recommended settings
+          default = {
+            embed_image_as_base64 = false,
+            prompt_for_file_name = false,
+            drag_and_drop = {
+              insert_mode = true,
+            },
+            -- required for Windows users
+            use_absolute_path = true,
+          },
+        },
+      },
+      {
+        "MeanderingProgrammer/render-markdown.nvim",
+        ft = { "markdown", "Avante" },
+        dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {
+          file_types = { "markdown", "Avante" },
+          completions = {
+            blink = {
+              enabled = true,
+            },
+          },
+          -- code = {
+          --   language_border = "",
+          -- },
+        },
+      },
     },
   },
 }

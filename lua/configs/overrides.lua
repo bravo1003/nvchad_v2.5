@@ -218,6 +218,7 @@ M.which_key = {
     },
   },
   spec = {
+    { "<leader>a", group = "Avante" },
     { "<leader>c", group = "Context" },
     { "<leader>d", group = "Dap" },
     { "<leader>g", group = "Git" },

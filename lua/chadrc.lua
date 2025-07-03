@@ -26,11 +26,13 @@ local options = {
     hl_override = highlights.override,
 
     integrations = {
+      "avante",
       "dap",
       "notify",
       "rainbowdelimiters",
       "hop",
       "todo",
+      "render-markdown",
       "trouble",
     },
   },
