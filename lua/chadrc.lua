@@ -79,9 +79,9 @@ local options = {
     },
 
     buttons = {
-      { txt = "  Find File", keys = "Spc s f", cmd = "Telescope find_files theme=ivy" },
-      { txt = "  Recent Files", keys = "Spc s o", cmd = "Telescope oldfiles theme=ivy" },
-      { txt = "󰈭  Find Word", keys = "Spc s g", cmd = "Telescope live_grep theme=ivy" },
+      { txt = "  Find File", keys = "Spc s f", cmd = "Telescope find_files" },
+      { txt = "  Recent Files", keys = "Spc s o", cmd = "Telescope oldfiles" },
+      { txt = "󰈭  Find Word", keys = "Spc s g", cmd = "Telescope live_grep" },
       { txt = "󱥚  Themes", keys = "Spc t h", cmd = ":lua require('nvchad.themes').open()" },
       { txt = "  Mappings", keys = "Spc c h", cmd = "NvCheatsheet" },
 
