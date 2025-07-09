@@ -1,6 +1,6 @@
 local on_attach = require("utils.lsputils").on_attach
 local on_init = require("utils.lsputils").on_init
-local capabilities = require("utils.lsputils").capabilities
+local capabilities = require('blink.cmp').get_lsp_capabilities()
 local lspconfig = require "lspconfig"
 local lsputils = require "lspconfig.util"
 

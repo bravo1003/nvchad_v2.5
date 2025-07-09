@@ -94,7 +94,7 @@ end, { desc = "Toggle Lazygit" })
 
 --Lsp
 map("n", "<leader>lf", function()
-  require("conform").format { lsp_fallback = true }
+  require("conform").format { lsp_format = "fallback" }
 end, { desc = "Format" })
 
 map("n", "<leader>la", function()

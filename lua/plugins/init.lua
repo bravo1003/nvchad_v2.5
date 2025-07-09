@@ -27,6 +27,8 @@ return {
       dependencies = {
         "gbprod/none-ls-luacheck.nvim",
         "nvimtools/none-ls-extras.nvim",
+        -- for getting lsp capabilities
+        "Saghen/blink.cmp",
       },
       config = function()
         require "configs.none-ls"
@@ -433,28 +435,6 @@ return {
     ft = { "markdown" },
   },
 
-  -- {
-  --   "MeanderingProgrammer/render-markdown.nvim",
-  --   ft = { "markdown", "Avante" },
-  --   dependencies = {
-  --     "nvim-treesitter/nvim-treesitter",
-  --     "echasnovski/mini.nvim",
-  --   }, -- if you use the mini.nvim suite
-  --   ---@module 'render-markdown'
-  --   ---@type render.md.UserConfig
-  --   opts = {
-  --     file_types = { "markdown", "Avante" },
-  --     completions = {
-  --       blink = {
-  --         enabled = true,
-  --       },
-  --     },
-  --     code = {
-  --       language_border = "",
-  --     },
-  --   },
-  -- },
-
   {
     -- This with render markdown makes hover prettier
     "Fildo7525/pretty_hover",
@@ -561,6 +541,7 @@ return {
 
   {
     "nvim-focus/focus.nvim",
+    enabled = false,
     event = "VeryLazy",
     ---@diagnostic disable-next-line: assign-type-mismatch
     version = false,
@@ -902,9 +883,9 @@ return {
               enabled = true,
             },
           },
-          -- code = {
-          --   language_border = "",
-          -- },
+          code = {
+            language_border = "",
+          },
         },
       },
     },
