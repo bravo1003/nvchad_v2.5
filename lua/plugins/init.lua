@@ -23,16 +23,18 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "nvimtools/none-ls.nvim",
-      dependencies = {
-        "gbprod/none-ls-luacheck.nvim",
-        "nvimtools/none-ls-extras.nvim",
-        -- for getting lsp capabilities
-        "Saghen/blink.cmp",
+      {
+        "nvimtools/none-ls.nvim",
+        dependencies = {
+          "gbprod/none-ls-luacheck.nvim",
+          "nvimtools/none-ls-extras.nvim",
+        },
+        config = function()
+          require "configs.none-ls"
+        end, -- Override to setup mason-lspconfig
       },
-      config = function()
-        require "configs.none-ls"
-      end, -- Override to setup mason-lspconfig
+      -- for getting lsp capabilities
+      "Saghen/blink.cmp",
     },
 
     config = function()

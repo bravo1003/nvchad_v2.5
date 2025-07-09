@@ -3,20 +3,18 @@ local none_ls = require "null-ls"
 local without_cpplint = {
   -- none_ls.builtins.completion.spell,
   -- formatting
-  none_ls.builtins.formatting.stylua,
-  none_ls.builtins.formatting.clang_format,
-  require "none-ls.formatting.jq",
+  -- none_ls.builtins.formatting.stylua,
+  -- none_ls.builtins.formatting.clang_format,
   -- require "none-ls-luacheck.diagnostics.luacheck",
 }
 
 local with_cpplint = {
   -- none_ls.builtins.completion.spell,
   -- formatting
-  none_ls.builtins.formatting.stylua,
-  none_ls.builtins.formatting.clang_format,
-  require "none-ls.formatting.jq",
+  -- none_ls.builtins.formatting.stylua,
+  -- none_ls.builtins.formatting.clang_format,
   -- require "none-ls-luacheck.diagnostics.luacheck",
-  -- require "none-ls.diagnostics.cpplint",
+  require "none-ls.diagnostics.cpplint",
 }
 
 local sources = with_cpplint
