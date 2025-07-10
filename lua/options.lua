@@ -82,6 +82,7 @@ opt.number = true
 opt.relativenumber = true
 opt.cursorline = true
 opt.cursorlineopt = "both" -- to enable cursorline!
+opt.laststatus = 3
 
 -- undo history directory
 opt.undodir = os.getenv "HOME" .. "/.vim/undodir"
