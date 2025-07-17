@@ -78,7 +78,6 @@ map("n", "<leader>nt", function()
 end, { desc = "Theme Switcher" })
 -- File browser
 map("n", "<leader>e", "<cmd> NvimTreeToggle <cr>", { desc = "NvimTree Explorer toggle" })
-map("n", "<C-y>", "<cmd> Yazi <cr>", { desc = "Open yazi file manager" })
 
 -- Copy line without newline
 map("n", "<leader>y", [[^y$]], { desc = "Yank no newline" })
@@ -97,7 +96,3 @@ end, { desc = "TreeHopper Visual Selection" })
 map("n", "<leader>lf", function()
   require("conform").format { lsp_format = "fallback" }
 end, { desc = "Format" })
-
-map("n", "<leader>la", function()
-  require("actions-preview").code_actions()
-end, { desc = "Lsp Code Action" })

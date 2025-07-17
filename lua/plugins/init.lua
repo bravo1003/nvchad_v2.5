@@ -466,32 +466,6 @@ return {
   },
 
   {
-    "aznhe21/actions-preview.nvim",
-    config = function()
-      require("actions-preview").setup {
-        highlight_command = {
-          require("actions-preview.highlight").delta "delta --paging=always",
-          -- require("actions-preview.highlight").diff_so_fancy(),
-          -- require("actions-preview.highlight").diff_highlight(),
-        },
-        telescope = {
-          sorting_strategy = "ascending",
-          layout_strategy = "vertical",
-          layout_config = {
-            width = 0.6,
-            -- height = 1,
-            prompt_position = "top",
-            preview_cutoff = 20,
-            preview_height = function(_, _, max_lines)
-              return max_lines - 10
-            end,
-          },
-        },
-      }
-    end,
-  },
-
-  {
     "rmagatti/gx-extended.nvim",
     keys = { "gx" },
     config = function()
@@ -638,7 +612,6 @@ return {
       },
       allowed_dirs = {
         "~/workspace/work/tvsdk",
-        "~/workspace/platform/cheatsheet/",
         "~/.config/nvim/lua",
       },
       -- suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
