@@ -41,15 +41,6 @@ M.treesitter = {
       return true
     end,
   },
-  -- textsubjects = {
-  --   enable = true,
-  --   prev_selection = "<S-tab>",
-  --   keymaps = {
-  --     ["<cr>"] = "textsubjects-smart",
-  --     [";"] = "textsubjects-container-outer",
-  --     ["i;"] = "textsubjects-container-inner",
-  --   },
-  -- },
   textobjects = {
     swap = {
       enable = true,
@@ -189,8 +180,8 @@ M.which_key = {
   triggers = { "<leader>", mode = { "n", "v" } },
 }
 
-local HEIGHT_RATIO = 0.6 -- You can change this
-local WIDTH_RATIO = 0.6 -- You can change this too
+local HEIGHT_RATIO = 0.7 -- You can change this
+local WIDTH_RATIO = 0.7 -- You can change this too
 -- git support in nvimtree
 M.nvimtree = {
   disable_netrw = true,
@@ -211,7 +202,7 @@ M.nvimtree = {
         local center_x = (screen_w - window_w) / 2
         local center_y = ((vim.opt.lines:get() - window_h) / 2) - vim.opt.cmdheight:get()
         return {
-          border = "rounded",
+          border = "single",
           relative = "editor",
           row = center_y,
           col = center_x,

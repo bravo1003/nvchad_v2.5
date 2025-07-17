@@ -8,13 +8,9 @@ local M = {}
 M.override = {
   -- Normal =                      { bg = "#1E1E2E" },
   CursorLine =                  { bg = "one_bg" },
-  Visual =                      { bg = "grey_fg" },
-  PmenuSel =                    { bg = "lavender" },
-  FloatBorder =                 { fg = "lavender" },
   LspSignatureActiveParameter = { link = "Visual" },
   Comment =                     { fg = "light_grey", italic = true },
   ["@comment"] =                { fg = "light_grey", italic = true },
-  WinSeparator =                { fg = "light_grey" },
 }
 
 ---@type HLTable
@@ -23,9 +19,9 @@ M.add = {
   TSNodeKey =               { link = "HopNextKey" },
   ExtraWhitespace =         { bg = "red" },
   LspInlayHint =            { fg = "light_grey"},
-  IlluminatedWordText =     { link = "CursorLine" },
-  IlluminatedWordRead =     { link = "CursorLine" },
-  IlluminatedWordWrite =    { link = "CursorLine" },
+  IlluminatedWordText =     { bg = "one_bg" },
+  IlluminatedWordRead =     { bg = "one_bg" },
+  IlluminatedWordWrite =    { bg = "one_bg" },
 }
 
 return M

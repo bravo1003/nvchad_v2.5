@@ -189,27 +189,7 @@ return {
   {
     "Saghen/blink.cmp",
     event = "InsertEnter",
-    dependencies = {
-      "Kaiser-Yang/blink-cmp-avante",
-      "fang2hou/blink-copilot",
-    },
     opts = {
-      sources = {
-        -- Add 'avante' to the list
-        default = { "avante", "copilot" },
-        providers = {
-          avante = {
-            module = "blink-cmp-avante",
-            name = "Avante",
-          },
-          copilot = {
-            name = "copilot",
-            module = "blink-copilot",
-            score_offset = 100,
-            async = true,
-          },
-        },
-      },
       completion = {
         list = {
           selection = { preselect = false, auto_insert = true },

@@ -10,8 +10,8 @@ local highlights = require "highlights"
 
 local options = {
   base46 = {
-    theme = "monekai", -- default theme
-    theme_toggle = { "monekai", "monekai" },
+    theme = "tokyonight", -- default theme
+    theme_toggle = { "tokyonight", "tokyonight" },
     changed_themes = {
       monekai = require "theme.monokai-pro",
     },
