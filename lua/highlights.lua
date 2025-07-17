@@ -6,7 +6,6 @@ local M = {}
 
 ---@type Base46HLGroupsList
 M.override = {
-  -- Normal =                      { bg = "#1E1E2E" },
   CursorLine =                  { bg = "one_bg" },
   LspSignatureActiveParameter = { link = "Visual" },
   Comment =                     { fg = "light_grey", italic = true },
@@ -15,10 +14,8 @@ M.override = {
 
 ---@type HLTable
 M.add = {
-  TreesitterContext =       { link = "Normal" },
   TSNodeKey =               { link = "HopNextKey" },
   ExtraWhitespace =         { bg = "red" },
-  LspInlayHint =            { fg = "light_grey"},
   IlluminatedWordText =     { bg = "one_bg" },
   IlluminatedWordRead =     { bg = "one_bg" },
   IlluminatedWordWrite =    { bg = "one_bg" },
