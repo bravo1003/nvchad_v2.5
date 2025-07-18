@@ -8,12 +8,13 @@ local M = {}
 M.override = {
   CursorLine =                  { bg = "one_bg" },
   LspSignatureActiveParameter = { link = "Visual" },
-  Comment =                     { fg = "light_grey", italic = true },
-  ["@comment"] =                { fg = "light_grey", italic = true },
+  Comment =                     { italic = true },
+  ["@comment"] =                { italic = true },
 }
 
 ---@type HLTable
 M.add = {
+  TreesitterContext =       { link = "Normal" },
   TSNodeKey =               { link = "HopNextKey" },
   ExtraWhitespace =         { bg = "red" },
   IlluminatedWordText =     { bg = "one_bg" },
