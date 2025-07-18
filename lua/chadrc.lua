@@ -36,8 +36,8 @@ local options = {
     },
 
     statusline = {
-      theme = "vscode_colored",
-      separator_style = "default",
+      theme = "default",
+      separator_style = "block",
       modules = {
         lsp = function()
           return "%#St_Lsp#" .. require("utils.lsp-statusline").lsp_overriden()

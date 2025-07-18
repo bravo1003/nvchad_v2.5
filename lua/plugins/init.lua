@@ -31,15 +31,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      {
-        "nvimtools/none-ls.nvim",
-        -- dependencies = {
-        --   "nvimtools/none-ls-extras.nvim",
-        -- },
-        config = function()
-          require "configs.none-ls"
-        end, -- Override to setup mason-lspconfig
-      },
       -- for getting lsp capabilities
       "Saghen/blink.cmp",
     },
@@ -463,28 +454,6 @@ return {
   },
 
   {
-    "rmagatti/gx-extended.nvim",
-    keys = { "gx" },
-    config = function()
-      require("gx-extended").setup {
-        extensions = {
-          { -- match github repos in lazy.nvim plugin specs
-            patterns = { "*/plugins/**.lua" },
-            name = "neovim plugins",
-            match_to_url = function(line_string)
-              local line = string.match(line_string, "[\"|'].*/.*[\"|']")
-              local repo = vim.split(line, ":")[1]:gsub("[\"|']", "")
-              local url = "https://github.com/" .. repo
-              return line and repo and url or nil
-            end,
-          },
-        },
-        open_fn = require("lazy.util").open,
-      }
-    end,
-  },
-
-  {
     "akinsho/toggleterm.nvim",
     version = "*",
     cmd = {
@@ -519,10 +488,6 @@ return {
   {
     "Bekaboo/dropbar.nvim",
     event = "User FilePost",
-    -- optional, but required for fuzzy finder support
-    -- dependencies = {
-    --   "nvim-telescope/telescope-fzf-native.nvim",
-    -- },
     config = function()
       local sep = " ❯ "
       if vim.g.neovide then
