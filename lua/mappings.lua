@@ -99,7 +99,7 @@ map("n", "<leader>gg", function()
 end, { desc = "Toggle Lazygit" })
 
 --Lsp
-map("n", "<leader>lf", function()
+map({ "n", "v" }, "<leader>lf", function()
   require("conform").format { lsp_format = "fallback" }
 end, { desc = "Format" })
 

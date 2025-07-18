@@ -119,17 +119,17 @@ g.terminal_color_15 = colors.lavender
 if g.neovide then
   opt.pumblend = 10
   opt.winblend = 10
-  g.neovide_padding_top = 3
-  g.neovide_padding_bottom = 2
-  g.neovide_padding_right = 5
-  g.neovide_padding_left = 5
 
   if vim.uv.os_uname().sysname == "Darwin" then
     -- opt.guifont = "JetBrainsMono Nerd Font Mono:h21:w1"
     g.neovide_input_macos_option_key_is_meta = "only_left"
-    g.neovide_underline_stroke_scale = 1.1
+    g.neovide_underline_stroke_scale = 1.5
     g.neovide_opacity = 0.85
   elseif vim.uv.os_uname().sysname == "Linux" then
+    g.neovide_padding_top = 3
+    g.neovide_padding_bottom = 2
+    g.neovide_padding_right = 5
+    g.neovide_padding_left = 5
     g.neovide_underline_stroke_scale = 1.7
     g.neovide_opacity = 0.85
   end
