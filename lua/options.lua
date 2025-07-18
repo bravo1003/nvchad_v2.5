@@ -117,8 +117,8 @@ g.terminal_color_15 = colors.lavender
 
 --- Setup neovide
 if g.neovide then
-  opt.pumblend = 15
-  opt.winblend = 15
+  opt.pumblend = 10
+  opt.winblend = 10
   g.neovide_padding_top = 3
   g.neovide_padding_bottom = 2
   g.neovide_padding_right = 5
