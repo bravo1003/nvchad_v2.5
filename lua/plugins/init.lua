@@ -102,22 +102,6 @@ return {
   },
 
   {
-    "lukas-reineke/virt-column.nvim",
-    event = "User FilePost",
-    opts = {
-      virtcolumn = "100",
-      exclude = {
-        filetypes = {
-          "trouble",
-          "fugitive",
-          "lazygit",
-          "toggleterm",
-        },
-      },
-    },
-  },
-
-  {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
       -- "rrethy/nvim-treesitter-textsubjects",

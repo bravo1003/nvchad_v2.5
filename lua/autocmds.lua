@@ -1,13 +1,3 @@
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  desc = "Change c/c++ comment to linewise",
-  -- group = ...,
-  callback = function()
-    if vim.tbl_contains({ "c", "cpp" }, vim.bo.filetype) then
-      vim.bo.commentstring = "// %s"
-    end
-  end,
-})
-
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -42,21 +32,4 @@ vim.api.nvim_create_autocmd("FileType", {
     end
   end,
   desc = "Disable spell check",
-})
-
-local eighty_columns_filetypes = {
-  "cpp",
-  "c",
-  "markdown",
-  "gitcommit",
-}
-local augroup_colorcolumns = vim.api.nvim_create_augroup("SetColorColumn", { clear = true })
-vim.api.nvim_create_autocmd("BufEnter", {
-  group = augroup_colorcolumns,
-  callback = function(_)
-    if vim.tbl_contains(eighty_columns_filetypes, vim.bo.filetype) then
-      require("virt-column").setup_buffer(0, { virtcolumn = "80" })
-    end
-  end,
-  desc = "Set SetColorColumn according to file",
 })
