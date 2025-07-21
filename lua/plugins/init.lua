@@ -261,7 +261,7 @@ return {
           selection = { preselect = false, auto_insert = true },
         },
         trigger = {
-          show_on_x_blocked_trigger_characters = { "<", "'", '"', "(" },
+          show_on_x_blocked_trigger_characters = { "<", ":", "'", '"', "(" },
         },
       },
     },
@@ -873,7 +873,7 @@ return {
         ---@type "right" | "left" | "top" | "bottom"
         position = "right", -- the position of the sidebar
         wrap = true, -- similar to vim.o.wrap
-        width = 48, -- default % based on available width
+        width = 47, -- default % based on available width
         sidebar_header = {
           enabled = true, -- true, false to enable/disable the header
           align = "center", -- left, center, right for title
