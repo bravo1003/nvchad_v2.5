@@ -191,6 +191,7 @@ M.nvimtree = {
   view = {
     relativenumber = true,
     float = {
+      -- If you want floating style nvimtree, use this one
       enable = false,
       open_win_config = function()
         local screen_w = vim.opt.columns:get()

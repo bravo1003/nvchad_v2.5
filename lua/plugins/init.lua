@@ -30,11 +30,6 @@ return {
 
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      -- for getting lsp capabilities
-      "Saghen/blink.cmp",
-    },
-
     config = function()
       dofile(vim.g.base46_cache .. "lsp")
       require("nvchad.lsp").diagnostic_config()
@@ -170,7 +165,7 @@ return {
           selection = { preselect = false, auto_insert = true },
         },
         trigger = {
-          show_on_x_blocked_trigger_characters = { "<", ":", "'", '"', "(" },
+          show_on_x_blocked_trigger_characters = { "<" },
         },
       },
     },
