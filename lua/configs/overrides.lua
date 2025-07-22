@@ -172,13 +172,13 @@ M.which_key = {
     },
   },
   spec = {
-    { "<leader>a", group = "Avante", mode = {"n" ,"v"}  },
+    { "<leader>a", group = "Avante", mode = { "n", "v" } },
     { "<leader>c", group = "Context" },
     { "<leader>d", group = "Dap" },
     { "<leader>g", group = "Git" },
-    { "<leader>l", group = "Lsp" },
+    { "<leader>l", group = "Lsp", mode = { "n", "v" } },
     { "<leader>n", group = "NvChad" },
-    { "<leader>r", group = "Rename" },
+    { "<leader>r", group = "Rename", mode = { "n", "v" } },
     { "<leader>s", group = "Search" },
     { "<leader>t", group = "Trouble" },
     { "<leader>w", group = "Whichkey" },
@@ -186,7 +186,7 @@ M.which_key = {
   icons = {
     rules = false,
   },
-  triggers = { "<leader>", mode = { "n", "v" } },
+  triggers = { { "<leader>", mode = { "n", "v" } } },
 }
 
 local HEIGHT_RATIO = 0.7 -- You can change this
