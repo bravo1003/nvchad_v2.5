@@ -253,6 +253,9 @@ return {
             module = "blink-copilot",
             score_offset = 100,
             async = true,
+            opts = {
+              max_completions = 1, -- Override global max_completions
+            },
           },
         },
       },
@@ -726,15 +729,11 @@ return {
     --   "nvim-telescope/telescope-fzf-native.nvim",
     -- },
     config = function()
-      local sep = " ❯ "
-      if vim.g.neovide then
-        sep = "❯ "
-      end
       require("dropbar").setup {
         icons = {
           ui = {
             bar = {
-              separator = sep,
+              separator = " ❯ ",
             },
           },
         },
