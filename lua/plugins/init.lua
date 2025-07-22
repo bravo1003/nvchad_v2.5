@@ -181,7 +181,7 @@ return {
     event = "User FilePost",
     config = function()
       dofile(vim.g.base46_cache .. "rainbowdelimiters")
-    end
+    end,
   },
 
   {
@@ -473,19 +473,7 @@ return {
     "Bekaboo/dropbar.nvim",
     event = "User FilePost",
     config = function()
-      local sep = " ❯ "
-      if vim.g.neovide then
-        sep = "❯ "
-      end
-      require("dropbar").setup {
-        icons = {
-          ui = {
-            bar = {
-              separator = sep,
-            },
-          },
-        },
-      }
+      require("dropbar").setup {}
     end,
   },
 
@@ -564,5 +552,4 @@ return {
       -- log_level = 'debug',
     },
   },
-
 }
