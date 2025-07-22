@@ -32,8 +32,6 @@ return {
           require "configs.none-ls"
         end, -- Override to setup mason-lspconfig
       },
-      -- for getting lsp capabilities
-      "Saghen/blink.cmp",
     },
 
     config = function()
@@ -264,7 +262,7 @@ return {
           selection = { preselect = false, auto_insert = true },
         },
         trigger = {
-          show_on_x_blocked_trigger_characters = { "<", ":", "'", '"', "(" },
+          show_on_x_blocked_trigger_characters = { "<" },
         },
       },
     },
