@@ -42,6 +42,7 @@ del("i", "<C-b>")
 map("n", "Q", "<Nop>")
 -- General
 map("n", "<leader>rn", [[:%s/\<lt><C-R><C-W>\>/<C-R><C-W>/gI<Left><Left><Left>]], { desc = "Rename String" })
+map("v", "<leader>rn", [[:s/\<lt><C-R><C-W>\>/<C-R><C-W>/gI<Left><Left><Left>]], { desc = "Rename String" })
 map("n", "<leader>nc", "<cmd> NvCheatsheet <CR>", { desc = "Mapping cheatsheet" })
 
 map("i", "<C-a>", "<ESC>^i", { desc = "Beginning_of_line" })
