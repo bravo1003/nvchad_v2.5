@@ -20,7 +20,6 @@ M.add = {
   IlluminatedWordText =     { bg = "one_bg" },
   IlluminatedWordRead =     { bg = "one_bg" },
   IlluminatedWordWrite =    { bg = "one_bg" },
-  RenderMarkdownCode =      { link = "Noraml" },
 }
 
 return M
