@@ -16,6 +16,9 @@ M.override = {
   ["@comment"] =                { fg = "light_grey", italic = true },
   WinSeparator =                { fg = "light_grey" },
   CursorLineNr =                { fg = "blue" },
+  LspReferenceRead =            { link = "CursorLine" },
+  LspReferenceWrite =           { link = "CursorLine" },
+  LspReferenceText =            { link = "CursorLine" },
 }
 
 ---@type HLTable
