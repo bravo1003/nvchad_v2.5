@@ -6,7 +6,9 @@ local sources = {
   -- none_ls.builtins.formatting.stylua,
   -- none_ls.builtins.formatting.clang_format,
   -- require "none-ls-luacheck.diagnostics.luacheck",
-  none_ls.builtins.diagnostics.cppcheck,
+  none_ls.builtins.diagnostics.cppcheck.with({
+        extra_args = { "--language=c++" },
+    }),
 }
 
 -- local sources = with_cpplint
