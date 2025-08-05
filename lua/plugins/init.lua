@@ -331,7 +331,7 @@ return {
         },
       },
       code = {
-        language_border = "",
+        language_border = " ",
       },
       latex = { enabled = false },
     },
