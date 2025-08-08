@@ -7,9 +7,12 @@ local M = {}
 ---@type Base46HLGroupsList
 M.override = {
   CursorLine =                  { bg = "one_bg" },
-  LspSignatureActiveParameter = { link = "Visual" },
   Comment =                     { italic = true },
   ["@comment"] =                { italic = true },
+  LspSignatureActiveParameter = { link = "Visual" },
+  LspReferenceRead =            { link = "CursorLine" },
+  LspReferenceWrite =           { link = "CursorLine" },
+  LspReferenceText =            { link = "CursorLine" },
 }
 
 ---@type HLTable
