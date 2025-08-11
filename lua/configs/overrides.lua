@@ -86,9 +86,24 @@ M.telescope = {
     },
   },
   extensions = {
+    live_grep_args = {
+      auto_quoting = true, -- enable/disable auto-quoting
+      -- define mappings, e.g.
+      mappings = { -- extend mappings
+        i = {
+          ["<C-k>"] = function (bufnr)
+            require("telescope-live-grep-args.actions").quote_prompt { postfix = " -t" }(bufnr)
+          end,
+          -- freeze the current list and start a fuzzy search in the frozen list,
+          ["<C-space>"] = function (bufnr)
+            require("telescope-live-grep-args.actions").to_fuzzy_refine(bufnr)
+          end
+        },
+      },
+    },
     -- no other extensions here, they can have their own spec too
   },
-  extensions_list = { "themes", "terms", "fzf", "luasnip" },
+  extensions_list = { "themes", "terms", "fzf", "luasnip", "live_grep_args" },
 }
 
 M.trouble = {

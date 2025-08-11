@@ -115,6 +115,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
+      { "nvim-telescope/telescope-live-grep-args.nvim" },
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       { "benfowler/telescope-luasnip.nvim" },
     },
@@ -124,6 +125,13 @@ return {
       { "<leader>sf", "<cmd> Telescope find_files <cr>", desc = "Search all files" },
       { "<leader>sF", "<cmd> Telescope git_files <cr>", desc = "Search git files" },
       { "<leader>sg", "<cmd> Telescope live_grep <cr>", desc = "Search by grep" },
+      {
+        "<leader>sG",
+        function()
+          require("telescope").extensions.live_grep_args.live_grep_args()
+        end,
+        desc = "Search by grep with args",
+      },
       { "<leader>sh", "<cmd> Telescope help_tags <cr>", desc = "Search help tags" },
       { "<leader>sl", "<cmd> Telescope luasnip <cr>", desc = "Search snippets" },
       { "<leader>sw", "<cmd> Telescope grep_string <cr>", desc = "Search current word" },
