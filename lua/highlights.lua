@@ -40,7 +40,6 @@ M.add = {
   IlluminatedWordRead =     { link = "CursorLine" },
   IlluminatedWordWrite =    { link = "CursorLine" },
   SnacksPickerTitle =       { bg = "lavender", fg = "black" },
-  -- RenderMarkDownDash =      { link = "RenderMarkDownH1BG" },
 }
 
 return M
