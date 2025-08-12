@@ -91,13 +91,13 @@ M.telescope = {
       -- define mappings, e.g.
       mappings = { -- extend mappings
         i = {
-          ["<C-k>"] = function (bufnr)
+          ["<C-k>"] = function(bufnr)
             require("telescope-live-grep-args.actions").quote_prompt { postfix = " -t" }(bufnr)
           end,
           -- freeze the current list and start a fuzzy search in the frozen list,
-          ["<C-space>"] = function (bufnr)
+          ["<C-space>"] = function(bufnr)
             require("telescope-live-grep-args.actions").to_fuzzy_refine(bufnr)
-          end
+          end,
         },
       },
     },
@@ -178,7 +178,7 @@ M.which_key = {
     },
   },
   spec = {
-    { "<leader>a", group = "Avante", mode = {"n" ,"v"}  },
+    { "<leader>a", group = "Avante", mode = { "n", "v" } },
     { "<leader>c", group = "Context" },
     { "<leader>d", group = "Dap" },
     { "<leader>g", group = "Git" },
