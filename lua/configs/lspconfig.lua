@@ -26,7 +26,11 @@ local lua_lsp_settings = {
     },
   },
 }
-vim.lsp.config("lua_ls", { settings = lua_lsp_settings })
+vim.lsp.config("lua_ls", {
+  on_init = on_init,
+  filetypes = { "lua" },
+  settings = lua_lsp_settings,
+})
 vim.lsp.enable "lua_ls"
 
 -- Setup Clangd server
@@ -53,14 +57,16 @@ if vim.uv.os_uname().sysname == "Linux" then
 end
 
 vim.lsp.config("clang", {
+  on_init = on_init,
   cmd = cmd,
-  filetypes = { "c",  "cpp", "objc", "objcpp", "cuda" },
-  root_markers = { "compile_commands.json", ".git" },
+  filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+  root_markers = { ".clangd", "compile_commands.json" },
 })
 vim.lsp.enable "clang"
 
 -- Setup Gopls server
 vim.lsp.config("gopls", {
+  on_init = on_init,
   cmd = { "gopls" },
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
   root_markers = { "go.work", "go.mod", ".git" },
@@ -76,8 +82,8 @@ vim.lsp.config("gopls", {
 })
 vim.lsp.enable "gopls"
 
+-- Add a border the hover docs
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-
 function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   opts = opts or {}
   opts.border = opts.border or "single"
