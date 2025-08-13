@@ -895,6 +895,9 @@ return {
         provider = "telescope",
         -- Options override for custom providers
       },
+      behaviour = {
+        use_cwd_as_project_root = true,
+      },
     },
   },
 }
