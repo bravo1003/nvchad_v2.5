@@ -4,8 +4,51 @@ return {
   -- Disabled plugin
   {
     "nvim-tree/nvim-tree.lua",
-    -- enabled = false,
+    enabled = false,
     opts = overrides.nvimtree,
+  },
+
+  {
+    "mikavilpas/yazi.nvim",
+    enabled = false,
+    cmd = { "Yazi" },
+    opts = {
+      yazi_floating_window_winblend = 5,
+      yazi_floating_window_border = "single",
+      highlight_groups = {
+        -- See https://github.com/mikavilpas/yazi.nvim/pull/180
+        hovered_buffer = nil,
+        -- See https://github.com/mikavilpas/yazi.nvim/pull/351
+        hovered_buffer_in_same_directory = nil,
+      },
+    },
+  },
+
+  {
+    "hrsh7th/nvim-cmp",
+    enabled = false,
+  },
+
+  {
+    "nvim-focus/focus.nvim",
+    enabled = false,
+    event = "VeryLazy",
+    ---@diagnostic disable-next-line: assign-type-mismatch
+    version = false,
+    config = function()
+      local map = vim.keymap.set
+      require("focus").setup {
+        ui = {
+          hybridnumber = true,
+        },
+        autoresize = {
+          width = 87,
+          minwidth = 10,
+        },
+      }
+      map("n", "<C-w>s", "<cmd> FocusSplitDown <cr>", { desc = "Horizontal Split" })
+      map("n", "<C-w>v", "<cmd> FocusSplitRight <cr>", { desc = "Vertical Split" })
+    end,
   },
 
   -- Enabled plugin
@@ -69,80 +112,15 @@ return {
       {
         "echasnovski/mini.icons",
         version = false,
-        dofile(vim.g.base46_cache .. "mini-icons")
+        config = function()
+          dofile(vim.g.base46_cache .. "mini-icons")
+        end,
       },
     },
     priority = 1000,
     lazy = false,
     ---@type snacks.Config
-    opts = {
-      bigfile = { enabled = true },
-      explorer = { enabled = true },
-      picker = {
-        enabled = true,
-        sources = {
-          explorer = {
-            auto_close = true,
-            -- your explorer picker configuration comes here
-            -- or leave it empty to use the default settings
-            layout = "telescope_explorer",
-          },
-        },
-        layout = "telescope",
-        layouts = {
-          telescope = {
-            layout = {
-              box = "horizontal",
-              backdrop = false,
-              width = 0.9,
-              height = 0.9,
-              border = "none",
-              {
-                box = "vertical",
-                {
-                  win = "input",
-                  height = 1,
-                  border = "single",
-                  title = "{title} {live} {flags}",
-                  title_pos = "center",
-                },
-                { win = "list", title = " Results ", title_pos = "center", border = "single" },
-              },
-              {
-                win = "preview",
-                title = "{preview:Preview}",
-                width = 0.5,
-                border = "single",
-                title_pos = "center",
-              },
-            },
-          },
-          telescope_explorer = {
-            layout = {
-              box = "horizontal",
-              backdrop = false,
-              width = 0.8,
-              height = 0.8,
-              border = "none",
-              {
-                box = "vertical",
-                {
-                  win = "input",
-                  height = 1,
-                  border = "single",
-                  title = "{title} {live} {flags}",
-                  title_pos = "center",
-                },
-                { win = "list", title = " Results ", title_pos = "center", border = "single" },
-              },
-            },
-          },
-        },
-      },
-      notifier = { enabled = true },
-      words = { enabled = true },
-      input = { enabled = true },
-    },
+    opts = overrides.snacks,
   },
 
   {
@@ -320,11 +298,6 @@ return {
         },
       },
     },
-  },
-
-  {
-    "hrsh7th/nvim-cmp",
-    enabled = false,
   },
 
   {
@@ -645,28 +618,6 @@ return {
   },
 
   {
-    "nvim-focus/focus.nvim",
-    enabled = false,
-    event = "VeryLazy",
-    ---@diagnostic disable-next-line: assign-type-mismatch
-    version = false,
-    config = function()
-      local map = vim.keymap.set
-      require("focus").setup {
-        ui = {
-          hybridnumber = true,
-        },
-        autoresize = {
-          width = 87,
-          minwidth = 10,
-        },
-      }
-      map("n", "<C-w>s", "<cmd> FocusSplitDown <cr>", { desc = "Horizontal Split" })
-      map("n", "<C-w>v", "<cmd> FocusSplitRight <cr>", { desc = "Vertical Split" })
-    end,
-  },
-
-  {
     "fei6409/log-highlight.nvim",
     ft = "log",
     config = function()
@@ -755,28 +706,8 @@ return {
   },
 
   {
-    "mikavilpas/yazi.nvim",
-    -- enabled = false,
-    cmd = { "Yazi" },
-    opts = {
-      yazi_floating_window_winblend = 5,
-      yazi_floating_window_border = "single",
-      highlight_groups = {
-        -- See https://github.com/mikavilpas/yazi.nvim/pull/180
-        hovered_buffer = nil,
-        -- See https://github.com/mikavilpas/yazi.nvim/pull/351
-        hovered_buffer_in_same_directory = nil,
-      },
-    },
-  },
-
-  {
     "Bekaboo/dropbar.nvim",
     event = "User FilePost",
-    -- optional, but required for fuzzy finder support
-    -- dependencies = {
-    --   "nvim-telescope/telescope-fzf-native.nvim",
-    -- },
     config = function()
       require("dropbar").setup {
         icons = {
@@ -912,29 +843,6 @@ return {
     version = false, -- Never set this value to "*"! Never!
     ---@module 'avante'
     ---@type avante.Config
-    opts = {
-      -- add any opts here
-      -- for example
-      provider = "copilot",
-      auto_suggestions_provider = "copilot",
-      windows = {
-        ---@type "right" | "left" | "top" | "bottom"
-        position = "right", -- the position of the sidebar
-        wrap = true, -- similar to vim.o.wrap
-        width = 47, -- default % based on available width
-        sidebar_header = {
-          enabled = true, -- true, false to enable/disable the header
-          align = "center", -- left, center, right for title
-          rounded = false,
-        },
-      },
-      selector = {
-        provider = "telescope",
-        -- Options override for custom providers
-      },
-      behaviour = {
-        use_cwd_as_project_root = true,
-      },
-    },
+    opts = overrides.avante,
   },
 }

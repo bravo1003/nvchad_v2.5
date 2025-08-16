@@ -204,6 +204,63 @@ M.which_key = {
   triggers = { { "<leader>", mode = { "n", "v" } } },
 }
 
+M.snacks = {
+  bigfile = { enabled = true },
+  explorer = { enabled = true },
+  picker = {
+    enabled = true,
+    sources = {
+      explorer = {
+        auto_close = true,
+        layout = "select",
+      },
+    },
+    layout = "telescope",
+    layouts = {
+      telescope = {
+        reverse = false,
+        layout = {
+          box = "horizontal",
+          backdrop = false,
+          width = 0.9,
+          height = 0.9,
+          border = "none",
+          {
+            box = "vertical",
+            {
+              win = "input",
+              height = 1,
+              border = "single",
+              title = "{title} {live} {flags}",
+              title_pos = "center",
+            },
+            { win = "list", title_pos = "center", border = "single" },
+          },
+          {
+            win = "preview",
+            title = "{preview:Preview}",
+            width = 0.5,
+            border = "single",
+            title_pos = "center",
+          },
+        },
+      },
+      select = {
+        preview = false,
+        layout = {
+          backdrop = false,
+          width = 0.6,
+          height = 0.6,
+          border = "single",
+        },
+      },
+    },
+  },
+  notifier = { enabled = true },
+  words = { enabled = true },
+  input = { enabled = true },
+}
+
 local HEIGHT_RATIO = 0.7 -- You can change this
 local WIDTH_RATIO = 0.7 -- You can change this too
 -- git support in nvimtree
@@ -274,6 +331,31 @@ M.conform = {
     -- Use the "_" filetype to run formatters on filetypes that don't
     -- have other formatters configured.
     ["_"] = { "trim_whitespace" },
+  },
+}
+
+M.avante = {
+  -- add any opts here
+  -- for example
+  provider = "copilot",
+  auto_suggestions_provider = "copilot",
+  windows = {
+    ---@type "right" | "left" | "top" | "bottom"
+    position = "right", -- the position of the sidebar
+    wrap = true, -- similar to vim.o.wrap
+    width = 47, -- default % based on available width
+    sidebar_header = {
+      enabled = true, -- true, false to enable/disable the header
+      align = "center", -- left, center, right for title
+      rounded = false,
+    },
+  },
+  selector = {
+    provider = "telescope",
+    -- Options override for custom providers
+  },
+  behaviour = {
+    use_cwd_as_project_root = true,
   },
 }
 

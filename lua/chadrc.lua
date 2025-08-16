@@ -40,7 +40,6 @@ local options = {
       "todo",
       "treesitter",
       "trouble",
-      "vim-illuminate",
       "whichkey",
     },
   },
