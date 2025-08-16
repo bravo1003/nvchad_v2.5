@@ -195,6 +195,63 @@ M.which_key = {
   triggers = { "<leader>", mode = { "n", "v" } },
 }
 
+M.snacks = {
+  bigfile = { enabled = true },
+  explorer = { enabled = true },
+  picker = {
+    enabled = true,
+    sources = {
+      explorer = {
+        auto_close = true,
+        layout = "select",
+      },
+    },
+    layout = "telescope",
+    layouts = {
+      telescope = {
+        reverse = false,
+        layout = {
+          box = "horizontal",
+          backdrop = false,
+          width = 0.9,
+          height = 0.9,
+          border = "none",
+          {
+            box = "vertical",
+            {
+              win = "input",
+              height = 1,
+              border = "single",
+              title = "{title} {live} {flags}",
+              title_pos = "center",
+            },
+            { win = "list", title_pos = "center", border = "single" },
+          },
+          {
+            win = "preview",
+            title = "{preview:Preview}",
+            width = 0.5,
+            border = "single",
+            title_pos = "center",
+          },
+        },
+      },
+      select = {
+        preview = false,
+        layout = {
+          backdrop = false,
+          width = 0.6,
+          height = 0.6,
+          border = "single",
+        },
+      },
+    },
+  },
+  notifier = { enabled = true },
+  words = { enabled = true },
+  input = { enabled = true },
+}
+
 local HEIGHT_RATIO = 0.7 -- You can change this
 local WIDTH_RATIO = 0.7 -- You can change this too
 -- git support in nvimtree

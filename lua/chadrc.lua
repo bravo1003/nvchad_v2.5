@@ -22,11 +22,19 @@ local options = {
 
     integrations = {
       "avante",
-      "rainbowdelimiters",
+      "blink",
+      "dap",
+      "devicons",
       "hop",
-      "todo",
+      "mini-icons",
+      "notify",
+      "rainbowdelimiters",
       "render-markdown",
+      "telescope",
+      "todo",
+      "treesitter",
       "trouble",
+      "whichkey",
     },
   },
   ui = {

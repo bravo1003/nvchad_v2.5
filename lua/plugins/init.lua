@@ -43,48 +43,18 @@ return {
 
   {
     "folke/snacks.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      {
+        "echasnovski/mini.icons",
+        version = false,
+        dofile(vim.g.base46_cache .. "mini-icons")
+      },
+    },
     priority = 1000,
     lazy = false,
     ---@type snacks.Config
-    opts = {
-      bigfile = { enabled = true },
-      picker = {
-        enabled = true,
-        layout = "my_telescope_top",
-        layouts = {
-          my_telescope_top = {
-            layout = {
-              box = "horizontal",
-              backdrop = false,
-              width = 0.9,
-              height = 0.9,
-              border = "none",
-              {
-                box = "vertical",
-                {
-                  win = "input",
-                  height = 1,
-                  border = "single",
-                  title = "{title} {live} {flags}",
-                  title_pos = "center",
-                },
-                { win = "list", title = " Results ", title_pos = "center", border = "single" },
-              },
-              {
-                win = "preview",
-                title = "{preview:Preview}",
-                width = 0.5,
-                border = "single",
-                title_pos = "center",
-              },
-            },
-          },
-        },
-      },
-      notifier = { enabled = true },
-      words = { enabled = true },
-      input = { enabled = true },
-    },
+    opts = overrides.snacks,
   },
 
   {
