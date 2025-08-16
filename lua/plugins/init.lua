@@ -64,16 +64,33 @@ return {
 
   {
     "folke/snacks.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      {
+        "echasnovski/mini.icons",
+        version = false,
+        dofile(vim.g.base46_cache .. "mini-icons")
+      },
+    },
     priority = 1000,
     lazy = false,
     ---@type snacks.Config
     opts = {
       bigfile = { enabled = true },
+      explorer = { enabled = true },
       picker = {
         enabled = true,
-        layout = "my_telescope_top",
+        sources = {
+          explorer = {
+            auto_close = true,
+            -- your explorer picker configuration comes here
+            -- or leave it empty to use the default settings
+            layout = "telescope_explorer",
+          },
+        },
+        layout = "telescope",
         layouts = {
-          my_telescope_top = {
+          telescope = {
             layout = {
               box = "horizontal",
               backdrop = false,
@@ -97,6 +114,26 @@ return {
                 width = 0.5,
                 border = "single",
                 title_pos = "center",
+              },
+            },
+          },
+          telescope_explorer = {
+            layout = {
+              box = "horizontal",
+              backdrop = false,
+              width = 0.8,
+              height = 0.8,
+              border = "none",
+              {
+                box = "vertical",
+                {
+                  win = "input",
+                  height = 1,
+                  border = "single",
+                  title = "{title} {live} {flags}",
+                  title_pos = "center",
+                },
+                { win = "list", title = " Results ", title_pos = "center", border = "single" },
               },
             },
           },

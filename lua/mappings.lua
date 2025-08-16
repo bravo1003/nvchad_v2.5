@@ -78,7 +78,10 @@ map("n", "<leader>nt", function()
   require("nvchad.themes").open()
 end, { desc = "Theme Switcher" })
 -- File browser
-map("n", "<leader>e", "<cmd> NvimTreeToggle <cr>", { desc = "NvimTree Explorer toggle" })
+-- map("n", "<leader>e", "<cmd> NvimTreeToggle <cr>", { desc = "NvimTree Explorer toggle" })
+map("n", "<leader>e", function()
+  Snacks.explorer()
+end, { desc = "File Explorer" })
 map("n", "<C-y>", "<cmd> Yazi <cr>", { desc = "Open yazi file manager" })
 
 -- Copy line without newline

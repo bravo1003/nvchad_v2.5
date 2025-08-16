@@ -28,13 +28,20 @@ local options = {
 
     integrations = {
       "avante",
+      "blink",
       "dap",
+      "devicons",
+      "hop",
+      "mini-icons",
       "notify",
       "rainbowdelimiters",
-      "hop",
-      "todo",
       "render-markdown",
+      "telescope",
+      "todo",
+      "treesitter",
       "trouble",
+      "vim-illuminate",
+      "whichkey",
     },
   },
   ui = {
