@@ -19,6 +19,7 @@ local options = {
       catppuccin = {
         base_30 = {
           lavender = "#b4befe",
+          light_grey = "#6c7086",
         },
       },
     },

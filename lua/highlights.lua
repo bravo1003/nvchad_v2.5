@@ -15,6 +15,7 @@ M.override = {
   ["@comment"] =                { fg = "light_grey", italic = true },
   WinSeparator =                { fg = "light_grey" },
   CursorLineNr =                { fg = "blue" },
+  LineNr =                      { fg = "light_grey" },
   LspReferenceRead =            { link = "CursorLine" },
   LspReferenceWrite =           { link = "CursorLine" },
   LspReferenceText =            { link = "CursorLine" },
