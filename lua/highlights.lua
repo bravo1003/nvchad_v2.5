@@ -6,7 +6,6 @@ local M = {}
 
 ---@type Base46HLGroupsList
 M.override = {
-  -- Normal =                      { bg = "#1E1E2E" },
   CursorLine =                  { bg = "one_bg" },
   Visual =                      { bg = "grey_fg" },
   PmenuSel =                    { bg = "lavender" },
