@@ -109,13 +109,6 @@ return {
     "folke/snacks.nvim",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
-      {
-        "echasnovski/mini.icons",
-        version = false,
-        config = function()
-          dofile(vim.g.base46_cache .. "mini-icons")
-        end,
-      },
     },
     priority = 1000,
     lazy = false,
@@ -242,7 +235,6 @@ return {
     event = "VeryLazy",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
-      "echasnovski/mini.icons",
     },
     opts = overrides.which_key,
     config = function(_, opts)
@@ -823,8 +815,8 @@ return {
       "MunifTanjim/nui.nvim",
       "MeanderingProgrammer/render-markdown.nvim",
       --- The below dependencies are optional,
-      "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+      "nvim-telescope/telescope.nvim",
+      "nvim-tree/nvim-web-devicons",
       {
         "zbirenbaum/copilot.lua",
         event = "InsertEnter",

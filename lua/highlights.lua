@@ -11,7 +11,6 @@ M.override = {
   CursorLine =                  { bg = "one_bg" },
   CursorLineNr =                { fg = "blue" },
   FloatBorder =                 { fg = "lavender" },
-  MiniIconsAzure =              { fg = "blue" },
   LineNr =                      { fg = "light_grey" },
   LspSignatureActiveParameter = { link = "Visual" },
   LspReferenceRead =            { link = "CursorLine" },
