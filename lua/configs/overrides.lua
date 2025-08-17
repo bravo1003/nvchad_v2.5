@@ -207,9 +207,7 @@ M.which_key = {
 M.snacks = {
   bigfile = { enabled = true },
   explorer = { enabled = true },
-  lazygit = {
-    configure = false,
-  },
+  lazygit = { configure = false },
   picker = {
     enabled = true,
     sources = {
