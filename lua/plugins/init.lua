@@ -590,21 +590,7 @@ return {
     opts = {
       hlgroup = "ExtraWhitespace",
       filetype = {
-        exclude = {
-          "diff",
-          "git",
-          "gitcommit",
-          "unite",
-          "qf",
-          "help",
-          "markdown",
-          "fugitive",
-          "lazygit",
-          "toggleterm",
-          "terminal",
-          "dropbar_menu",
-          "fugitiveblame",
-        },
+        exclude = overrides.ignored_filetypes,
       },
     }, -- calls `setup` using provided `opts`
   },
@@ -718,17 +704,7 @@ return {
     event = "User FilePost",
     config = function()
       require("illuminate").configure {
-        filetypes_denylist = {
-          "dirvish",
-          "fugitive",
-          "NvimTree",
-          "mason",
-          "lazy",
-          "toggleterm",
-          "harpoon",
-          "telescope",
-          "log",
-        },
+        filetypes_denylist = overrides.ignored_filetypes,
         modes_allowlist = { "n" },
       }
     end,
@@ -745,23 +721,7 @@ return {
           "quickfix",
           "prompt",
         },
-        ignore_filetype = {
-          "gitcommit",
-          "gitrebase",
-          "hgcommit",
-          "svn",
-          "NvimTree",
-          "undotree",
-          "diff",
-          "toggleterm",
-          "dapui_scopes",
-          "dapui_breakpoints",
-          "dapui_stacks",
-          "dapui_watchtes",
-          "dapui_console",
-          "dap-repl",
-          "trouble",
-        },
+        ignore_filetype = overrides.ignored_filetypes,
       }
     end,
   },
