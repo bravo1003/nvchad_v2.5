@@ -6,19 +6,21 @@ local M = {}
 
 ---@type Base46HLGroupsList
 M.override = {
-  CursorLine =                  { bg = "one_bg" },
-  Visual =                      { bg = "grey_fg" },
-  PmenuSel =                    { bg = "lavender" },
-  FloatBorder =                 { fg = "lavender" },
-  LspSignatureActiveParameter = { link = "Visual" },
   Comment =                     { fg = "light_grey", italic = true },
   ["@comment"] =                { fg = "light_grey", italic = true },
-  WinSeparator =                { fg = "light_grey" },
+  CursorLine =                  { bg = "one_bg" },
   CursorLineNr =                { fg = "blue" },
+  FloatBorder =                 { fg = "lavender" },
+  MiniIconsAzure =              { fg = "blue" },
   LineNr =                      { fg = "light_grey" },
+  LspSignatureActiveParameter = { link = "Visual" },
   LspReferenceRead =            { link = "CursorLine" },
   LspReferenceWrite =           { link = "CursorLine" },
   LspReferenceText =            { link = "CursorLine" },
+  -- LspInlayHint =                { fg = "light_grey", bg = "black" },
+  PmenuSel =                    { bg = "lavender" },
+  WinSeparator =                { fg = "light_grey" },
+  Visual =                      { bg = "grey_fg" },
 }
 
 ---@type HLTable
@@ -35,7 +37,6 @@ M.add = {
   SelectMode =                  { fg = "teal" },
   TerminalMode =                { fg = "green" },
   TerminalNormalMode =          { fg = "yellow" },
-  LspInlayHint =                { fg = "light_grey"},
   IlluminatedWordText =         { link = "CursorLine" },
   IlluminatedWordRead =         { link = "CursorLine" },
   IlluminatedWordWrite =        { link = "CursorLine" },
