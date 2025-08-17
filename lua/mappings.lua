@@ -76,7 +76,9 @@ end, { desc = "Theme Switcher" })
 
 -- Snacks undo
 map("n", "<leader>u", function()
-  Snacks.picker.undo()
+  Snacks.picker.undo {
+    focus = "list",
+  }
 end, { desc = "Snacks undo" })
 
 -- Snacks explorer
