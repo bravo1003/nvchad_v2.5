@@ -75,7 +75,15 @@ end, { desc = "Theme Switcher" })
 -- File browser
 -- map("n", "<leader>e", "<cmd> NvimTreeToggle <cr>", { desc = "NvimTree Explorer toggle" })
 map("n", "<leader>e", function()
-  Snacks.explorer()
+  Snacks.explorer {
+    win = {
+      list = {
+        wo = {
+          relativenumber = true,
+        },
+      },
+    },
+  }
 end, { desc = "File Explorer" })
 
 -- Snacks terminal
