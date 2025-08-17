@@ -7,13 +7,12 @@ return {
     enabled = false,
   },
 
+  -- Enabled plugin
   {
     "nvim-tree/nvim-tree.lua",
-    enabled = false,
     opts = overrides.nvimtree,
   },
 
-  -- Enabled plugin
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save

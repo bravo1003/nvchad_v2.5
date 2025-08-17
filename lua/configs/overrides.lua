@@ -202,7 +202,8 @@ M.snacks = {
     enabled = true,
     sources = {
       explorer = {
-        auto_close = true,
+        diagnostics = false,
+        jump = { close = true },
         layout = "select",
       },
     },

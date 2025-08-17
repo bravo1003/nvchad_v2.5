@@ -73,18 +73,18 @@ map("n", "<leader>nt", function()
   require("nvchad.themes").open()
 end, { desc = "Theme Switcher" })
 -- File browser
--- map("n", "<leader>e", "<cmd> NvimTreeToggle <cr>", { desc = "NvimTree Explorer toggle" })
-map("n", "<leader>e", function()
-  Snacks.explorer {
-    win = {
-      list = {
-        wo = {
-          relativenumber = true,
-        },
-      },
-    },
-  }
-end, { desc = "File Explorer" })
+map("n", "<leader>e", "<cmd> NvimTreeToggle <cr>", { desc = "NvimTree Explorer toggle" })
+-- map("n", "<leader>e", function()
+--   Snacks.explorer {
+--     win = {
+--       list = {
+--         wo = {
+--           relativenumber = true,
+--         },
+--       },
+--     },
+--   }
+-- end, { desc = "File Explorer" })
 
 -- Snacks terminal
 map({ "n", "t" }, "<C-\\>", function()
@@ -93,7 +93,7 @@ end, { desc = "Snacks terminal" })
 
 -- Snacks Undo
 map("n", "<leader>u", function()
-  Snacks.picker.undo()
+  Snacks.picker.undo { focus = "list" }
 end, { desc = "Snacks undo" })
 
 -- Lazygit
