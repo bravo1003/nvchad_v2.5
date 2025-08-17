@@ -168,12 +168,7 @@ return {
     opts = {
       virtcolumn = "100",
       exclude = {
-        filetypes = {
-          "trouble",
-          "fugitive",
-          "lazygit",
-          "toggleterm",
-        },
+        filetypes = overrides.ignored_filetypes,
       },
     },
   },
@@ -412,26 +407,11 @@ return {
 
   {
     "smoka7/hop.nvim",
-    -- cmd = { "HopWordCurrentLine", "HopWord" },
     event = "User FilePost",
     config = function()
       dofile(vim.g.base46_cache .. "hop")
       local hop = require "hop"
       hop.setup { keys = "etovxqpdygfblzhckisuran" }
-      -- place this in one of your configuration file(s)
-      -- local directions = require("hop.hint").HintDirection
-      -- vim.keymap.set("", "f", function()
-      --   hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true }
-      -- end, { remap = true })
-      -- vim.keymap.set("", "F", function()
-      --   hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true }
-      -- end, { remap = true })
-      -- vim.keymap.set("", "t", function()
-      --   hop.hint_char1 { direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 }
-      -- end, { remap = true })
-      -- vim.keymap.set("", "T", function()
-      --   hop.hint_char1 { direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 }
-      -- end, { remap = true })
     end,
   },
 
@@ -649,38 +629,6 @@ return {
         open_fn = require("lazy.util").open,
       }
     end,
-  },
-
-  {
-    "akinsho/toggleterm.nvim",
-    version = "*",
-    cmd = {
-      "ToggleTerm",
-      "TermExec",
-    },
-
-    config = function()
-      require("toggleterm").setup {
-        direction = "float",
-        open_mapping = "<C-\\>",
-        terminal_mappings = true,
-        on_open = function(term)
-          vim.cmd "startinsert!"
-          vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
-        end,
-        on_close = function(_) end,
-        float_opts = {
-          winblend = 5,
-        },
-      }
-      function _G.set_terminal_keymaps()
-        local opts = { noremap = true }
-        vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
-      end
-
-      vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
-    end,
-    keys = { { "<C-\\>", mode = { "n", "t" } } },
   },
 
   {

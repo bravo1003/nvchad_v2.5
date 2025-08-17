@@ -82,7 +82,11 @@ end, { desc = "Theme Switcher" })
 map("n", "<leader>e", function()
   Snacks.explorer()
 end, { desc = "File Explorer" })
-map("n", "<C-y>", "<cmd> Yazi <cr>", { desc = "Open yazi file manager" })
+-- map("n", "<C-y>", "<cmd> Yazi <cr>", { desc = "Open yazi file manager" })
+
+map({"n", "t"}, "<C-\\>", function()
+  Snacks.terminal()
+end, { desc = "Terminal" })
 
 -- Copy line without newline
 map("n", "<leader>y", [[^y$]], { desc = "Yank no newline" })
@@ -99,7 +103,7 @@ end, { desc = "TreeHopper Visual Selection" })
 
 -- Lazygit
 map("n", "<leader>gg", function()
-  require("utils.lazygit").lazygit_toggle()
+  Snacks.lazygit()
 end, { desc = "Toggle Lazygit" })
 
 --Lsp
