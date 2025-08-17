@@ -62,11 +62,6 @@ map("n", "<leader>f", function()
   vim.diagnostic.open_float { border = "rounded" }
 end, { desc = "Float diagnostic" })
 
--- Telescope Undo
-map("n", "<leader>u", function()
-  Snacks.picker.undo()
-end, { desc = "Snacks undo" })
-
 -- tab close
 map("n", "<leader>X", "<cmd> tabc <cr>", { desc = "tab close" })
 
@@ -78,11 +73,25 @@ map("n", "<leader>nt", function()
   require("nvchad.themes").open()
 end, { desc = "Theme Switcher" })
 -- File browser
-map("n", "<leader>e", "<cmd> NvimTreeToggle <cr>", { desc = "NvimTree Explorer toggle" })
--- map("n", "<leader>e", function()
---   Snacks.explorer()
--- end, { desc = "File Explorer" })
-map("n", "<C-y>", "<cmd> Yazi <cr>", { desc = "Open yazi file manager" })
+-- map("n", "<leader>e", "<cmd> NvimTreeToggle <cr>", { desc = "NvimTree Explorer toggle" })
+map("n", "<leader>e", function()
+  Snacks.explorer()
+end, { desc = "File Explorer" })
+
+-- Snacks terminal
+map({ "n", "t" }, "<C-\\>", function()
+  Snacks.terminal()
+end, { desc = "Snacks terminal" })
+
+-- Snacks Undo
+map("n", "<leader>u", function()
+  Snacks.picker.undo()
+end, { desc = "Snacks undo" })
+
+-- Lazygit
+map("n", "<leader>gg", function()
+  Snacks.lazygit()
+end, { desc = "Lazygit" })
 
 -- Copy line without newline
 map("n", "<leader>y", [[^y$]], { desc = "Yank no newline" })

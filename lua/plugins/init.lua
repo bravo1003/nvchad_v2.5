@@ -9,7 +9,7 @@ return {
 
   {
     "nvim-tree/nvim-tree.lua",
-    -- enabled = false,
+    enabled = false,
     opts = overrides.nvimtree,
   },
 
@@ -45,11 +45,6 @@ return {
     "folke/snacks.nvim",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
-      {
-        "echasnovski/mini.icons",
-        version = false,
-        dofile(vim.g.base46_cache .. "mini-icons")
-      },
     },
     priority = 1000,
     lazy = false,
@@ -120,7 +115,6 @@ return {
     event = "VeryLazy",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
-      "echasnovski/mini.icons",
     },
     opts = overrides.which_key,
     config = function(_, opts)
@@ -257,38 +251,6 @@ return {
   },
 
   {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      require("harpoon"):setup {
-        settings = {
-          save_on_toggle = true,
-        },
-      }
-    end,
-    keys = {
-      {
-        "<C-e>",
-        function()
-          require("utils.harpoon").toggle_menu()
-        end,
-        desc = "Harpoon toggle",
-      },
-      {
-        "<C-a>",
-        function()
-          require("utils.harpoon").add_file()
-        end,
-        desc = "Harpoon add files",
-      },
-    },
-  },
-
-  {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = "cd app && yarn install",
@@ -389,21 +351,7 @@ return {
     opts = {
       hlgroup = "ExtraWhitespace",
       filetype = {
-        exclude = {
-          "diff",
-          "git",
-          "gitcommit",
-          "unite",
-          "qf",
-          "help",
-          "markdown",
-          "fugitive",
-          "lazygit",
-          "toggleterm",
-          "terminal",
-          "dropbar_menu",
-          "fugitiveblame",
-        },
+        exclude = overrides.ignored_filetypes,
       },
     }, -- calls `setup` using provided `opts`
   },
@@ -414,38 +362,6 @@ return {
     config = function()
       require("log-highlight").setup {}
     end,
-  },
-
-  {
-    "akinsho/toggleterm.nvim",
-    version = "*",
-    cmd = {
-      "ToggleTerm",
-      "TermExec",
-    },
-
-    config = function()
-      require("toggleterm").setup {
-        direction = "float",
-        open_mapping = "<C-\\>",
-        terminal_mappings = true,
-        on_open = function(term)
-          vim.cmd "startinsert!"
-          vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
-        end,
-        on_close = function(_) end,
-        float_opts = {
-          winblend = 5,
-        },
-      }
-      function _G.set_terminal_keymaps()
-        local opts = { noremap = true }
-        vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
-      end
-
-      vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
-    end,
-    keys = { { "<C-\\>", mode = { "n", "t" } } },
   },
 
   {
@@ -461,17 +377,7 @@ return {
     event = "User FilePost",
     config = function()
       require("illuminate").configure {
-        filetypes_denylist = {
-          "dirvish",
-          "fugitive",
-          "NvimTree",
-          "mason",
-          "lazy",
-          "toggleterm",
-          "harpoon",
-          "telescope",
-          "log",
-        },
+        filetypes_denylist = overrides.ignored_filetypes,
         modes_allowlist = { "n" },
       }
     end,
@@ -488,16 +394,7 @@ return {
           "quickfix",
           "prompt",
         },
-        ignore_filetype = {
-          "gitcommit",
-          "gitrebase",
-          "hgcommit",
-          "svn",
-          "NvimTree",
-          "diff",
-          "toggleterm",
-          "trouble",
-        },
+        ignore_filetype = overrides.ignored_filetypes,
       }
     end,
   },
@@ -509,8 +406,6 @@ return {
     opts = {
       snippet_engine = "luasnip",
     },
-    -- Uncomment next line if you want to follow only stable versions
-    -- version = "*"
   },
 
   {

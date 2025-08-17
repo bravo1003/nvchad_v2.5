@@ -26,7 +26,6 @@ local options = {
       "dap",
       "devicons",
       "hop",
-      "mini-icons",
       "notify",
       "rainbowdelimiters",
       "render-markdown",

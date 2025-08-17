@@ -92,7 +92,7 @@ M.telescope = {
       mappings = { -- extend mappings
         i = {
           ["<C-k>"] = function(bufnr)
-            require("telescope-live-grep-args.actions").quote_prompt { postfix = " -t" }(bufnr)
+            require("telescope-live-grep-args.actions").quote_prompt { postfix = "-w -t" }(bufnr)
           end,
           -- freeze the current list and start a fuzzy search in the frozen list,
           ["<C-space>"] = function(bufnr)
@@ -247,6 +247,18 @@ M.snacks = {
       },
     },
   },
+  styles = {
+    lazygit = {
+      width = vim.opt.columns:get(),
+      height = vim.opt.lines:get(),
+    },
+    terminal = {
+      position = "float",
+      border = "single",
+      width = 0.8,
+      height = 0.8,
+    },
+  },
   notifier = { enabled = true },
   words = { enabled = true },
   input = { enabled = true },
@@ -324,6 +336,41 @@ M.conform = {
     -- have other formatters configured.
     ["_"] = { "trim_whitespace" },
   },
+}
+
+M.ignored_filetypes = {
+  "Avante",
+  "AvanteSelectedFiles",
+  "AvanteTodos",
+  "AvanteInput",
+  "dap-repl",
+  "dapui_scopes",
+  "dapui_breakpoints",
+  "dapui_stacks",
+  "dapui_watchtes",
+  "dapui_console",
+  "diff",
+  "dirvish",
+  "dropbar_menu",
+  "fugitive",
+  "fugitiveblame",
+  "gitcommit",
+  "gitrebase",
+  "help",
+  "hgcommit",
+  "svn",
+  "harpoon",
+  "lazy",
+  "log",
+  "markdown",
+  "mason",
+  "NvimTree",
+  "terminal",
+  "trouble",
+  "telescope",
+  "undotree",
+  "unite",
+  "qf",
 }
 
 return M
