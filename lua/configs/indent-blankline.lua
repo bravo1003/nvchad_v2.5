@@ -21,17 +21,7 @@ require("ibl").setup {
     highlight = highlight,
   },
   exclude = {
-    filetypes = {
-      "help",
-      "terminal",
-      "lazy",
-      "lspinfo",
-      "mason",
-      "nvdash",
-      "nvcheatsheet",
-      "noice",
-      "NvimTree",
-    },
+    filetypes = require("configs.overrides").ignored_filetypes,
   },
 }
 
