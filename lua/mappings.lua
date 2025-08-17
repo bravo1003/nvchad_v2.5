@@ -82,11 +82,19 @@ end, { desc = "Snacks undo" })
 -- Snacks explorer
 -- map("n", "<leader>e", "<cmd> NvimTreeToggle <cr>", { desc = "NvimTree Explorer toggle" })
 map("n", "<leader>e", function()
-  Snacks.explorer()
+  Snacks.explorer {
+    win = {
+      list = {
+        wo = {
+          relativenumber = true,
+        },
+      },
+    },
+  }
 end, { desc = "File Explorer" })
 -- map("n", "<C-y>", "<cmd> Yazi <cr>", { desc = "Open yazi file manager" })
 
-map({"n", "t"}, "<C-\\>", function()
+map({ "n", "t" }, "<C-\\>", function()
   Snacks.terminal()
 end, { desc = "Snack Terminal" })
 
