@@ -259,6 +259,7 @@ M.snacks = {
       height = 0.8,
     },
   },
+  terminal = { enabled = true },
   notifier = { enabled = true },
   words = { enabled = true },
   input = { enabled = true },
