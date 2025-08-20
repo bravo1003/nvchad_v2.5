@@ -85,6 +85,18 @@ end, { desc = "Snacks undo" })
 -- map("n", "<leader>e", "<cmd> NvimTreeToggle <cr>", { desc = "NvimTree Explorer toggle" })
 map("n", "<leader>e", function()
   Snacks.explorer {
+    -- icons = {
+    --   files = {
+    --     dir = "󰉋 ",
+    --     dir_open = "󰝰 ",
+    --     file = "󰈔 ",
+    --   },
+    -- },
+    -- formatters = {
+    --   file = {
+    --     icon_width = 2, -- width of the icon (in characters)
+    --   },
+    -- },
     win = {
       list = {
         wo = {
