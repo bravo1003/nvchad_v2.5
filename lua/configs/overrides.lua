@@ -1,5 +1,14 @@
 local M = {}
 
+M.mason = {
+  ui = {
+    icons = {
+      package_installed = "●",
+      package_uninstalled = "○",
+    },
+  },
+}
+
 M.treesitter = {
   ensure_installed = {
     "vim",
