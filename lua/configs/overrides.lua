@@ -209,13 +209,6 @@ M.snacks = {
   explorer = { enabled = true },
   picker = {
     enabled = true,
-    sources = {
-      explorer = {
-        diagnostics = false,
-        jump = { close = true },
-        layout = "select",
-      },
-    },
     layout = "telescope",
     layouts = {
       telescope = {
@@ -244,15 +237,6 @@ M.snacks = {
             border = "single",
             title_pos = "center",
           },
-        },
-      },
-      select = {
-        preview = false,
-        layout = {
-          backdrop = false,
-          width = 0.6,
-          height = 0.6,
-          border = "single",
         },
       },
     },
@@ -287,7 +271,7 @@ M.nvimtree = {
     relativenumber = true,
     float = {
       -- If you want floating style nvimtree, use this one
-      enable = false,
+      enable = true,
       open_win_config = function()
         local screen_w = vim.opt.columns:get()
         local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
@@ -376,6 +360,8 @@ M.ignored_filetypes = {
   "markdown",
   "mason",
   "NvimTree",
+  "snacks_picker_list",
+  "snacks_terminal",
   "terminal",
   "trouble",
   "telescope",
