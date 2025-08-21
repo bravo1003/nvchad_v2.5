@@ -24,6 +24,7 @@ M.add = {
   IlluminatedWordRead =     { bg = "one_bg" },
   IlluminatedWordWrite =    { bg = "one_bg" },
   RenderMarkdownCode =      { link = "black" },
+  SnacksPickerBorder =      { fg = "blue", bg = "darker_black" },
 }
 
 return M
