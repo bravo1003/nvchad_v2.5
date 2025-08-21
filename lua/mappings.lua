@@ -81,7 +81,7 @@ end, { desc = "Theme Switcher" })
 map("n", "<leader>e", function()
   Snacks.explorer {
     diagnostics = false,
-    -- jump = { close = true },
+    jump = { close = false },
     preview = false,
     layout = {
       layout = {
