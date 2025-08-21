@@ -41,6 +41,7 @@ M.add = {
   IlluminatedWordWrite =        { link = "CursorLine" },
   SnacksPickerListCursorLine =  { link = "CursorLine" },
   SnacksPickerTitle =           { bg = "lavender", fg = "black" },
+  SnacksPickerBorder =          { fg = "lavender", bg = "darker_black" },
 }
 
 return M

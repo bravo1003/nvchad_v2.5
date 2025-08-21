@@ -264,6 +264,9 @@ M.snacks = {
       border = "single",
       width = 0.8,
       height = 0.8,
+      wo = {
+        winhighlight = "NormalFloat:Normal",
+      },
     },
   },
   terminal = { enabled = true },

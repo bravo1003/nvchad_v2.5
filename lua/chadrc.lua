@@ -67,7 +67,7 @@ local options = {
       modules = {
         treeOffset = function()
           local w = require("utils.nvchad_modules_override").getSnackExplorerWidth()
-          return w == 0 and "" or "%#Normal#" .. string.rep(" ", w) .. "%#WinSeparator#" .. "│"
+          return w == 0 and "" or "%#SnacksPickerBorder#" .. string.rep(" ", w) .. "%#WinSeparator#" .. "│"
         end,
       },
     },
