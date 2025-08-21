@@ -53,7 +53,7 @@ local options = {
       separator_style = "default",
       modules = {
         lsp = function()
-          return "%#St_Lsp#" .. require("utils.lsp-statusline").lsp_overriden()
+          return "%#St_Lsp#" .. require("utils.nvchad_modules_override").lsp_overriden()
         end,
       },
     },
@@ -63,7 +63,13 @@ local options = {
       show_numbers = false,
       enabled = true,
       lazyload = true,
-      order = { "buffers", "tabs", "btns" },
+      order = { "treeOffset", "buffers", "tabs", "btns" },
+      modules = {
+        treeOffset = function()
+          local w = require("utils.nvchad_modules_override").getSnackExplorerWidth()
+          return w == 0 and "" or "%#Normal#" .. string.rep(" ", w) .. "%#WinSeparator#" .. "│"
+        end,
+      },
     },
   },
 

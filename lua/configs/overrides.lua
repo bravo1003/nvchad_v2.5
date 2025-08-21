@@ -222,13 +222,6 @@ M.snacks = {
   lazygit = { configure = false },
   picker = {
     enabled = true,
-    sources = {
-      explorer = {
-        diagnostics = false,
-        jump = { close = true },
-        layout = "select",
-      },
-    },
     layout = "telescope",
     layouts = {
       telescope = {
@@ -257,15 +250,6 @@ M.snacks = {
             border = "single",
             title_pos = "center",
           },
-        },
-      },
-      select = {
-        preview = false,
-        layout = {
-          backdrop = false,
-          width = 0.6,
-          height = 0.6,
-          border = "single",
         },
       },
     },
@@ -417,6 +401,7 @@ M.ignored_filetypes = {
   "nvdash",
   "nvcheatsheet",
   "NvimTree",
+  "snacks_picker_list",
   "snacks_terminal",
   "terminal",
   "trouble",

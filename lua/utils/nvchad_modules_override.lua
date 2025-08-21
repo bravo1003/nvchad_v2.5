@@ -19,4 +19,14 @@ M.lsp_overriden = function()
   return ""
 end
 
+
+M.getSnackExplorerWidth = function()
+  for _, win in pairs(vim.api.nvim_tabpage_list_wins(0)) do
+    if vim.bo[vim.api.nvim_win_get_buf(win)].ft == "snacks_picker_list" then
+      return vim.api.nvim_win_get_width(win)
+    end
+  end
+  return 0
+end
+
 return M
