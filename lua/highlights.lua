@@ -10,7 +10,6 @@ M.override = {
   ["@comment"] =                { fg = "light_grey", italic = true },
   CursorLine =                  { bg = "one_bg" },
   CursorLineNr =                { fg = "blue" },
-  FloatBorder =                 { fg = "lavender", bg = "darker_black" },
   LineNr =                      { fg = "light_grey" },
   LspSignatureActiveParameter = { link = "Visual" },
   LspReferenceRead =            { link = "CursorLine" },
@@ -41,6 +40,7 @@ M.add = {
   IlluminatedWordWrite =        { link = "CursorLine" },
   SnacksPickerListCursorLine =  { link = "CursorLine" },
   SnacksPickerTitle =           { bg = "lavender", fg = "black" },
+  SnacksPickerBorder =          { fg = "lavender", bg = "darker_black" },
 }
 
 return M
