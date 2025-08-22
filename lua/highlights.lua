@@ -11,13 +11,13 @@ M.override = {
   CursorLine =                  { bg = "one_bg" },
   CursorLineNr =                { fg = "blue" },
   LineNr =                      { fg = "light_grey" },
-  LspSignatureActiveParameter = { link = "Visual" },
+  -- LspInlayHint =                { fg = "light_grey", bg = "darker_black" },
   LspReferenceRead =            { link = "CursorLine" },
   LspReferenceWrite =           { link = "CursorLine" },
   LspReferenceText =            { link = "CursorLine" },
-  LspInlayHint =                { fg = "light_grey", bg = "darker_black" },
+  LspSignatureActiveParameter = { link = "Visual" },
   PmenuSel =                    { bg = "lavender" },
-  WinSeparator =                { fg = "light_grey" },
+  -- WinSeparator =                { fg = "light_grey" },
   Visual =                      { bg = "grey_fg" },
 }
 
