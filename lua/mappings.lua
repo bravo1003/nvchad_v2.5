@@ -80,6 +80,7 @@ end, { desc = "Theme Switcher" })
 -- Snacks explorer
 map("n", "<leader>e", function()
   Snacks.explorer {
+    matcher = { fuzzy = true },
     diagnostics = false,
     jump = { close = false },
     preview = false,
