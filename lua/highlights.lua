@@ -15,7 +15,7 @@ M.override = {
   LspReferenceRead =            { link = "CursorLine" },
   LspReferenceWrite =           { link = "CursorLine" },
   LspReferenceText =            { link = "CursorLine" },
-  -- LspInlayHint =                { fg = "light_grey", bg = "black" },
+  LspInlayHint =                { fg = "light_grey", bg = "darker_black" },
   PmenuSel =                    { bg = "lavender" },
   WinSeparator =                { fg = "light_grey" },
   Visual =                      { bg = "grey_fg" },
