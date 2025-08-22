@@ -79,53 +79,13 @@ end, { desc = "Theme Switcher" })
 
 -- Snacks explorer
 map("n", "<leader>e", function()
-  Snacks.explorer {
-    matcher = { fuzzy = true },
-    diagnostics = false,
-    jump = { close = false },
-    preview = false,
-    layout = {
-      layout = {
-        backdrop = false,
-        width = 40,
-        min_width = 40,
-        height = 0,
-        position = "left",
-        border = "none",
-        box = "vertical",
-        {
-          win = "input",
-          height = 1,
-          border = "bottom",
-        },
-        { win = "list", border = "none" },
-      },
-    },
-    -- layout = {
-    --   layout = {
-    --     backdrop = false,
-    --     width = 0.2,
-    --     min_width = 40,
-    --     height = 0.6,
-    --     min_height = 3,
-    --     box = "vertical",
-    --     border = "single",
-    --     title = "{title}",
-    --     title_pos = "center",
-    --     { win = "input", height = 1, border = "bottom" },
-    --     { win = "list", border = "none" },
-    --     { win = "preview", title = "{preview}", height = 0.6, border = "top" },
-    --   },
-    -- },
-    -- win = {
-    --   list = {
-    --     wo = {
-    --       relativenumber = true,
-    --     },
-    --   },
-    -- },
-  }
-end, { desc = "File Explorer" })
+  local current = Snacks.picker.get({ source = "explorer" })[1]
+  if current then
+    current:focus()
+  else
+    Snacks.explorer(require("configs.overrides").snacks_explorer)
+  end
+end, { desc = "Snacks File Explorer" })
 
 map({ "n", "t" }, "<C-\\>", function()
   Snacks.terminal()
