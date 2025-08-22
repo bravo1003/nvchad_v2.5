@@ -328,7 +328,7 @@ M.nvimtree = {
 }
 
 M.snacks_explorer = {
-  matcher = { fuzzy = true },
+  matcher = { fuzzy = false },
   diagnostics = false,
   jump = { close = false },
   preview = false,
