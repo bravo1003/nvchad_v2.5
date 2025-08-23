@@ -77,7 +77,12 @@ end, { desc = "Theme Switcher" })
 -- Snacks undo
 map("n", "<leader>u", function()
   Snacks.picker.undo {
-    focus = "list",
+    previewers = {
+      diff = {
+        builtin = false, -- use Neovim for previewing diffs (true) or use an external tool (false)
+        cmd = { "delta" }, -- example to show a diff with delta
+      },
+    },
   }
 end, { desc = "Snacks undo" })
 
@@ -103,6 +108,10 @@ end, { desc = "Snack Terminal" })
 map("n", "<leader>gg", function()
   Snacks.lazygit()
 end, { desc = "Toggle Lazygit" })
+
+map("n", "<leader>N", function()
+  Snacks.picker.notifications {}
+end, { desc = "Snacks Notifications" })
 
 -- Copy line without newline
 map("n", "<leader>y", [[^y$]], { desc = "Yank no newline" })

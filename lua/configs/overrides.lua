@@ -349,6 +349,7 @@ M.snacks_explorer = {
       { win = "list", border = "none" },
     },
   },
+  -- auto_close = true,
   -- layout = {
   --   layout = {
   --     backdrop = false,
