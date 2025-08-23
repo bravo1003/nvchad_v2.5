@@ -334,10 +334,11 @@ M.snacks_explorer = {
       { win = "list", border = "none" },
     },
   },
+  -- auto_close = true,
   -- layout = {
   --   layout = {
   --     backdrop = false,
-  --     width = 0.2,
+  --     width = 0.5,
   --     min_width = 40,
   --     height = 0.6,
   --     min_height = 3,

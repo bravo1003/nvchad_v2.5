@@ -93,7 +93,7 @@ end, { desc = "Snacks terminal" })
 
 -- Snacks Undo
 map("n", "<leader>u", function()
-  Snacks.picker.undo { focus = "list" }
+  Snacks.picker.undo {}
 end, { desc = "Snacks undo" })
 
 -- Lazygit
