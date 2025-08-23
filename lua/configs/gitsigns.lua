@@ -34,6 +34,9 @@ local options = {
     map("n", "<leader>gR", function()
       gs.reset_buffer()
     end, { desc = "Reset buffer" })
+    map("n", "<leader>gb", function()
+      gs.blame()
+    end, { desc = "Git blame" })
   end,
 }
 

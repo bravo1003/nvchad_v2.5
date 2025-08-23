@@ -65,8 +65,7 @@ end, { desc = "Float diagnostic" })
 -- tab close
 map("n", "<leader>X", "<cmd> tabc <cr>", { desc = "tab close" })
 
---Gitsign
-map("n", "<leader>gb", "<cmd> Gitsigns blame <cr>", { desc = "Git blame" })
+-- Xperi
 map("n", "<leader>gf", "<cmd> Git cl format <cr>", { desc = "Git format (Xperi)" })
 
 map("n", "<leader>nt", function()
