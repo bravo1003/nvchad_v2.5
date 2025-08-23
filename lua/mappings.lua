@@ -66,7 +66,6 @@ end, { desc = "Float diagnostic" })
 map("n", "<leader>X", "<cmd> tabc <cr>", { desc = "tab close" })
 
 --Gitsign
-map("n", "<leader>gb", "<cmd> Gitsigns blame <cr>", { desc = "Git blame" })
 map("n", "<leader>gf", "<cmd> Git cl format <cr>", { desc = "Git format (Xperi)" })
 
 -- Theme switcher
