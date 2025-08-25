@@ -7,6 +7,7 @@
 
 -- Path to overriding theme and highlights files
 local highlights = require "highlights"
+local utils = require "utils.nvchad_modules_override"
 
 local options = {
   base46 = {
@@ -53,20 +54,19 @@ local options = {
       separator_style = "default",
       modules = {
         lsp = function()
-          return "%#St_Lsp#" .. require("utils.nvchad_modules_override").lsp_overriden()
+          return "%#St_Lsp#" .. utils.lsp_overriden()
         end,
       },
     },
 
     -- lazyload it when there are 1+ buffers
     tabufline = {
-      show_numbers = false,
       enabled = true,
       lazyload = true,
       order = { "treeOffset", "buffers", "tabs", "btns" },
       modules = {
         treeOffset = function()
-          local w = require("utils.nvchad_modules_override").getSnackExplorerWidth()
+          local w = utils.getSnackExplorerWidth()
           return w == 0 and "" or "%#SnacksPickerBorder#" .. string.rep(" ", w) .. "%#WinSeparator#" .. "│"
         end,
       },
