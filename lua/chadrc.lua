@@ -57,13 +57,13 @@ local options = {
     tabufline = {
       enabled = true,
       lazyload = true,
-      order = { "treeOffset", "buffers", "tabs", "btns" },
-      modules = {
-        treeOffset = function()
-          local w = utils.getSnackExplorerWidth()
-          return w == 0 and "" or "%#Normal#" .. string.rep(" ", w) .. "%#WinSeparator#" .. "│"
-        end,
-      },
+      order = { "buffers", "tabs", "btns" },
+      -- modules = {
+      --   treeOffset = function()
+      --     local w = utils.getSnackExplorerWidth()
+      --     return w == 0 and "" or "%#Normal#" .. string.rep(" ", w) .. "%#WinSeparator#" .. "│"
+      --   end,
+      -- },
     },
   },
 
