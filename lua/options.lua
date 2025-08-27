@@ -130,7 +130,7 @@ if g.neovide then
     -- g.neovide_padding_bottom = 2
     -- g.neovide_padding_right = 5
     g.neovide_padding_left = 5
-    g.neovide_underline_stroke_scale = 1.5
+    g.neovide_underline_stroke_scale = 1.7
     g.neovide_opacity = 0.85
     g.neovide_floating_blur_amount_x = 4.0
     g.neovide_floating_blur_amount_y = 4.0
