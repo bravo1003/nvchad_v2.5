@@ -342,6 +342,7 @@ M.snacks_explorer = {
       min_width = 40,
       height = 0.6,
       min_height = 3,
+      position = "float",
       box = "vertical",
       border = "single",
       { win = "input", height = 1, border = "bottom" },
