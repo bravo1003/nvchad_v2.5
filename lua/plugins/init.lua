@@ -10,6 +10,7 @@ return {
   -- Enabled plugin
   {
     "nvim-tree/nvim-tree.lua",
+    enabled = false,
     opts = overrides.nvimtree,
   },
 
