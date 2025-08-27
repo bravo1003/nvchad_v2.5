@@ -243,8 +243,8 @@ M.snacks = {
   },
   styles = {
     lazygit = {
-      width = vim.opt.columns:get(),
-      height = vim.opt.lines:get(),
+      width = 0,
+      height = 0,
     },
     terminal = {
       position = "float",
