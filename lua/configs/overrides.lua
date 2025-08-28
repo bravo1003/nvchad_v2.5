@@ -1,17 +1,5 @@
 local M = {}
 
-M.mason = {
-  PATH = "skip",
-  ui = {
-    icons = {
-      package_pending = " ",
-      package_installed = "●",
-      package_uninstalled = "○",
-    },
-    max_concurrent_installers = 10,
-  },
-}
-
 M.treesitter = {
   ensure_installed = {
     "vim",
