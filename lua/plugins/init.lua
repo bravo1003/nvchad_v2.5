@@ -586,7 +586,6 @@ return {
           layout_strategy = "vertical",
           layout_config = {
             width = 0.6,
-            -- height = 1,
             prompt_position = "top",
             preview_cutoff = 20,
             preview_height = function(_, _, max_lines)
@@ -611,17 +610,7 @@ return {
   {
     "Bekaboo/dropbar.nvim",
     event = "User FilePost",
-    config = function()
-      require("dropbar").setup {
-        icons = {
-          ui = {
-            bar = {
-              separator = " ❯ ",
-            },
-          },
-        },
-      }
-    end,
+    config = true,
   },
 
   {
