@@ -268,6 +268,11 @@ M.snacks = {
         winhighlight = "NormalFloat:Normal",
       },
     },
+    float = {
+      wo = {
+        winblend = 0,
+      },
+    },
   },
   terminal = { enabled = true },
   notifier = { enabled = true },
