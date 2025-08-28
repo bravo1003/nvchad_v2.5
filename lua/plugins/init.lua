@@ -13,7 +13,6 @@ return {
     enabled = false,
     cmd = { "Yazi" },
     opts = {
-      yazi_floating_window_winblend = 5,
       yazi_floating_window_border = "single",
       highlight_groups = {
         -- See https://github.com/mikavilpas/yazi.nvim/pull/180

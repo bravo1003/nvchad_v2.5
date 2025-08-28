@@ -77,7 +77,6 @@ M.treesitter = {
 
 M.telescope = {
   defaults = {
-    winblend = 8,
     selection_caret = " ",
     path_display = { "smart" },
     mappings = {
@@ -266,11 +265,6 @@ M.snacks = {
       height = 0.8,
       wo = {
         winhighlight = "NormalFloat:Normal",
-      },
-    },
-    float = {
-      wo = {
-        winblend = 0,
       },
     },
   },

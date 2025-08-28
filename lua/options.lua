@@ -68,9 +68,6 @@ opt.tabstop = 2
 opt.softtabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
--- menu and floating window blend
-opt.pumblend = 8
-opt.winblend = 8
 -- opt.colorcolumn = "100"
 opt.cmdwinheight = 15
 
