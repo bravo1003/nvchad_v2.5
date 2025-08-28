@@ -7,7 +7,7 @@ local sources = {
   -- none_ls.builtins.formatting.clang_format,
   -- require "none-ls-luacheck.diagnostics.luacheck",
   none_ls.builtins.diagnostics.cppcheck.with({
-        extra_args = { "--language=c++" },
+        extra_args = { "--language=c++", "--enable=style" },
     }),
 }
 
