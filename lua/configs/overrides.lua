@@ -252,11 +252,62 @@ M.snacks = {
       width = 0.8,
       height = 0.8,
     },
+    float = {
+      wo = {
+        winblend = 0,
+      },
+    },
   },
   terminal = { enabled = true },
   notifier = { enabled = true },
   words = { enabled = true },
   input = { enabled = true },
+}
+
+M.snacks_explorer = {
+  matcher = { fuzzy = false },
+  diagnostics = false,
+  preview = false,
+  auto_close = true,
+  layout = {
+    layout = {
+      backdrop = false,
+      width = 0.5,
+      min_width = 40,
+      height = 0.6,
+      min_height = 3,
+      position = "float",
+      box = "vertical",
+      border = "single",
+      { win = "input", height = 1, border = "bottom" },
+      { win = "list", border = "none" },
+      { win = "preview", title = "{preview}", height = 0.6, border = "top" },
+    },
+  },
+  -- layout = {
+  --   layout = {
+  --     backdrop = false,
+  --     width = 35,
+  --     min_width = 30,
+  --     height = 0,
+  --     position = "left",
+  --     border = "top",
+  --     box = "vertical",
+  --     {
+  --       win = "input",
+  --       height = 1,
+  --       border = "bottom",
+  --     },
+  --     { win = "list", border = "none" },
+  --   },
+  -- },
+  -- win = {
+  --   list = {
+  --     wo = {
+  --       relativenumber = true,
+  --     },
+  --   },
+  -- },
 }
 
 local HEIGHT_RATIO = 0.7 -- You can change this
@@ -310,53 +361,6 @@ M.nvimtree = {
   update_focused_file = {
     update_root = true,
   },
-}
-
-M.snacks_explorer = {
-  matcher = { fuzzy = false },
-  diagnostics = false,
-  jump = { close = false },
-  preview = false,
-  -- layout = {
-  --   layout = {
-  --     backdrop = false,
-  --     width = 35,
-  --     min_width = 30,
-  --     height = 0,
-  --     position = "left",
-  --     border = "top",
-  --     box = "vertical",
-  --     {
-  --       win = "input",
-  --       height = 1,
-  --       border = "bottom",
-  --     },
-  --     { win = "list", border = "none" },
-  --   },
-  -- },
-  auto_close = true,
-  layout = {
-    layout = {
-      backdrop = false,
-      width = 0.5,
-      min_width = 40,
-      height = 0.6,
-      min_height = 3,
-      position = "float",
-      box = "vertical",
-      border = "single",
-      { win = "input", height = 1, border = "bottom" },
-      { win = "list", border = "none" },
-      { win = "preview", title = "{preview}", height = 0.6, border = "top" },
-    },
-  },
-  -- win = {
-  --   list = {
-  --     wo = {
-  --       relativenumber = true,
-  --     },
-  --   },
-  -- },
 }
 
 M.conform = {
