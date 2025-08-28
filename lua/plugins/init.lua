@@ -32,7 +32,6 @@ return {
     "nvim-focus/focus.nvim",
     enabled = false,
     event = "VeryLazy",
-    ---@diagnostic disable-next-line: assign-type-mismatch
     version = false,
     config = function()
       local map = vim.keymap.set
@@ -562,7 +561,7 @@ return {
       filetype = {
         exclude = overrides.ignored_filetypes,
       },
-    }, -- calls `setup` using provided `opts`
+    },
   },
 
   {
@@ -659,8 +658,6 @@ return {
     opts = {
       snippet_engine = "luasnip",
     },
-    -- Uncomment next line if you want to follow only stable versions
-    -- version = "*"
   },
 
   {
@@ -677,9 +674,6 @@ return {
   {
     "rmagatti/auto-session",
     lazy = false,
-    ---enables autocomplete for opts
-    ---@module "auto-session"
-    ---@type AutoSession.Config
     opts = {
       session_lens = {
         load_on_setup = false,
@@ -689,8 +683,6 @@ return {
         "~/workspace/platform/cheatsheet/",
         "~/.config/nvim/lua",
       },
-      -- suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-      -- log_level = 'debug',
     },
   },
 

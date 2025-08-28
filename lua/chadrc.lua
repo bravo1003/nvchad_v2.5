@@ -64,12 +64,6 @@ local options = {
       enabled = true,
       lazyload = true,
       order = { "buffers", "tabs", "btns" },
-      -- modules = {
-      --   treeOffset = function()
-      --     local w = utils.getSnackExplorerWidth()
-      --     return w == 0 and "" or "%#SnacksPickerBorder#" .. string.rep(" ", w) .. "%#WinSeparator#" .. "│"
-      --   end,
-      -- },
     },
   },
 
