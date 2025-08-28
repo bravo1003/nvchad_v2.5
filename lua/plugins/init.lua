@@ -7,22 +7,17 @@ return {
     enabled = false,
   },
 
-  -- Enabled plugin
   {
     "nvim-tree/nvim-tree.lua",
     enabled = false,
     opts = overrides.nvimtree,
   },
 
+  -- Enabled plugin
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = overrides.conform,
-  },
-
-  {
-    "williamboman/mason.nvim",
-    opts = overrides.mason,
   },
 
   {
@@ -31,7 +26,7 @@ return {
       dofile(vim.g.base46_cache .. "lsp")
       require("nvchad.lsp").diagnostic_config()
       require "configs.lspconfig"
-    end, -- Override to setup mason-lspconfig
+    end,
   },
 
   {
@@ -48,7 +43,6 @@ return {
     },
     priority = 1000,
     lazy = false,
-    ---@type snacks.Config
     opts = overrides.snacks,
   },
 
@@ -267,7 +261,7 @@ return {
     ft = { "markdown", "Avante" },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
-    }, -- if you use the mini.nvim suite
+    },
     opts = {
       file_types = { "markdown", "Avante" },
       completions = {
@@ -349,7 +343,7 @@ return {
       filetype = {
         exclude = overrides.ignored_filetypes,
       },
-    }, -- calls `setup` using provided `opts`
+    },
   },
 
   {
@@ -407,19 +401,14 @@ return {
   {
     "rmagatti/auto-session",
     lazy = false,
-    ---enables autocomplete for opts
-    ---@module "auto-session"
-    ---@type AutoSession.Config
     opts = {
       session_lens = {
         load_on_setup = false,
       },
       allowed_dirs = {
-        "~/workspace/work/tvsdk",
+      --   "Path/to/auto/saved",
         "~/.config/nvim/lua",
       },
-      -- suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-      -- log_level = 'debug',
     },
   },
 }

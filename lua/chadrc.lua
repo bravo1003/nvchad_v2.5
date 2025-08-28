@@ -58,12 +58,6 @@ local options = {
       enabled = true,
       lazyload = true,
       order = { "buffers", "tabs", "btns" },
-      -- modules = {
-      --   treeOffset = function()
-      --     local w = utils.getSnackExplorerWidth()
-      --     return w == 0 and "" or "%#Normal#" .. string.rep(" ", w) .. "%#WinSeparator#" .. "│"
-      --   end,
-      -- },
     },
   },
 
@@ -119,14 +113,12 @@ local options = {
     pkgs = {
       -- lua stuff
       "lua-language-server",
-      "luacheck",
 
       -- web dev stuff
       "yaml-language-server",
       "yamllint",
 
       -- c/cpp stuff
-      "cpplint",
       "clangd",
       "clang-format",
 

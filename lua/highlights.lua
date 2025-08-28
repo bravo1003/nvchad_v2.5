@@ -20,9 +20,9 @@ M.add = {
   TreesitterContext =       { link = "Normal" },
   TSNodeKey =               { link = "HopNextKey" },
   ExtraWhitespace =         { bg = "red" },
-  IlluminatedWordText =     { bg = "one_bg" },
-  IlluminatedWordRead =     { bg = "one_bg" },
-  IlluminatedWordWrite =    { bg = "one_bg" },
+  IlluminatedWordText =     { link = "CursorLine" },
+  IlluminatedWordRead =     { link = "CursorLine" },
+  IlluminatedWordWrite =    { link = "CursorLine" },
   RenderMarkdownCode =      { link = "black" },
   SnacksPickerBorder =      { fg = "blue", bg = "darker_black" },
 }

@@ -55,22 +55,6 @@ vim.lsp.config("clang", {
 })
 vim.lsp.enable "clang"
 
--- Setup Gopls server
-vim.lsp.config("gopls", {
-  cmd = { "gopls" },
-  filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  root_markers = { "go.work", "go.mod", ".git" },
-  settings = {
-    gopls = {
-      completeUnimported = true,
-      usePlaceholders = true,
-      analyses = {
-        unusedparams = true,
-      },
-    },
-  },
-})
-vim.lsp.enable "gopls"
 
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 

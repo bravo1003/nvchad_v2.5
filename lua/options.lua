@@ -70,8 +70,6 @@ opt.shiftwidth = 2
 opt.expandtab = true
 
 -- opt.colorcolumn = "100"
-opt.cmdwinheight = 15
-
 opt.isfname:append "@-@"
 
 opt.termguicolors = true
@@ -86,6 +84,3 @@ opt.undodir = os.getenv "HOME" .. "/.vim/undodir"
 opt.undofile = true
 
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-
--- Do not map tmux navigator since C-\(toggleterm) would be overwritten
-g.tmux_navigator_no_mappings = 1
