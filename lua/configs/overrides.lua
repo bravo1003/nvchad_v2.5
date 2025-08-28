@@ -335,8 +335,23 @@ M.nvimtree = {
 M.snacks_explorer = {
   matcher = { fuzzy = false },
   diagnostics = false,
-  jump = { close = false },
   preview = false,
+  auto_close = true,
+  layout = {
+    layout = {
+      backdrop = false,
+      width = 0.5,
+      min_width = 40,
+      height = 0.6,
+      min_height = 3,
+      position = "float",
+      box = "vertical",
+      border = "rounded",
+      { win = "input", height = 1, border = "bottom" },
+      { win = "list", border = "none" },
+      { win = "preview", title = "{preview}", height = 0.6, border = "top" },
+    },
+  },
   -- layout = {
   --   layout = {
   --     backdrop = false,
@@ -354,22 +369,6 @@ M.snacks_explorer = {
   --     { win = "list", border = "none" },
   --   },
   -- },
-  auto_close = true,
-  layout = {
-    layout = {
-      backdrop = false,
-      width = 0.5,
-      min_width = 40,
-      height = 0.6,
-      min_height = 3,
-      position = "float",
-      box = "vertical",
-      border = "single",
-      { win = "input", height = 1, border = "bottom" },
-      { win = "list", border = "none" },
-      { win = "preview", title = "{preview}", height = 0.6, border = "top" },
-    },
-  },
   -- win = {
   --   list = {
   --     wo = {
