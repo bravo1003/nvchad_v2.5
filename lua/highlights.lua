@@ -39,6 +39,7 @@ M.add = {
   SnacksPickerListCursorLine =  { link = "CursorLine" },
   SnacksPickerTitle =           { bg = "blue", fg = "black" },
   SnacksPickerBorder =          { fg = "blue", bg = "darker_black" },
+  SnacksPickerGitStatusUntracked = { fg = "baby_pink" },
 }
 
 return M
