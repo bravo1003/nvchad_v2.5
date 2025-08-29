@@ -371,6 +371,8 @@ M.conform = {
     toml = { "taplo" },
     sh = { "shfmt" },
     json = { "jq" },
+    javascript = { "prettier" },
+    typescript = { "prettier" },
 
     -- css = { "prettier" },
     -- html = { "prettier" },
