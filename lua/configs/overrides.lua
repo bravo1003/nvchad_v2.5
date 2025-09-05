@@ -406,6 +406,9 @@ M.avante = {
   behaviour = {
     use_cwd_as_project_root = true,
   },
+  selection = {
+    hint_display = "none",
+  },
 }
 
 M.ignored_filetypes = {
