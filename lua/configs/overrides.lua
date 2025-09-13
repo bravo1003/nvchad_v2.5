@@ -100,6 +100,7 @@ M.telescope = {
         },
       },
     },
+    fzf = {},
     -- no other extensions here, they can have their own spec too
   },
   extensions_list = { "themes", "terms", "fzf", "luasnip", "live_grep_args" },

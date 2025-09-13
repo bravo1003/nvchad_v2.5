@@ -79,6 +79,15 @@ return {
       { "benfowler/telescope-luasnip.nvim" },
     },
     opts = overrides.telescope,
+    config = function(_, opts)
+      local telescope = require "telescope"
+      telescope.setup(opts)
+      telescope.load_extension "themes"
+      telescope.load_extension "terms"
+      telescope.load_extension "live_grep_args"
+      telescope.load_extension "fzf"
+      telescope.load_extension "luasnip"
+    end,
     keys = {
       { "<leader>sb", "<cmd> Telescope buffers <cr>", desc = "Search buffer" },
       { "<leader>sf", "<cmd> Telescope find_files <cr>", desc = "Search all files" },
@@ -185,7 +194,7 @@ return {
         desc = "Diagnostics",
       },
       {
-        "<leader>tD",
+        "<leader>tb",
         "<cmd>Trouble diagnostics_cascade toggle filter.buf=0<cr>",
         desc = "Buffer Diagnostics",
       },
@@ -210,7 +219,7 @@ return {
         desc = "Telescope result",
       },
       {
-        "<leader>q",
+        "<leader>tq",
         "<cmd>Trouble qflist toggle<cr>",
         desc = "Quickfix List (Trouble)",
       },
