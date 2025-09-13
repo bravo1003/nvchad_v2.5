@@ -359,7 +359,7 @@ return {
         desc = "Diagnostics",
       },
       {
-        "<leader>tD",
+        "<leader>tb",
         "<cmd>Trouble diagnostics_cascade toggle filter.buf=0<cr>",
         desc = "Buffer Diagnostics",
       },
@@ -384,7 +384,7 @@ return {
         desc = "Telescope result",
       },
       {
-        "<leader>q",
+        "<leader>tq",
         "<cmd>Trouble qflist toggle<cr>",
         desc = "Quickfix List (Trouble)",
       },
