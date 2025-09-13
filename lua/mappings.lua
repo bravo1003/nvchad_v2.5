@@ -97,7 +97,7 @@ map("n", "<leader>e", function()
     Snacks.explorer(require("configs.overrides").snacks_explorer)
   end
 end, { desc = "Snacks File Explorer" })
--- map("n", "<C-y>", "<cmd> Yazi <cr>", { desc = "Open yazi file manager" })
+map("n", "<C-y>", "<cmd> Yazi <cr>", { desc = "Open yazi file manager" })
 
 map({ "n", "t" }, "<C-\\>", function()
   Snacks.terminal()

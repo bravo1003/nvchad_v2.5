@@ -9,26 +9,6 @@ return {
   },
 
   {
-    "mikavilpas/yazi.nvim",
-    enabled = false,
-    cmd = { "Yazi" },
-    opts = {
-      yazi_floating_window_border = "single",
-      highlight_groups = {
-        -- See https://github.com/mikavilpas/yazi.nvim/pull/180
-        hovered_buffer = nil,
-        -- See https://github.com/mikavilpas/yazi.nvim/pull/351
-        hovered_buffer_in_same_directory = nil,
-      },
-    },
-  },
-
-  {
-    "hrsh7th/nvim-cmp",
-    enabled = false,
-  },
-
-  {
     "nvim-focus/focus.nvim",
     enabled = false,
     event = "VeryLazy",
@@ -96,6 +76,20 @@ return {
     opts = function()
       return require "configs.gitsigns"
     end,
+  },
+
+  {
+    "mikavilpas/yazi.nvim",
+    cmd = { "Yazi" },
+    opts = {
+      yazi_floating_window_border = "single",
+      highlight_groups = {
+        -- See https://github.com/mikavilpas/yazi.nvim/pull/180
+        hovered_buffer = nil,
+        -- See https://github.com/mikavilpas/yazi.nvim/pull/351
+        hovered_buffer_in_same_directory = nil,
+      },
+    },
   },
 
   {
