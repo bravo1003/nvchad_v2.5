@@ -238,11 +238,16 @@ return {
     event = "InsertEnter",
     dependencies = {
       "Kaiser-Yang/blink-cmp-avante",
-      "fang2hou/blink-copilot",
+      {
+        "fang2hou/blink-copilot",
+        opts = {
+          max_completions = 1, -- Global default for max completions
+          max_attempts = 2, -- Global default for max attempts
+        },
+      },
     },
     opts = {
       sources = {
-        -- Add 'avante' to the list
         default = { "avante", "copilot" },
         providers = {
           avante = {
@@ -254,9 +259,6 @@ return {
             module = "blink-copilot",
             score_offset = 100,
             async = true,
-            opts = {
-              max_completions = 1, -- Override global max_completions
-            },
           },
         },
       },
