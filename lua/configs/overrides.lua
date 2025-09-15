@@ -388,7 +388,7 @@ M.avante = {
   -- add any opts here
   -- for example
   provider = "copilot",
-  auto_suggestions_provider = "copilot",
+  -- auto_suggestions_provider = "copilot",
   windows = {
     ---@type "right" | "left" | "top" | "bottom"
     position = "right", -- the position of the sidebar
