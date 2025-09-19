@@ -144,13 +144,16 @@ M.trouble = {
 }
 
 M.noice = {
-  views = {
-    cmdline_popup = {
-      position = {
-        row = 5,
-        col = "50%",
-      },
-    },
+  -- views = {
+  --   cmdline_popup = {
+  --     position = {
+  --       row = 5,
+  --       col = "50%",
+  --     },
+  --   },
+  -- },
+  cmdline = {
+    view = "cmdline",
   },
   lsp = {
     hover = {
