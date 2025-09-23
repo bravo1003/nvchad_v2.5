@@ -169,8 +169,6 @@ return {
           "diff",
           "dirvish",
           "dropbar_menu",
-          "fugitive",
-          "fugitiveblame",
           "help",
           "svn",
           "harpoon",
@@ -280,7 +278,6 @@ return {
         "fang2hou/blink-copilot",
         opts = {
           max_completions = 1, -- Global default for max completions
-          max_attempts = 2, -- Global default for max attempts
         },
       },
     },
@@ -435,6 +432,30 @@ return {
   },
 
   {
+    "sindrets/diffview.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
+    cmd = { "DiffviewOpen", "DiffviewFileHistory", "DiffviewClose" },
+    keys = {
+      { "<leader>Dv", "<cmd>DiffviewFileHistory %<cr>", desc = "View git history for current file" },
+      { "<leader>Dh", "<cmd>DiffviewFileHistory<cr>", desc = "View git history for repo" },
+      { "<leader>Do", "<cmd>DiffviewOpen<cr>", desc = "View modified files" },
+      { "<leader>Dc", "<cmd>DiffviewClose<cr>", desc = "Close Diffview" },
+    },
+    opts = {
+      enhanced_diff_hl = true,
+      use_icons = true,
+      view = {
+        default = {
+          layout = "diff2_horizontal",
+        },
+      },
+    },
+    config = function(_, opts)
+      require("diffview").setup(opts)
+    end,
+  },
+
+  {
     "smoka7/hop.nvim",
     event = "User FilePost",
     config = function()
@@ -519,26 +540,6 @@ return {
       },
       latex = { enabled = false },
     },
-  },
-
-  {
-    "tpope/vim-fugitive",
-    cmd = {
-      "G",
-      "Git",
-      "Gdiffsplit",
-      "Gread",
-      "Gwrite",
-      "Ggrep",
-      "GMove",
-      "GDelete",
-      "GBrowse",
-      "GRemove",
-      "GRename",
-      "Glgrep",
-      "Gedit",
-    },
-    ft = { "fugitive" },
   },
 
   {

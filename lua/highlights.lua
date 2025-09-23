@@ -17,6 +17,10 @@ M.override = {
   LspSignatureActiveParameter = { link = "Visual" },
   PmenuSel =                    { bg = "lavender" },
   Visual =                      { bg = "grey_fg" },
+  DiffAdd =                     { fg = "none", bg = "#404f4a" },
+  DiffDelete  =                 { fg = "none", bg = "#53394c" },
+  DiffChange  =                 { fg = "none", bg = "#544f4e" },
+  DiffText =                    { fg = "none", bg = "#6d684e" },
 }
 
 ---@type HLTable
