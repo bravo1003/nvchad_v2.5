@@ -29,6 +29,47 @@ return {
     end,
   },
 
+  {
+    "rcarriga/nvim-dap-ui",
+    enabled = false,
+    dependencies = {
+      {
+        "mfussenegger/nvim-dap",
+        dependencies = {
+          "Joakker/lua-json5",
+          build = "./install.sh",
+        },
+        config = function()
+          require "configs.dapconfig"
+        end,
+      },
+      "nvim-neotest/nvim-nio",
+      {
+        "theHamsta/nvim-dap-virtual-text",
+        dependencies = {
+          "nvim-treesitter/nvim-treesitter",
+        },
+        config = function()
+          require("nvim-dap-virtual-text").setup()
+        end,
+      },
+    },
+    config = function()
+      dofile(vim.g.base46_cache .. "dap")
+      local dap, dapui = require "dap", require "dapui"
+      dapui.setup()
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
+      end
+    end,
+  },
+
   -- Enabled plugin
   {
     "stevearc/conform.nvim",
@@ -101,46 +142,6 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = overrides.snacks,
-  },
-
-  {
-    "rcarriga/nvim-dap-ui",
-    dependencies = {
-      {
-        "mfussenegger/nvim-dap",
-        dependencies = {
-          "Joakker/lua-json5",
-          build = "./install.sh",
-        },
-        config = function()
-          require "configs.dapconfig"
-        end,
-      },
-      "nvim-neotest/nvim-nio",
-      {
-        "theHamsta/nvim-dap-virtual-text",
-        dependencies = {
-          "nvim-treesitter/nvim-treesitter",
-        },
-        config = function()
-          require("nvim-dap-virtual-text").setup()
-        end,
-      },
-    },
-    config = function()
-      dofile(vim.g.base46_cache .. "dap")
-      local dap, dapui = require "dap", require "dapui"
-      dapui.setup()
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
-    end,
   },
 
   {
@@ -436,10 +437,10 @@ return {
     dependencies = "nvim-lua/plenary.nvim",
     cmd = { "DiffviewOpen", "DiffviewFileHistory", "DiffviewClose" },
     keys = {
-      { "<leader>Dv", "<cmd>DiffviewFileHistory %<cr>", desc = "View git history for current file" },
-      { "<leader>Dh", "<cmd>DiffviewFileHistory<cr>", desc = "View git history for repo" },
-      { "<leader>Do", "<cmd>DiffviewOpen<cr>", desc = "View modified files" },
-      { "<leader>Dc", "<cmd>DiffviewClose<cr>", desc = "Close Diffview" },
+      { "<leader>dv", "<cmd>DiffviewFileHistory %<cr>", desc = "View git history for current file" },
+      { "<leader>dh", "<cmd>DiffviewFileHistory<cr>", desc = "View git history for repo" },
+      { "<leader>do", "<cmd>DiffviewOpen<cr>", desc = "View modified files" },
+      { "<leader>dc", "<cmd>DiffviewClose<cr>", desc = "Close Diffview" },
     },
     opts = {
       enhanced_diff_hl = true,
