@@ -393,9 +393,9 @@ M.avante = {
   -- for example
   provider = "copilot",
   -- auto_suggestions_provider = "copilot",
-  provides = {
+  providers = {
     copilot = {
-      model = "claude-sonnet-4-20250514",
+      model = "claude-sonnet-4",
     },
   },
   windows = {
