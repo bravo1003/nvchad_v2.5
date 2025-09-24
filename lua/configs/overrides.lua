@@ -393,6 +393,11 @@ M.avante = {
   -- for example
   provider = "copilot",
   -- auto_suggestions_provider = "copilot",
+  provides = {
+    copilot = {
+      model = "claude-sonnet-4-20250514",
+    },
+  },
   windows = {
     ---@type "right" | "left" | "top" | "bottom"
     position = "right", -- the position of the sidebar
