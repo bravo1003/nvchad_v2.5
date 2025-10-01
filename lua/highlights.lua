@@ -25,6 +25,9 @@ M.add = {
   IlluminatedWordWrite =    { link = "CursorLine" },
   RenderMarkdownCode =      { link = "black" },
   SnacksPickerBorder =      { fg = "blue", bg = "darker_black" },
+  RecIndicatorStyle =           { fg = "white", bg = "red"},
+  RecSeparatorStartStyle =      { fg = "black", bg = "red" },
+  RecSeparatorEndStyle =        { fg = "red", bg = "black" },
 }
 
 return M

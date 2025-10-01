@@ -66,7 +66,7 @@ end, { desc = "Float diagnostic" })
 map("n", "<leader>X", "<cmd> tabc <cr>", { desc = "tab close" })
 
 -- Xperi
-map("n", "<leader>gf", "<cmd> Git cl format <cr>", { desc = "Git format (Xperi)" })
+map("n", "<leader>gf", "<cmd> !git cl format <cr>", { desc = "Git format (Xperi)" })
 
 map("n", "<leader>nt", function()
   require("nvchad.themes").open()

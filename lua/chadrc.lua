@@ -46,9 +46,14 @@ local options = {
     statusline = {
       theme = "default",
       separator_style = "block",
+      order = { "mode", "recording", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
       modules = {
         lsp = function()
           return "%#St_Lsp#" .. utils.lsp_overriden()
+        end,
+        recording = function()
+          local rec = vim.fn.reg_recording()
+          return rec ~= "" and "%#RecIndicatorStyle#" .. " Recording @" .. rec .. " " or ""
         end,
       },
     },
