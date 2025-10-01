@@ -281,6 +281,17 @@ return {
           max_completions = 1, -- Global default for max completions
         },
       },
+      {
+        "zbirenbaum/copilot.lua",
+        opts = {
+          suggestion = { enabled = false },
+          panel = { enabled = false },
+          filetypes = {
+            markdown = true,
+            help = true,
+          },
+        },
+      }, -- for providers='copilot'
     },
     opts = {
       sources = {
@@ -717,27 +728,55 @@ return {
     },
   },
 
+  -- AI
+  {
+    "folke/sidekick.nvim",
+    opts = {
+      -- add any options here
+      nes = {
+        enabled = false,
+      },
+      cli = {
+        win = {
+          layout = "float",
+          width = 70,
+        },
+        mux = {
+          backend = "tmux",
+          enabled = false,
+        },
+      },
+    },
+    keys = {
+      {
+        "<F1>",
+        function()
+          require("sidekick.cli").toggle { name = "copilot", focus = true }
+        end,
+        desc = "Sidekick Toggle CLI",
+        mode = { "n", "v", "t" },
+      },
+      {
+        "<leader>ap",
+        function()
+          require("sidekick.cli").prompt()
+        end,
+        desc = "Sidekick Ask Prompt",
+        mode = { "n", "v" },
+      },
+    },
+  },
+
   {
     "yetone/avante.nvim",
     dependencies = {
+      "zbirenbaum/copilot.lua",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       "MeanderingProgrammer/render-markdown.nvim",
       --- The below dependencies are optional,
       "nvim-telescope/telescope.nvim",
       "nvim-tree/nvim-web-devicons",
-      {
-        "zbirenbaum/copilot.lua",
-        event = "InsertEnter",
-        opts = {
-          suggestion = { enabled = false },
-          panel = { enabled = false },
-          filetypes = {
-            markdown = true,
-            help = true,
-          },
-        },
-      }, -- for providers='copilot'
     },
     build = "make",
     event = "VeryLazy",

@@ -190,7 +190,7 @@ M.which_key = {
     },
   },
   spec = {
-    { "<leader>a", group = "Avante", mode = { "n", "v" } },
+    { "<leader>a", group = "AI", mode = { "n", "v" } },
     { "<leader>c", group = "Context" },
     { "<leader>d", group = "Dap" },
     { "<leader>D", group = "DiffView" },
@@ -395,7 +395,7 @@ M.avante = {
   -- auto_suggestions_provider = "copilot",
   providers = {
     copilot = {
-      model = "claude-sonnet-4",
+      model = "claude-sonnet-4.5",
     },
   },
   windows = {
