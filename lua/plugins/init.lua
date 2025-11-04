@@ -401,12 +401,12 @@ return {
     cmd = { "Trouble" },
     keys = {
       {
-        "<leader>td",
+        "<leader>tD",
         "<cmd>Trouble diagnostics_cascade toggle<cr>",
         desc = "Diagnostics",
       },
       {
-        "<leader>tb",
+        "<leader>td",
         "<cmd>Trouble diagnostics_cascade toggle filter.buf=0<cr>",
         desc = "Buffer Diagnostics",
       },
