@@ -30,6 +30,26 @@ return {
   },
 
   {
+    "yetone/avante.nvim",
+    enabled = false,
+    dependencies = {
+      "zbirenbaum/copilot.lua",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "MeanderingProgrammer/render-markdown.nvim",
+      --- The below dependencies are optional,
+      "nvim-telescope/telescope.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+    build = "make",
+    event = "VeryLazy",
+    version = false, -- Never set this value to "*"! Never!
+    ---@module 'avante'
+    ---@type avante.Config
+    opts = overrides.avante,
+  },
+
+  {
     "rcarriga/nvim-dap-ui",
     enabled = false,
     dependencies = {
@@ -765,24 +785,5 @@ return {
         mode = { "n", "v" },
       },
     },
-  },
-
-  {
-    "yetone/avante.nvim",
-    dependencies = {
-      "zbirenbaum/copilot.lua",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "MeanderingProgrammer/render-markdown.nvim",
-      --- The below dependencies are optional,
-      "nvim-telescope/telescope.nvim",
-      "nvim-tree/nvim-web-devicons",
-    },
-    build = "make",
-    event = "VeryLazy",
-    version = false, -- Never set this value to "*"! Never!
-    ---@module 'avante'
-    ---@type avante.Config
-    opts = overrides.avante,
   },
 }
