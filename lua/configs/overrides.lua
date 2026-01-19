@@ -25,42 +25,22 @@ M.treesitter = {
   indent = {
     enable = true,
   },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = "<CR>",
-      scope_incremental = "<TAB>",
-      node_incremental = "<CR>",
-      node_decremental = "<BS>",
-    },
-    is_supported = function()
-      local mode = vim.api.nvim_get_mode().mode
-      if mode == "c" then
-        return false
-      end
-      return true
-    end,
-  },
-  -- textsubjects = {
+  -- incremental_selection = {
   --   enable = true,
-  --   prev_selection = "<S-tab>",
   --   keymaps = {
-  --     ["<cr>"] = "textsubjects-smart",
-  --     [";"] = "textsubjects-container-outer",
-  --     ["i;"] = "textsubjects-container-inner",
+  --     init_selection = "<CR>",
+  --     scope_incremental = "<TAB>",
+  --     node_incremental = "<CR>",
+  --     node_decremental = "<BS>",
   --   },
+  --   is_supported = function()
+  --     local mode = vim.api.nvim_get_mode().mode
+  --     if mode == "c" then
+  --       return false
+  --     end
+  --     return true
+  --   end,
   -- },
-  textobjects = {
-    swap = {
-      enable = true,
-      swap_next = {
-        ["<leader>ca"] = "@parameter.inner",
-      },
-      swap_previous = {
-        ["<leader>cA"] = "@parameter.inner",
-      },
-    },
-  },
 }
 
 M.telescope = {

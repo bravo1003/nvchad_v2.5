@@ -218,7 +218,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
       -- "rrethy/nvim-treesitter-textsubjects",
-      "nvim-treesitter/nvim-treesitter-textobjects",
+      -- "nvim-treesitter/nvim-treesitter-textobjects",
       {
         "nvim-treesitter/nvim-treesitter-context",
         cmd = { "TSContextEnable", "TSContextDisable", "TSContextToggle" },
