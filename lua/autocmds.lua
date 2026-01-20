@@ -30,6 +30,7 @@ vim.api.nvim_create_autocmd("FileType", {
       -- Spell check
       vim.cmd [[ setlocal spell spelllang=en_us ]]
     end
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
   end,
   desc = "Disable spell check",
 })
