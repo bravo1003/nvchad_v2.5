@@ -1,48 +1,5 @@
 local M = {}
 
-M.treesitter = {
-  ensure_installed = {
-    "vim",
-    "lua",
-    "html",
-    "css",
-    "javascript",
-    "typescript",
-    "tsx",
-    "bash",
-    "c",
-    "cpp",
-    "rust",
-    "go",
-    "dockerfile",
-    "devicetree",
-    "markdown",
-    "markdown_inline",
-    "regex",
-    "python",
-    "query",
-  },
-  -- indent = {
-  --   enable = true,
-  -- },
-  -- incremental_selection = {
-  --   enable = true,
-  --   keymaps = {
-  --     init_selection = "<CR>",
-  --     scope_incremental = "<TAB>",
-  --     node_incremental = "<CR>",
-  --     node_decremental = "<BS>",
-  --   },
-  --   is_supported = function()
-  --     local mode = vim.api.nvim_get_mode().mode
-  --     if mode == "c" then
-  --       return false
-  --     end
-  --     return true
-  --   end,
-  -- },
-}
-
 M.telescope = {
   defaults = {
     selection_caret = " ",

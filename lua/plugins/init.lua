@@ -216,6 +216,7 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
     dependencies = {
       -- "rrethy/nvim-treesitter-textsubjects",
       -- "nvim-treesitter/nvim-treesitter-textobjects",
@@ -230,7 +231,29 @@ return {
         end,
       },
     },
-    opts = overrides.treesitter,
+    config = function()
+      require("nvim-treesitter").install {
+        "vim",
+        "lua",
+        "html",
+        "css",
+        "javascript",
+        "typescript",
+        "tsx",
+        "bash",
+        "c",
+        "cpp",
+        "rust",
+        "go",
+        "dockerfile",
+        "devicetree",
+        "markdown",
+        "markdown_inline",
+        "regex",
+        "python",
+        "query",
+      }
+    end,
   },
 
   {
