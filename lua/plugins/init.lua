@@ -782,11 +782,17 @@ return {
       cli = {
         win = {
           layout = "float",
-          width = 70,
+          float = {
+            width = 0.8,
+            height = 0.8,
+          },
         },
         mux = {
           backend = "tmux",
           enabled = false,
+        },
+        tools = {
+          copilot = { cmd = { "copilot", "--alt-screen" } },
         },
       },
     },
