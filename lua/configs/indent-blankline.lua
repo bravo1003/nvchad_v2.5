@@ -11,7 +11,6 @@ local highlight = {
 local char = "▏"
 local hooks = require "ibl.hooks"
 
-vim.g.rainbow_delimiters = { highlight = highlight }
 require("ibl").setup {
   indent = {
     char = char,
