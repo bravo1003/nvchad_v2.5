@@ -807,7 +807,7 @@ return {
           enabled = false,
         },
         tools = {
-          copilot = { cmd = { "copilot", "--alt-screen" } },
+          copilot = { cmd = { "copilot" } },
         },
       },
     },
