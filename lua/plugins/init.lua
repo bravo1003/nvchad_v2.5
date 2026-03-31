@@ -30,26 +30,6 @@ return {
   },
 
   {
-    "yetone/avante.nvim",
-    enabled = false,
-    dependencies = {
-      "zbirenbaum/copilot.lua",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "MeanderingProgrammer/render-markdown.nvim",
-      --- The below dependencies are optional,
-      "nvim-telescope/telescope.nvim",
-      "nvim-tree/nvim-web-devicons",
-    },
-    build = "make",
-    event = "VeryLazy",
-    version = false, -- Never set this value to "*"! Never!
-    ---@module 'avante'
-    ---@type avante.Config
-    opts = overrides.avante,
-  },
-
-  {
     "rcarriga/nvim-dap-ui",
     enabled = false,
     dependencies = {
@@ -177,10 +157,6 @@ return {
       virtcolumn = "100",
       exclude = {
         filetypes = {
-          "Avante",
-          "AvanteSelectedFiles",
-          "AvanteTodos",
-          "AvanteInput",
           "dap-repl",
           "dapui_scopes",
           "dapui_breakpoints",
@@ -317,7 +293,6 @@ return {
     "Saghen/blink.cmp",
     event = "InsertEnter",
     dependencies = {
-      "Kaiser-Yang/blink-cmp-avante",
       {
         "fang2hou/blink-copilot",
         opts = {
@@ -341,12 +316,8 @@ return {
     },
     opts = {
       sources = {
-        default = { "avante", "copilot" },
+        default = { "copilot" },
         providers = {
-          avante = {
-            module = "blink-cmp-avante",
-            name = "Avante",
-          },
           copilot = {
             name = "copilot",
             module = "blink-copilot",
@@ -582,12 +553,12 @@ return {
 
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown", "Avante" },
+    ft = { "markdown" },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },
     opts = {
-      file_types = { "markdown", "Avante" },
+      file_types = { "markdown" },
       completions = {
         blink = {
           enabled = true,

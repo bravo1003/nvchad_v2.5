@@ -325,44 +325,7 @@ M.conform = {
   },
 }
 
-M.avante = {
-  -- add any opts here
-  -- for example
-  provider = "copilot",
-  -- auto_suggestions_provider = "copilot",
-  providers = {
-    copilot = {
-      model = "claude-sonnet-4.6",
-    },
-  },
-  windows = {
-    ---@type "right" | "left" | "top" | "bottom"
-    position = "right", -- the position of the sidebar
-    wrap = true, -- similar to vim.o.wrap
-    width = 40, -- default % based on available width
-    sidebar_header = {
-      enabled = true, -- true, false to enable/disable the header
-      align = "center", -- left, center, right for title
-      rounded = false,
-    },
-  },
-  selector = {
-    provider = "telescope",
-    -- Options override for custom providers
-  },
-  behaviour = {
-    use_cwd_as_project_root = true,
-  },
-  selection = {
-    hint_display = "none",
-  },
-}
-
 M.ignored_filetypes = {
-  "Avante",
-  "AvanteSelectedFiles",
-  "AvanteTodos",
-  "AvanteInput",
   "dap-repl",
   "dapui_scopes",
   "dapui_breakpoints",

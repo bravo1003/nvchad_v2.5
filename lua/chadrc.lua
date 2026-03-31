@@ -28,7 +28,6 @@ local options = {
     hl_override = highlights.override,
 
     integrations = {
-      "avante",
       "blink",
       "dap",
       "devicons",
