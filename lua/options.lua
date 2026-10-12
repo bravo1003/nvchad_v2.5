@@ -25,25 +25,6 @@ g.have_nerd_font = true
 
 o.clipboard = "unnamedplus"
 
--- Enabled OSC52 if on ssh
-local tty = vim.iter(vim.api.nvim_list_uis()):any(function(ui)
-  return ui.chan == 1 and ui.stdout_tty
-end)
-
-if tty and os.getenv "SSH_TTY" then
-  o.clipboard = {
-    name = "OSC 52",
-    copy = {
-      ["+"] = require("vim.ui.clipboard.osc52").copy "+",
-      ["*"] = require("vim.ui.clipboard.osc52").copy "*",
-    },
-    paste = {
-      ["+"] = require("vim.ui.clipboard.osc52").paste "+",
-      ["*"] = require("vim.ui.clipboard.osc52").paste "*",
-    },
-  }
-end
-
 o.foldenable = false
 -- no swap files
 o.swapfile = false
