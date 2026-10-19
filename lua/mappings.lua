@@ -78,15 +78,12 @@ map("n", "<leader>u", function()
   Snacks.picker.undo {
     previewers = {
       diff = {
-        builtin = false, -- use Neovim for previewing diffs (true) or use an external tool (false)
-        cmd = { "delta" }, -- example to show a diff with delta
+        style = "terminal", -- fancy/syntax use Snacks' own diff; terminal pipes through `cmd`
+        cmd = { "delta" },
       },
     },
   }
 end, { desc = "Snacks undo" })
-
--- Nvim tree explorer
--- map("n", "<leader>e", "<cmd> NvimTreeToggle <cr>", { desc = "NvimTree Explorer toggle" })
 
 -- Snacks explorer
 map("n", "<leader>e", function()
@@ -133,35 +130,6 @@ end, { desc = "Format" })
 map("n", "<leader>la", function()
   require("actions-preview").code_actions()
 end, { desc = "Lsp Code Action" })
-
--- Dap
--- map("n", "<leader>dr", function()
---   require("dap").continue()
---   require("dapui").open()
--- end, { desc = "Start or Continue debugger" })
--- map("n", "<leader>dt", function()
---   require("dapui").close()
---   require("dap").terminate()
--- end, { desc = "Terminate debugger" })
--- map("n", "<leader>db", function()
---   require("dap").toggle_breakpoint()
--- end, { desc = "Add breakpoint" })
--- map("n", "<leader>dB", function()
---   require("dap").set_breakpoint(vim.fn.input "Condition: ")
--- end, { desc = "Add conditional breakpoint" })
--- map("n", "<F5>", function()
---   require("dap").continue()
---   require("dapui").open()
--- end, { desc = "Start or Continue debugger" })
--- map("n", "<F6>", function()
---   require("dap").step_over()
--- end, { desc = "Step Over" })
--- map("n", "<F7>", function()
---   require("dap").step_into()
--- end, { desc = "Step Into" })
--- map("n", "<F8>", function()
---   require("dap").step_out()
--- end, { desc = "Step Out" })
 
 -- Tmux navigator
 map("n", "<C-h>", "<cmd> TmuxNavigateLeft <cr>", { desc = "Tmux navigate left" })

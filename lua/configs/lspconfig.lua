@@ -1,4 +1,3 @@
-local on_init = require("utils.lsputils").on_init
 local on_attach = require("utils.lsputils").on_attach
 
 -- if you just want default config for the servers then put them in a table
@@ -9,7 +8,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     on_attach(_, args.buf)
   end,
 })
-vim.lsp.config("*", { on_init = on_init })
 vim.lsp.enable(servers)
 
 -- Setup lua language server
@@ -27,7 +25,6 @@ local lua_lsp_settings = {
   },
 }
 vim.lsp.config("lua_ls", {
-  on_init = on_init,
   filetypes = { "lua" },
   settings = lua_lsp_settings,
 })
@@ -57,7 +54,6 @@ if vim.uv.os_uname().sysname == "Linux" then
 end
 
 vim.lsp.config("clang", {
-  on_init = on_init,
   cmd = cmd,
   filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
   root_markers = { ".clangd", "compile_commands.json" },
@@ -66,7 +62,6 @@ vim.lsp.enable "clang"
 
 -- Setup Gopls server
 vim.lsp.config("gopls", {
-  on_init = on_init,
   cmd = { "gopls" },
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
   root_markers = { "go.work", "go.mod", ".git" },
@@ -81,12 +76,3 @@ vim.lsp.config("gopls", {
   },
 })
 vim.lsp.enable "gopls"
-
--- Add a border the hover docs
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-  opts = opts or {}
-  opts.border = opts.border or "single"
-
-  return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end

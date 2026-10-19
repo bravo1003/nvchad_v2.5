@@ -3,12 +3,6 @@ require "nvchad.options"
 local g = vim.g
 local o = vim.o
 
--- disable netrw at the very start of your init.lua (strongly advised)
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
-
--- Set to true if you use nerfont
-g.have_nerd_font = true
 -- Enable provider
 -- local enable_providers = {
 --   "python3_provider",
@@ -28,14 +22,10 @@ o.clipboard = "unnamedplus"
 o.foldenable = false
 -- no swap files
 o.swapfile = false
-o.backup = false
--- no line warpping
+-- line wrapping
 o.wrap = true
--- autoread reload changed file
-o.autoread = true
 -- Set highlight on search
 o.hlsearch = false
-o.incsearch = true
 -- Enable break indent
 o.breakindent = true
 -- Case insensitive searching UNLESS /C or capital in search
@@ -54,7 +44,6 @@ o.expandtab = true
 
 vim.opt.isfname:append "@-@"
 
-o.termguicolors = true
 o.number = true
 o.relativenumber = true
 o.cursorline = true
@@ -67,14 +56,12 @@ o.undofile = true
 
 o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
--- Do not map tmux navigator since C-\(toggleterm) would be overwritten
+-- Do not map tmux navigator since C-\ (Snacks terminal) would be overwritten
 g.tmux_navigator_no_mappings = 1
 
 -- Catppuccin colorscheme
 local base16 = require("base46").get_theme_tb "base_16"
 local colors = require("base46").get_theme_tb "base_30"
-g.terminal_color_0 = "#6c7086"
-g.terminal_color_8 = "#7f849c"
 g.terminal_color_0 = base16.base04
 g.terminal_color_8 = colors.grey
 g.terminal_color_1 = colors.red

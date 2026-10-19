@@ -24,19 +24,19 @@ local options = {
 
     map("n", "gl", function()
       gs.blame_line()
-    end, { desc = "Git blame line" })
+    end, opts "Git blame line")
     map("n", "<leader>gj", function()
-      gs.next_hunk()
-    end, { desc = "Next hunk" })
+      gs.nav_hunk "next"
+    end, opts "Next hunk")
     map("n", "<leader>gk", function()
-      gs.next_hunk()
-    end, { desc = "Previous hunk" })
+      gs.nav_hunk "prev"
+    end, opts "Previous hunk")
     map("n", "<leader>gR", function()
       gs.reset_buffer()
-    end, { desc = "Reset buffer" })
+    end, opts "Reset buffer")
     map("n", "<leader>gb", function()
       gs.blame()
-    end, { desc = "Git blame" })
+    end, opts "Git blame")
   end,
 }
 

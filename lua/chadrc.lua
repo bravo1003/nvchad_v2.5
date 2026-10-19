@@ -27,27 +27,16 @@ local options = {
     hl_add = highlights.add,
     hl_override = highlights.override,
 
+    -- Only integrations base46 doesn't compile by default
     integrations = {
-      "blink",
-      "dap",
-      "devicons",
       "hop",
-      "notify",
       "rainbowdelimiters",
       "render-markdown",
-      "telescope",
       "todo",
-      "treesitter",
       "trouble",
-      "whichkey",
     },
   },
   ui = {
-    cmp = {
-      style = "default",
-      abbr_maxwidth = 60,
-    },
-
     statusline = {
       theme = "vscode_colored",
       separator_style = "default",
@@ -87,8 +76,8 @@ local options = {
       { txt = "  Find File", keys = "Spc s f", cmd = "Telescope find_files" },
       { txt = "  Recent Files", keys = "Spc s o", cmd = "Telescope oldfiles" },
       { txt = "󰈭  Find Word", keys = "Spc s g", cmd = "Telescope live_grep" },
-      { txt = "󱥚  Themes", keys = "Spc t h", cmd = ":lua require('nvchad.themes').open()" },
-      { txt = "  Mappings", keys = "Spc c h", cmd = "NvCheatsheet" },
+      { txt = "󱥚  Themes", keys = "Spc n t", cmd = ":lua require('nvchad.themes').open()" },
+      { txt = "  Mappings", keys = "Spc n c", cmd = "NvCheatsheet" },
 
       { txt = "─", hl = "NvDashLazy", no_gap = true, rep = true },
 
@@ -110,7 +99,6 @@ local options = {
 
   lsp = {
     signature = true,
-    semantic_tokens = true,
   },
 
   mason = {
@@ -133,7 +121,6 @@ local options = {
       "cpplint",
       "clangd",
       "clang-format",
-      "codelldb",
 
       -- rust
       "rust-analyzer",

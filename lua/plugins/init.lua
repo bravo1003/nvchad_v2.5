@@ -2,72 +2,10 @@ local overrides = require "configs.overrides"
 
 return {
   -- Disabled plugin
+  -- NvChad ships nvim-tree; Snacks explorer replaces it
   {
     "nvim-tree/nvim-tree.lua",
     enabled = false,
-    opts = overrides.nvimtree,
-  },
-
-  {
-    "nvim-focus/focus.nvim",
-    enabled = false,
-    event = "VeryLazy",
-    version = false,
-    config = function()
-      local map = vim.keymap.set
-      require("focus").setup {
-        ui = {
-          hybridnumber = true,
-        },
-        autoresize = {
-          width = 87,
-          minwidth = 10,
-        },
-      }
-      map("n", "<C-w>s", "<cmd> FocusSplitDown <cr>", { desc = "Horizontal Split" })
-      map("n", "<C-w>v", "<cmd> FocusSplitRight <cr>", { desc = "Vertical Split" })
-    end,
-  },
-
-  {
-    "rcarriga/nvim-dap-ui",
-    enabled = false,
-    dependencies = {
-      {
-        "mfussenegger/nvim-dap",
-        dependencies = {
-          "Joakker/lua-json5",
-          build = "./install.sh",
-        },
-        config = function()
-          require "configs.dapconfig"
-        end,
-      },
-      "nvim-neotest/nvim-nio",
-      {
-        "theHamsta/nvim-dap-virtual-text",
-        dependencies = {
-          "nvim-treesitter/nvim-treesitter",
-        },
-        config = function()
-          require("nvim-dap-virtual-text").setup()
-        end,
-      },
-    },
-    config = function()
-      dofile(vim.g.base46_cache .. "dap")
-      local dap, dapui = require "dap", require "dapui"
-      dapui.setup()
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
-    end,
   },
 
   -- Enabled plugin
@@ -82,12 +20,9 @@ return {
     dependencies = {
       {
         "nvimtools/none-ls.nvim",
-        -- dependencies = {
-        --   "nvimtools/none-ls-extras.nvim",
-        -- },
         config = function()
           require "configs.none-ls"
-        end, -- Override to setup mason-lspconfig
+        end,
       },
     },
 
@@ -95,7 +30,7 @@ return {
       dofile(vim.g.base46_cache .. "lsp")
       require("nvchad.lsp").diagnostic_config()
       require "configs.lspconfig"
-    end, -- Override to setup mason-lspconfig
+    end,
   },
 
   {
@@ -106,7 +41,11 @@ return {
     init = function()
       vim.g.rustaceanvim = {
         server = {
-          on_attach = require("utils.lspkeyremaps").keymaps(),
+          -- Kept alongside the LspAttach autocmd: lspconfig lazy-loads on FilePost,
+          -- which can be after rust-analyzer attaches.
+          on_attach = function(_, bufnr)
+            require("utils.lspkeyremaps").keymaps(bufnr)
+          end,
         },
       }
     end,
@@ -124,12 +63,6 @@ return {
     cmd = { "Yazi" },
     opts = {
       yazi_floating_window_border = "single",
-      highlight_groups = {
-        -- See https://github.com/mikavilpas/yazi.nvim/pull/180
-        hovered_buffer = nil,
-        -- See https://github.com/mikavilpas/yazi.nvim/pull/351
-        hovered_buffer_in_same_directory = nil,
-      },
     },
   },
 
@@ -145,47 +78,15 @@ return {
   },
 
   {
-    -- Treesitter parse for nvim-gn
-    -- Do "TSInstall gn" after plugin download
-    "willcassella/nvim-gn",
-  },
-
-  {
     "lukas-reineke/virt-column.nvim",
     event = "User FilePost",
     opts = {
       virtcolumn = "100",
       exclude = {
-        filetypes = {
-          "dap-repl",
-          "dapui_scopes",
-          "dapui_breakpoints",
-          "dapui_stacks",
-          "dapui_watchtes",
-          "dapui_console",
-          "diff",
-          "dirvish",
-          "dropbar_menu",
-          "help",
-          "svn",
-          "harpoon",
-          "lazy",
-          "log",
-          "lspinfo",
-          "mason",
-          "noice",
-          "nvdash",
-          "nvcheatsheet",
-          "NvimTree",
-          "snacks_picker_list",
-          "snacks_terminal",
-          "terminal",
-          "trouble",
-          "telescope",
-          "undotree",
-          "unite",
-          "qf",
-        },
+        -- markdown and git commit buffers get an 80 column guide from autocmds.lua
+        filetypes = vim.tbl_filter(function(ft)
+          return not vim.tbl_contains({ "markdown", "gitcommit", "gitrebase", "hgcommit" }, ft)
+        end, overrides.ignored_filetypes),
       },
     },
   },
@@ -217,7 +118,7 @@ return {
             { title = "Treesitter" }
           )
         end
-        vim.treesitter.start(bufnr)
+        vim.treesitter.start(bufnr, lang)
       end
 
       vim.api.nvim_create_autocmd("FileType", {
@@ -242,25 +143,17 @@ return {
           end
 
           --------------------[ treesitter parsers ]-------------------------------
-          if vim.fn.executable "tree-sitter" ~= 1 then
-            vim.api.nvim_echo({
-              {
-                "tree-sitter CLI not found. Parsers cannot be installed.",
-                "ErrorMsg",
-              },
-            }, true, {})
-            return false
-          end
-
-          if not vim.treesitter.language.get_lang(ft) then
+          -- Parsers are named by language, not filetype (e.g. sh -> bash)
+          local lang = vim.treesitter.language.get_lang(ft)
+          if not lang then
             return
           end
 
-          if vim.list_contains(treesitter.get_installed(), ft) then
-            highlight(buf, ft)
-          elseif vim.list_contains(treesitter.get_available(), ft) then
-            treesitter.install(ft):await(function()
-              highlight(buf, ft)
+          if vim.list_contains(treesitter.get_installed(), lang) then
+            highlight(buf, lang)
+          elseif vim.list_contains(treesitter.get_available(), lang) and vim.fn.executable "tree-sitter" == 1 then
+            treesitter.install(lang):await(function()
+              highlight(buf, lang)
             end)
           end
         end,
@@ -277,7 +170,6 @@ return {
         "vim",
         "lua",
         "html",
-        "css",
         "javascript",
         "typescript",
         "tsx",
@@ -288,9 +180,7 @@ return {
         "go",
         "dockerfile",
         "devicetree",
-        "markdown",
-        "markdown_inline",
-        "regex",
+        "gn",
         "python",
         "query",
       },
@@ -322,8 +212,6 @@ return {
     config = function(_, opts)
       local telescope = require "telescope"
       telescope.setup(opts)
-      telescope.load_extension "themes"
-      telescope.load_extension "terms"
       telescope.load_extension "live_grep_args"
       telescope.load_extension "fzf"
       telescope.load_extension "luasnip"
@@ -370,7 +258,6 @@ return {
 
   {
     "Saghen/blink.cmp",
-    event = "InsertEnter",
     dependencies = {
       {
         "fang2hou/blink-copilot",
@@ -380,9 +267,6 @@ return {
       },
       {
         "zbirenbaum/copilot.lua",
-        dependencies = {
-          "copilotlsp-nvim/copilot-lsp",
-        },
         opts = {
           suggestion = { enabled = false },
           panel = { enabled = false },
@@ -586,7 +470,6 @@ return {
     branch = "harpoon2",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
     },
     config = function()
       require("harpoon"):setup {
@@ -648,6 +531,10 @@ return {
       },
       latex = { enabled = false },
     },
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "render-markdown")
+      require("render-markdown").setup(opts)
+    end,
   },
 
   {
@@ -658,14 +545,8 @@ return {
   {
     "mawkler/modicator.nvim",
     event = "BufReadPre",
-    config = function()
-      vim.o.termguicolors = true
-      vim.o.number = true
-      vim.o.relativenumber = true
-      vim.o.cursorline = true
-      vim.o.cursorlineopt = "both" -- to enable cursorline!
-      require("modicator").setup()
-    end,
+    -- Needs number, cursorline and cursorlineopt from options.lua
+    opts = {},
   },
 
   {
@@ -763,17 +644,6 @@ return {
   },
 
   {
-    "RRethy/vim-illuminate",
-    event = "User FilePost",
-    config = function()
-      require("illuminate").configure {
-        filetypes_denylist = overrides.ignored_filetypes,
-        modes_allowlist = { "n" },
-      }
-    end,
-  },
-
-  {
     "vladdoster/remember.nvim",
     event = "BufReadPre",
     config = function()
@@ -792,7 +662,6 @@ return {
   {
     "danymat/neogen",
     cmd = { "Neogen" },
-    config = true,
     opts = {
       snippet_engine = "luasnip",
     },

@@ -49,7 +49,6 @@ M.telescope = {
     fzf = {},
     -- no other extensions here, they can have their own spec too
   },
-  extensions_list = { "themes", "terms", "fzf", "luasnip", "live_grep_args" },
 }
 
 M.trouble = {
@@ -104,8 +103,6 @@ M.noice = {
       ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
       -- override the lsp markdown formatter with Noice
       ["vim.lsp.util.stylize_markdown"] = true,
-      -- override cmp documentation with Noice (needs the other options to work)
-      ["cmp.entry.get_documentation"] = true,
     },
   },
   -- you can enable a preset for easier configuration
@@ -129,8 +126,7 @@ M.which_key = {
   spec = {
     { "<leader>a", group = "AI", mode = { "n", "v" } },
     { "<leader>c", group = "Context" },
-    { "<leader>d", group = "Dap" },
-    { "<leader>D", group = "DiffView" },
+    { "<leader>d", group = "DiffView" },
     { "<leader>g", group = "Git" },
     { "<leader>l", group = "Lsp", mode = { "n", "v" } },
     { "<leader>n", group = "NvChad" },
@@ -250,58 +246,6 @@ M.snacks_explorer = {
   -- },
 }
 
-local HEIGHT_RATIO = 0.7 -- You can change this
-local WIDTH_RATIO = 0.7 -- You can change this too
--- git support in nvimtree
-M.nvimtree = {
-  disable_netrw = true,
-  hijack_netrw = true,
-  prefer_startup_root = true,
-  hijack_cursor = true,
-  view = {
-    relativenumber = true,
-    float = {
-      enable = true,
-      open_win_config = function()
-        local screen_w = vim.opt.columns:get()
-        local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
-        local window_w = screen_w * WIDTH_RATIO
-        local window_h = screen_h * HEIGHT_RATIO
-        local window_w_int = math.floor(window_w)
-        local window_h_int = math.floor(window_h)
-        local center_x = (screen_w - window_w) / 2
-        local center_y = ((vim.opt.lines:get() - window_h) / 2) - vim.opt.cmdheight:get()
-        return {
-          border = "single",
-          relative = "editor",
-          row = center_y,
-          col = center_x,
-          width = window_w_int,
-          height = window_h_int,
-        }
-      end,
-    },
-  },
-
-  git = {
-    enable = true,
-  },
-
-  renderer = {
-    highlight_git = true,
-    indent_width = 2,
-    icons = {
-      show = {
-        git = true,
-      },
-    },
-  },
-
-  update_focused_file = {
-    update_root = true,
-  },
-}
-
 M.conform = {
   formatters_by_ft = {
     lua = { "stylua" },
@@ -326,37 +270,25 @@ M.conform = {
 }
 
 M.ignored_filetypes = {
-  "dap-repl",
-  "dapui_scopes",
-  "dapui_breakpoints",
-  "dapui_stacks",
-  "dapui_watchtes",
-  "dapui_console",
   "diff",
-  "dirvish",
   "dropbar_menu",
   "gitcommit",
   "gitrebase",
   "help",
   "hgcommit",
-  "svn",
   "harpoon",
   "lazy",
   "log",
-  "lspinfo",
   "markdown",
   "mason",
   "noice",
   "nvdash",
   "nvcheatsheet",
-  "NvimTree",
   "snacks_picker_list",
   "snacks_terminal",
   "terminal",
   "trouble",
-  "telescope",
-  "undotree",
-  "unite",
+  "TelescopePrompt",
   "qf",
 }
 
