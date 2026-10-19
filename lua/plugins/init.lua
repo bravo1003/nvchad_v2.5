@@ -424,7 +424,8 @@ return {
   },
 
   {
-    "sindrets/diffview.nvim",
+    -- Maintained fork; sindrets/diffview.nvim has been inactive since 2024
+    "dlyongemallo/diffview.nvim",
     dependencies = "nvim-lua/plenary.nvim",
     cmd = { "DiffviewOpen", "DiffviewFileHistory", "DiffviewClose" },
     keys = {
@@ -547,18 +548,6 @@ return {
     event = "BufReadPre",
     -- Needs number, cursorline and cursorlineopt from options.lua
     opts = {},
-  },
-
-  {
-    "kitagry/vs-snippets",
-    event = "InsertEnter",
-    dependencies = {
-      "L3MON4D3/LuaSnip",
-    },
-    config = function()
-      local vs_snippets = vim.fn.stdpath "data" .. "/lazy/vs-snippets/snippets"
-      require("luasnip.loaders.from_vscode").lazy_load { paths = vs_snippets }
-    end,
   },
 
   {
@@ -696,6 +685,8 @@ return {
   -- AI
   {
     "folke/sidekick.nvim",
+    -- Load at startup so NES runs without first pressing <F1> / <leader>ap
+    event = "VeryLazy",
     opts = {
       -- add any options here
       nes = {

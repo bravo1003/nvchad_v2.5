@@ -1,13 +1,18 @@
 local on_attach = require("utils.lsputils").on_attach
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "ts_ls", "taplo", "yamlls", "jedi_language_server" }
+local servers = { "ts_ls", "taplo", "yamlls", "jedi_language_server" }
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     on_attach(_, args.buf)
   end,
 })
+
+-- blink.cmp lazy-loads on InsertEnter, after servers have started.
+-- Load it here so every server gets blink's completion capabilities.
+vim.lsp.config("*", { capabilities = require("blink.cmp").get_lsp_capabilities() })
+
 vim.lsp.enable(servers)
 
 -- Setup lua language server
@@ -25,7 +30,6 @@ local lua_lsp_settings = {
   },
 }
 vim.lsp.config("lua_ls", {
-  filetypes = { "lua" },
   settings = lua_lsp_settings,
 })
 vim.lsp.enable "lua_ls"
@@ -53,18 +57,14 @@ if vim.uv.os_uname().sysname == "Linux" then
   table.insert(cmd, "--malloc-trim")
 end
 
-vim.lsp.config("clang", {
+-- Override only cmd; filetypes, root markers and the LspClangd* commands come from nvim-lspconfig
+vim.lsp.config("clangd", {
   cmd = cmd,
-  filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
-  root_markers = { ".clangd", "compile_commands.json" },
 })
-vim.lsp.enable "clang"
+vim.lsp.enable "clangd"
 
 -- Setup Gopls server
 vim.lsp.config("gopls", {
-  cmd = { "gopls" },
-  filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  root_markers = { "go.work", "go.mod", ".git" },
   settings = {
     gopls = {
       completeUnimported = true,

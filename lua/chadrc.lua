@@ -109,21 +109,22 @@ local options = {
       "stylua",
 
       -- web dev stuff
-      -- "css-lsp",
-      -- "html-lsp",
-      -- "typescript-language-server",
-      -- "deno",
+      "typescript-language-server",
       "prettier",
       "yaml-language-server",
       "yamllint",
 
+      -- python
+      "jedi-language-server",
+
+      -- toml
+      "taplo",
+
       -- c/cpp stuff
-      "cpplint",
       "clangd",
       "clang-format",
 
-      -- rust
-      "rust-analyzer",
+      -- rust: rust-analyzer comes from rustup so it matches the toolchain (see README)
 
       -- go
       -- "delve",
