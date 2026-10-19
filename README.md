@@ -29,7 +29,6 @@ My personal NvChad v2.5 setup, built on lazy.nvim, blink.cmp, nvim-treesitter (`
 | [yazi](https://github.com/sxyazi/yazi) | `<C-y>` file manager |
 | cppcheck | C/C++ diagnostics through none-ls |
 | jq | JSON formatting (`<leader>lf`) |
-| yarn | The markdown-preview.nvim build step |
 | Go | gopls and goimports for Go. `gofmt` comes with Go |
 | black, codespell | Python formatting, and spelling fixes on format for every filetype |
 | GitHub Copilot subscription | Copilot completions in blink and Sidekick next edit suggestions |
@@ -92,7 +91,6 @@ cargo install fnm
 echo 'eval "$(fnm env --use-on-cd)"' >> ~/.zshrc   # or your shell's rc file
 exec "$SHELL"
 fnm install --lts
-npm install -g yarn              # optional, for the markdown-preview.nvim build
 npm install -g @github/copilot   # optional, Copilot CLI for Sidekick <F1>
 ```
 
