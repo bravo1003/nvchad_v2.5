@@ -25,8 +25,7 @@ M.override = {
 
 ---@type HLTable
 M.add = {
-  TreesitterContext =           { link = "Normal" },
-  TSNodeKey =                   { link = "HopNextKey" },
+  TreesitterContext =           { link = "Normal" },  TSNodeKey =                   { link = "HopNextKey" },
   TelescopeSelectionCaret =     { fg = "green", bg = "one_bg" },
   ExtraWhitespace =             { bg = "red" },
   NormalMode =                  { fg = "blue"},

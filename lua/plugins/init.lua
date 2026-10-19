@@ -93,6 +93,7 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false, -- the main branch does not support lazy-loading
     build = ":TSUpdate",
     dependencies = {
       -- "rrethy/nvim-treesitter-textsubjects",
@@ -109,7 +110,11 @@ return {
       },
     },
     init = function()
-      local highlight = function(bufnr, lang)
+      local attach = function(bufnr, lang)
+        if not vim.api.nvim_buf_is_valid(bufnr) then
+          return
+        end
+
         -------------------[ treesitter highlights ]-------------------------------
         if not vim.treesitter.language.add(lang) then
           return vim.notify(
@@ -119,15 +124,19 @@ return {
           )
         end
         vim.treesitter.start(bufnr, lang)
+
+        ---------------------[ treesitter indent ]-------------------------------
+        -- Only with a parser; indentation is experimental upstream, so keep Vim's for these
+        if not vim.tbl_contains({ "python", "html", "yaml", "markdown" }, vim.bo[bufnr].filetype) then
+          vim.bo[bufnr].indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+        end
       end
 
       vim.api.nvim_create_autocmd("FileType", {
         callback = function(args)
-          local ft = vim.bo.filetype
-          local bt = vim.bo.buftype
           local buf = args.buf
 
-          if bt ~= "" then
+          if vim.bo[buf].buftype ~= "" then
             return
           end -- don't run further.
 
@@ -136,24 +145,18 @@ return {
             return
           end
 
-          ---------------------[ treesitter indent ]-------------------------------
-
-          if not vim.tbl_contains({ "python", "html", "yaml", "markdown" }, ft) then
-            vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
-          end
-
           --------------------[ treesitter parsers ]-------------------------------
           -- Parsers are named by language, not filetype (e.g. sh -> bash)
-          local lang = vim.treesitter.language.get_lang(ft)
+          local lang = vim.treesitter.language.get_lang(args.match)
           if not lang then
             return
           end
 
           if vim.list_contains(treesitter.get_installed(), lang) then
-            highlight(buf, lang)
+            attach(buf, lang)
           elseif vim.list_contains(treesitter.get_available(), lang) and vim.fn.executable "tree-sitter" == 1 then
             treesitter.install(lang):await(function()
-              highlight(buf, lang)
+              attach(buf, lang)
             end)
           end
         end,
@@ -169,6 +172,8 @@ return {
         "vimdoc",
         "vim",
         "lua",
+        "luadoc", -- injected only (Lua ---@ comments), never triggers auto-install
+        "printf", -- injected only (C format strings), never triggers auto-install
         "html",
         "javascript",
         "typescript",
@@ -681,12 +686,10 @@ return {
   -- AI
   {
     "folke/sidekick.nvim",
-    -- Load at startup so NES runs without first pressing <F1> / <leader>ap
-    event = "VeryLazy",
     opts = {
-      -- add any options here
+      -- Copilot ghost text comes from vim.lsp.inline_completion instead
       nes = {
-        enabled = true,
+        enabled = false,
       },
       cli = {
         win = {
