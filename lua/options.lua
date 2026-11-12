@@ -94,6 +94,9 @@ if g.neovide then
     -- g.neovide_padding_bottom = 2
     -- g.neovide_padding_right = 5
     g.neovide_padding_left = 5
+    -- 26px rows instead of 27: 39 rows fill a 1021px-tall tile with 4px
+    -- spare, instead of 37 rows and a 19px empty strip at the bottom.
+    o.linespace = -1
     g.neovide_underline_stroke_scale = 1.7
     g.neovide_opacity = 0.85
     g.neovide_floating_blur_amount_x = 4.0
