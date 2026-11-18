@@ -132,6 +132,23 @@ return {
         end
       end
 
+      -- nvim-treesitter dropped tmux (2026-07) because upstream stopped committing
+      -- the generated parser.c. Pin the last revision that has it and take the
+      -- grammar's own queries, so :TSInstall tmux and auto-install keep working.
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "TSUpdate",
+        callback = function()
+          require("nvim-treesitter.parsers").tmux = {
+            install_info = {
+              url = "https://github.com/Freed-Wu/tree-sitter-tmux",
+              revision = "5c4bc6815372ca6c9a0f5a1188d73c0475523cce",
+              queries = "queries",
+            },
+            tier = 2,
+          }
+        end,
+      })
+
       vim.api.nvim_create_autocmd("FileType", {
         callback = function(args)
           local buf = args.buf
