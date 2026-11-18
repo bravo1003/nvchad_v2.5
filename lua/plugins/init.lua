@@ -263,37 +263,7 @@ return {
 
   {
     "Saghen/blink.cmp",
-    dependencies = {
-      {
-        "fang2hou/blink-copilot",
-        opts = {
-          max_completions = 1, -- Global default for max completions
-        },
-      },
-      {
-        "zbirenbaum/copilot.lua",
-        opts = {
-          suggestion = { enabled = false },
-          panel = { enabled = false },
-          filetypes = {
-            markdown = true,
-            help = true,
-          },
-        },
-      }, -- for providers='copilot'
-    },
     opts = {
-      sources = {
-        default = { "copilot" },
-        providers = {
-          copilot = {
-            name = "copilot",
-            module = "blink-copilot",
-            score_offset = 100,
-            async = true,
-          },
-        },
-      },
       completion = {
         list = {
           selection = { preselect = false, auto_insert = true },
@@ -687,7 +657,6 @@ return {
   {
     "folke/sidekick.nvim",
     opts = {
-      -- Copilot ghost text comes from vim.lsp.inline_completion instead
       nes = {
         enabled = false,
       },
@@ -704,7 +673,7 @@ return {
           enabled = false,
         },
         tools = {
-          copilot = { cmd = { "copilot" } },
+          claude = { cmd = { "claude" } },
         },
       },
     },
@@ -712,7 +681,7 @@ return {
       {
         "<F1>",
         function()
-          require("sidekick.cli").toggle { name = "copilot", focus = true }
+          require("sidekick.cli").toggle { name = "claude", focus = true }
         end,
         desc = "Sidekick Toggle CLI",
         mode = { "n", "v", "t" },

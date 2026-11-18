@@ -31,8 +31,7 @@ My personal NvChad v2.5 setup, built on lazy.nvim, blink.cmp, nvim-treesitter (`
 | jq | JSON formatting (`<leader>lf`) |
 | Go | gopls and goimports for Go. `gofmt` comes with Go |
 | black, codespell | Python formatting, and spelling fixes on format for every filetype |
-| GitHub Copilot subscription | Copilot completions in blink and Sidekick next edit suggestions |
-| [Copilot CLI](https://github.com/github/copilot-cli) | Sidekick's CLI window (`<F1>`) |
+| [Claude Code](https://github.com/anthropics/claude-code) | Sidekick's CLI window (`<F1>`) |
 | tmux | `<C-h/j/k/l>` moves between Neovim splits and tmux panes (vim-tmux-navigator; tmux needs the matching config) |
 | xclip, xsel or wl-clipboard (Linux only) | The system clipboard (`clipboard=unnamedplus`). macOS has this built in |
 | [Neovide](https://neovide.dev/) | Optional GUI. Its settings are in `lua/options.lua` |
@@ -91,7 +90,6 @@ cargo install fnm
 echo 'eval "$(fnm env --use-on-cd)"' >> ~/.zshrc   # or your shell's rc file
 exec "$SHELL"
 fnm install --lts
-npm install -g @github/copilot   # optional, Copilot CLI for Sidekick <F1>
 ```
 
 ### 5. Other tools
@@ -109,6 +107,12 @@ sudo apt install jq cppcheck
 go install github.com/jesseduffield/lazygit@latest   # needs Go, or see the lazygit README
 ```
 
+Optional, Claude Code for Sidekick's `<F1>` window (macOS and Linux):
+
+```sh
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
 Optional Go and Python tooling. Install Go from [go.dev](https://go.dev/dl/) (or `brew install go`), then run this inside Neovim:
 
 ```vim
@@ -123,5 +127,5 @@ Mason puts these in its own folder and adds it to Neovim's `PATH`, so they don't
 2. Start `nvim`. lazy.nvim installs the plugins, and base46 compiles the theme.
 3. Run `:MasonInstallAll`. It installs the LSP servers, formatters and linters listed under `mason.pkgs` in `lua/chadrc.lua`.
 4. Treesitter parsers install on their own: the list in `lua/plugins/init.lua` installs at startup, and any other language installs the first time you open a file in it.
-5. Optional: run `:Copilot auth` to sign in to GitHub Copilot.
+5. Optional: run `claude` once in a terminal to sign in, so Sidekick's `<F1>` window is ready to use.
 6. Run `:checkhealth` to look for anything missing. The useful sections are `lazy`, `mason`, `nvim-treesitter`, `snacks` and `sidekick`.

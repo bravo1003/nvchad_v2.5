@@ -8,7 +8,7 @@ end
 
 M.lsp_overriden = function()
   for _, client in ipairs(vim.lsp.get_clients()) do
-    if client.attached_buffers[M.stbufnr()] and client.name ~= "null-ls" and client.name ~= "copilot" then
+    if client.attached_buffers[M.stbufnr()] and client.name ~= "null-ls" then
       return (vim.o.columns > 100 and "   LSP ~ " .. client.name .. " ") or "   LSP "
     end
   end
