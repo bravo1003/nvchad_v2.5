@@ -62,6 +62,22 @@ map("n", "<leader>f", function()
   vim.diagnostic.open_float { border = "rounded" }
 end, { desc = "Float diagnostic" })
 
+-- buffer close
+-- NvChad's close_buffer switches away and then runs `:bd`. A buffer with
+-- bufhidden=wipe (gitsigns commit view opened from blame) is already gone by
+-- then, so `:bd` fails with E516. NvChad skips the `:bd` for bufhidden=delete.
+map("n", "<leader>x", function()
+  local buf = vim.api.nvim_get_current_buf()
+  local wipe = vim.bo[buf].bufhidden == "wipe"
+  if wipe then
+    vim.bo[buf].bufhidden = "delete"
+  end
+  require("nvchad.tabufline").close_buffer()
+  if wipe and vim.api.nvim_buf_is_valid(buf) and #vim.fn.win_findbuf(buf) == 0 then
+    vim.api.nvim_buf_delete(buf, { force = true })
+  end
+end, { desc = "buffer close" })
+
 -- tab close
 map("n", "<leader>X", "<cmd> tabc <cr>", { desc = "tab close" })
 
